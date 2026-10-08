@@ -7,6 +7,7 @@ on:
       - "tests/test_exp003_p1_*.py"
       - "tools/verify_exp003_p1.py"
       - "experiments/exp003/PROTOCOL_P1.md"
+      - "experiments/exp003/THREAT_MODEL_P1.md"
       - "experiments/exp003/P1_OPERATOR_GUIDE.md"
       - ".github/workflows/exp003-p1.yml"
   push:
@@ -17,6 +18,7 @@ on:
       - "tests/test_exp003_p1_*.py"
       - "tools/verify_exp003_p1.py"
       - "experiments/exp003/PROTOCOL_P1.md"
+      - "experiments/exp003/THREAT_MODEL_P1.md"
       - "experiments/exp003/P1_OPERATOR_GUIDE.md"
       - ".github/workflows/exp003-p1.yml"
 
