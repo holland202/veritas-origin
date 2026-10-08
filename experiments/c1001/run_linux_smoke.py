@@ -32,7 +32,7 @@ def demand(condition,reason):
     if not condition:
         raise RuntimeError(reason)
 
-def restricted(uid,command,timeout=16):
+def restricted(uid,command,timeout=16,cwd=None):
     env={"PATH":"/usr/bin:/bin","LANG":"C.UTF-8","HOME":"/nonexistent"}
     args=[
         "setpriv",f"--reuid={uid}",f"--regid={GID}",
@@ -40,7 +40,7 @@ def restricted(uid,command,timeout=16):
     ]
     return subprocess.run(
         args,text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
-        check=False,timeout=timeout,env=env,cwd=str(ROOT),
+        check=False,timeout=timeout,env=env,cwd=str(cwd or ROOT),
     )
 
 def execute(output):
@@ -67,16 +67,29 @@ def execute(output):
         demand(public.stat().st_gid==GID and
                stat.S_IMODE(public.stat().st_mode)==0o770,
                "socket directory ownership/mode incorrect")
+        # Non-root users may not traverse the GitHub runner's checkout.
+        # Stage only public reviewed programs outside it; never stage secrets.
+        programs=parent/"programs"
+        programs.mkdir(mode=0o755)
+        staged_evaluator=programs/"evaluator.py"
+        staged_proposer=programs/"proposer.py"
+        for original,staged in ((EVALUATOR,staged_evaluator),
+                                (CLIENT,staged_proposer)):
+            shutil.copyfile(original,staged)
+            os.chmod(staged,0o644)
+            demand(hashlib.sha256(original.read_bytes()).digest()==
+                   hashlib.sha256(staged.read_bytes()).digest(),
+                   "staged program integrity mismatch")
         socket_path=public/"eval.sock"
         env={"PATH":"/usr/bin:/bin","LANG":"C.UTF-8","HOME":"/nonexistent"}
         argv=[
             "setpriv",f"--reuid={E_UID}",f"--regid={GID}",
-            "--clear-groups","--no-new-privs",sys.executable,str(EVALUATOR),
+            "--clear-groups","--no-new-privs",sys.executable,str(staged_evaluator),
             "--private-dir",str(private),"--socket-path",str(socket_path),
             "--evaluator-uid",str(E_UID),"--proposer-uid",str(P_UID),
             "--socket-gid",str(GID),
         ]
-        process=subprocess.Popen(argv,env=env,cwd=str(ROOT),
+        process=subprocess.Popen(argv,env=env,cwd=str(parent),
                                  stdout=subprocess.PIPE,
                                  stderr=subprocess.PIPE,text=True)
         for _ in range(100):
@@ -96,9 +109,9 @@ def execute(output):
                secret_file.stat().st_uid==E_UID,
                "private answer not evaluator-only")
         outsider=restricted(O_UID,[
-            str(CLIENT),"--socket-path",str(socket_path),
+            str(staged_proposer),"--socket-path",str(socket_path),
             "--expected-uid",str(O_UID),"--other-peer"
-        ])
+        ],cwd=parent)
         demand(outsider.returncode==0 and
                "C1_OTHER_PEER_DENIED_BY_SO_PEERCRED" in outsider.stdout,
                "foreign socket peer incorrectly admitted: "+outsider.stderr[:500])
@@ -106,7 +119,7 @@ def execute(output):
             str(CLIENT),"--socket-path",str(socket_path),
             "--private-task-file",str(secret_file),
             "--expected-uid",str(P_UID),
-        ])
+        ],cwd=parent)
         demand(proposer.returncode==0 and
                "C1_HONEST_PROPOSER_SUCCESS" in proposer.stdout,
                "honest restricted proposer failed: "+proposer.stderr[:500])
