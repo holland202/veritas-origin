@@ -73,7 +73,7 @@ class VSC002ModelTests(unittest.TestCase):
             balanced=next(x for x in row["arms"] if x["mode"]=="gold_balanced")
             for g,h in zip(balanced["rounds"],balanced["history"][1:]):
                 self.assertEqual(sum(e["band"]==3 for e in g["oracle_events"]),2)
-                self.assertAlmostEqual(h["new_trusted_band_entropy"],1.0)
+                self.assertAlmostEqual(h["new_accepted_band_entropy"],1.0)
                 self.assertEqual(h["selected_rare_fraction"],0.25)
 
     def test_constrained_pseudolabels_have_no_oracle_calls(self):
@@ -129,10 +129,31 @@ class VSC002ModelTests(unittest.TestCase):
             for arm in row["arms"]:
                 for entry in arm["history"]:
                     for field in ("id_macro_mse","shift_macro_mse",
-                                  "rare_band_mse","trusted_cell_coverage"):
+                                  "rare_band_mse","accepted_cell_coverage"):
                         self.assertTrue(math.isfinite(entry[field]))
                         self.assertGreaterEqual(entry[field],0)
-                    self.assertLessEqual(entry["trusted_cell_coverage"],1.0)
+                    self.assertLessEqual(entry["accepted_cell_coverage"],1.0)
+                    self.assertLessEqual(entry["gold_label_cell_coverage"],
+                                         entry["oracle_queried_cell_coverage"])
+                    self.assertLessEqual(entry["accepted_cell_coverage"],1.0)
+
+    def test_gold_diversity_does_not_count_checked_pseudolabels(self):
+        for row in self.data["runs"]:
+            by={a["mode"]:a for a in row["arms"]}
+            checked=by["checked_progress"]
+            pseudo=by["pseudo_only"]
+            self.assertEqual(
+                [x["gold_label_cell_coverage"] for x in checked["history"]],
+                [checked["history"][0]["gold_label_cell_coverage"]]*4,
+            )
+            self.assertEqual(
+                [x["gold_label_cell_coverage"] for x in pseudo["history"]],
+                [pseudo["history"][0]["gold_label_cell_coverage"]]*4,
+            )
+            self.assertTrue(all(
+                h["accepted_cell_coverage"]>=h["gold_label_cell_coverage"]
+                for h in checked["history"]
+            ))
 
     def test_policy_does_not_see_shifted_test_labels(self):
         baseline=engine.study(619,1,2)
@@ -231,7 +252,7 @@ class VSC002VerifierTests(unittest.TestCase):
 
     def test_forged_diversity_rehashed(self):
         self.mutate(lambda d:d["runs"][0]["arms"][1]["history"][2]
-                    .__setitem__("trusted_cell_coverage",0.0),
+                    .__setitem__("accepted_cell_coverage",0.0),
                     "replay mismatch")
 
     def test_forged_rejected_event_rehashed(self):
