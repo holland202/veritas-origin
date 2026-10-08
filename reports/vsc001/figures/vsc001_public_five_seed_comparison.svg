@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1010" viewBox="0 0 1600 1010" role="img" aria-labelledby="title desc">
+<title id="title">VSC-001 synthetic five-seed held-out error and oracle costs</title>
+<desc id="desc">Six experimental training policies compared on five publicly seeded toy simulation trials. The verified progress arm had mean squared error 0.06195 with 512 oracle calls; the balanced oracle control 0.06424 with 272 calls. Results are exploratory and not evidence of large-language-model capability or data-wall breakthrough.</desc>
+<rect width="1600" height="1010" fill="#091422"/>
+<rect x="25" y="25" width="1550" height="955" rx="30" fill="#101f30" stroke="#304963" stroke-width="2"/>
+<text x="54" y="83" font-family="Inter,Arial,sans-serif" font-size="41" font-weight="750" fill="#f1f7ff">VSC-001 · Synthetic Curriculum Comparison</text>
+<text x="55" y="129" font-family="Inter,Arial,sans-serif" font-size="23" fill="#afc6df">5 public seeds · 10 rounds · 24 proposals/round/arm · 6 policies · 7,200 candidate events</text>
+<text x="54" y="171" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700" fill="#fec88b">EXPLORATORY SIMULATED — NOT VALIDATED · NO LANGUAGE MODEL</text>
+<line x1="54" y1="195" x2="1540" y2="195" stroke="#37536c"/>
+<text x="390" y="228" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="650" fill="#e8f3fd">Final held-out macro MSE ↓</text>
+<text x="1065" y="228" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="650" fill="#e8f3fd">Training oracle calls / seed ↓</text>
+<text x="48" y="283" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="700" fill="#e8f3fd">Verified adaptive</text>
+<rect x="390" y="250" width="470" height="46" rx="12" fill="#1f3349"/>
+<rect x="390" y="250" width="194" height="46" rx="12" fill="#22c7a5"/>
+<text x="870" y="281" font-family="monospace" font-size="24" fill="#e8f3fd" text-anchor="start">0.06195</text>
+<rect x="1065" y="250" width="360" height="46" rx="12" fill="#1f3349"/>
+<rect x="1065" y="250" width="335" height="46" rx="12" fill="#f0bb77"/>
+<text x="1445" y="281" font-family="monospace" font-size="24" fill="#e8f3fd">512</text>
+<text x="48" y="381" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="500" fill="#e8f3fd">Oracle balanced</text>
+<rect x="390" y="348" width="470" height="46" rx="12" fill="#1f3349"/>
+<rect x="390" y="348" width="201" height="46" rx="12" fill="#4f7ca6"/>
+<text x="870" y="379" font-family="monospace" font-size="24" fill="#e8f3fd" text-anchor="start">0.06424</text>
+<rect x="1065" y="348" width="360" height="46" rx="12" fill="#1f3349"/>
+<rect x="1065" y="348" width="178" height="46" rx="12" fill="#9babc0"/>
+<text x="1445" y="379" font-family="monospace" font-size="24" fill="#e8f3fd">272</text>
+<text x="48" y="479" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="500" fill="#e8f3fd">Oracle natural</text>
+<rect x="390" y="446" width="470" height="46" rx="12" fill="#1f3349"/>
+<rect x="390" y="446" width="209" height="46" rx="12" fill="#4f7ca6"/>
+<text x="870" y="477" font-family="monospace" font-size="24" fill="#e8f3fd" text-anchor="start">0.06675</text>
+<rect x="1065" y="446" width="360" height="46" rx="12" fill="#1f3349"/>
+<rect x="1065" y="446" width="178" height="46" rx="12" fill="#9babc0"/>
+<text x="1445" y="477" font-family="monospace" font-size="24" fill="#e8f3fd">272</text>
+<text x="48" y="577" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="500" fill="#e8f3fd">Verified natural</text>
+<rect x="390" y="544" width="470" height="46" rx="12" fill="#1f3349"/>
+<rect x="390" y="544" width="215" height="46" rx="12" fill="#4f7ca6"/>
+<text x="870" y="575" font-family="monospace" font-size="24" fill="#e8f3fd" text-anchor="start">0.06867</text>
+<rect x="1065" y="544" width="360" height="46" rx="12" fill="#1f3349"/>
+<rect x="1065" y="544" width="335" height="46" rx="12" fill="#9babc0"/>
+<text x="1445" y="575" font-family="monospace" font-size="24" fill="#e8f3fd">512</text>
+<text x="48" y="675" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="500" fill="#e8f3fd">Recursive pseudolabel</text>
+<rect x="390" y="642" width="470" height="46" rx="12" fill="#1f3349"/>
+<rect x="390" y="642" width="365" height="46" rx="12" fill="#4f7ca6"/>
+<text x="870" y="673" font-family="monospace" font-size="24" fill="#e8f3fd" text-anchor="start">0.11651</text>
+<rect x="1065" y="642" width="360" height="46" rx="12" fill="#1f3349"/>
+<rect x="1065" y="642" width="21" height="46" rx="12" fill="#9babc0"/>
+<text x="1445" y="673" font-family="monospace" font-size="24" fill="#e8f3fd">32</text>
+<text x="48" y="773" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="500" fill="#e8f3fd">Unverified synthetic</text>
+<rect x="390" y="740" width="470" height="46" rx="12" fill="#1f3349"/>
+<rect x="390" y="740" width="420" height="46" rx="12" fill="#4f7ca6"/>
+<text x="870" y="771" font-family="monospace" font-size="24" fill="#e8f3fd" text-anchor="start">0.13401</text>
+<rect x="1065" y="740" width="360" height="46" rx="12" fill="#1f3349"/>
+<rect x="1065" y="740" width="178" height="46" rx="12" fill="#9babc0"/>
+<text x="1445" y="771" font-family="monospace" font-size="24" fill="#e8f3fd">272</text>
+<line x1="54" y1="848" x2="1540" y2="848" stroke="#37536c"/>
+<text x="54" y="888" font-family="Inter,Arial,sans-serif" font-size="23" fill="#cdddeb">Green = verified adaptive policy. Gray/blue = controls. Each panel uses a different scale.</text>
+<text x="54" y="924" font-family="Inter,Arial,sans-serif" font-size="22" fill="#cdddeb">Adaptive verified: lowest mean MSE here, but higher oracle cost; beat balanced oracle only 3/5 seeds.</text>
+<text x="54" y="959" font-family="Inter,Arial,sans-serif" font-size="18" fill="#91aac2">Source: GitHub Actions run 37850327563 · evidence SHA256 81dc4c71059a1842… · n=5, public fixture</text>
+</svg>
