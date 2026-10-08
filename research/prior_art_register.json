@@ -326,6 +326,101 @@
       "attribution_required_in_design": true,
       "novelty": "NOT_ESTABLISHED",
       "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-018",
+      "component": "origin_experiments",
+      "source_repository": "SakanaAI/AI-Scientist",
+      "pinned_revision": "1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb",
+      "source_url": "https://github.com/SakanaAI/AI-Scientist/blob/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/README.md",
+      "license": {
+        "identifier": "NOT_CONFIRMED_FOR_REUSE",
+        "source_url": "https://github.com/SakanaAI/AI-Scientist/blob/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/LICENSE",
+        "status": "LICENSE_UNVERIFIED"
+      },
+      "prior_art_overlap": "AI Scientist prior art includes automatic idea generation, experiment execution and research manuscripts. SOURCE LICENSE IS A CUSTOM AI SCIENTIST LICENSE; study only, no code reuse approved.",
+      "unresolved_research_question": "How do we independently enforce proposer permissions, full negative-result preservation and semantic verification, rather than claim autonomous research is novel?",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-019",
+      "component": "origin_experiments",
+      "source_repository": "SakanaAI/AI-Scientist-v2",
+      "pinned_revision": "96bd51617cfdbb494a9fc283af00fe090edfae48",
+      "source_url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/96bd51617cfdbb494a9fc283af00fe090edfae48/README.md",
+      "license": {
+        "identifier": "NOT_CONFIRMED_FOR_REUSE",
+        "source_url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/96bd51617cfdbb494a9fc283af00fe090edfae48/LICENSE",
+        "status": "LICENSE_UNVERIFIED"
+      },
+      "prior_art_overlap": "AI Scientist v2 includes agentic tree-search scientific discovery; custom AI Scientist license terms require review. Study only, no source reuse.",
+      "unresolved_research_question": "What measurable governance or oracle-independence improvement could be falsified against this known research-agent architecture?",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-020",
+      "component": "origin_experiments",
+      "source_repository": "meta-pytorch/botorch",
+      "pinned_revision": "da00e04015c0118f1b9383f32cab17bdcc0944ff",
+      "source_url": "https://github.com/meta-pytorch/botorch/blob/da00e04015c0118f1b9383f32cab17bdcc0944ff/README.md",
+      "license": {
+        "identifier": "MIT",
+        "source_url": "https://github.com/meta-pytorch/botorch/blob/da00e04015c0118f1b9383f32cab17bdcc0944ff/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "Bayesian optimization, models and acquisition functions are established prior art; information-guided experiment selection is not newly invented here.",
+      "unresolved_research_question": "Does the deterministic greedy control or a pinned probabilistic acquisition baseline eliminate the proposed small-model advantage?",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-021",
+      "component": "origin_experiments",
+      "source_repository": "optuna/optuna",
+      "pinned_revision": "bfdd420a54fd80993012a8f8393f190b5de882e5",
+      "source_url": "https://github.com/optuna/optuna/blob/bfdd420a54fd80993012a8f8393f190b5de882e5/README.md",
+      "license": {
+        "identifier": "MIT",
+        "source_url": "https://github.com/optuna/optuna/blob/bfdd420a54fd80993012a8f8393f190b5de882e5/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "Hyperparameter search and trial orchestration are established; project also records third-party license material separately.",
+      "unresolved_research_question": "What improvements remain when compared with an ordinary study scheduler and not a language model?",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-022",
+      "component": "system_architecture",
+      "source_repository": "microsoft/autogen",
+      "pinned_revision": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+      "source_url": "https://github.com/microsoft/autogen/blob/027ecf0a379bcc1d09956d46d12d44a3ad9cee14/README.md",
+      "license": {
+        "identifier": "NOT_CONFIRMED_FOR_REUSE",
+        "source_url": "https://github.com/microsoft/autogen/blob/027ecf0a379bcc1d09956d46d12d44a3ad9cee14/LICENSE",
+        "status": "LICENSE_UNVERIFIED"
+      },
+      "prior_art_overlap": "Multi-agent orchestration established prior art. LICENSE docs cover CC BY 4.0 while LICENSE-CODE describes MIT for code; per-file reuse rights must be checked.",
+      "unresolved_research_question": "Which execution and epistemic boundaries can be independently verified outside a general agent orchestration framework?",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
     }
   ]
 }
