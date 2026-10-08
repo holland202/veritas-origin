@@ -13,6 +13,14 @@
 - GitHub Actions artifact `eba001-raw-evidence-and-figures`, ID **`11585776781`**, retains that exact public JSON and two replay-qualified SVGs for **30 days**; archive elsewhere before expiration. Re-running deterministic code reproduces substantive content but file timestamps/names differ.
 - Original historical EXP003-P0 archive remains byte-for-byte unchanged with SHA-256 `627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333`.
 
+## Visual summary
+
+![Probe counts on public toy tasks](figures/eba001_probe_efficiency.svg)
+
+![Recorded mathematical consistency and provenance classifications](figures/eba001_methodology_matrix.svg)
+
+These graphics are descriptive; the original JSON and generated plots remain linked in the CI run.
+
 ## Mechanism: two truthful transcripts, different access paths
 
 The original EXP003-P0 task uses four public candidate predicates and a hidden true predicate, with up to six integer probes. Two **pure mathematical selector functions**, not model agents, were applied to the identical twelve *previously published* seeds:
