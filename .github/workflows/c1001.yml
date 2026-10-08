@@ -1,0 +1,113 @@
+name: C1-001 real Linux evaluator separation
+
+on:
+  push:
+    branches:
+      - experiment/c1001-linux-dac-evaluator-boundary
+    paths:
+      - "experiments/c1001/**"
+      - "tools/verify_c1001.py"
+      - "tests/test_c1001.py"
+      - "reports/c1001/**"
+      - ".github/workflows/c1001.yml"
+  pull_request:
+    paths:
+      - "experiments/c1001/**"
+      - "tools/verify_c1001.py"
+      - "tests/test_c1001.py"
+      - "reports/c1001/**"
+      - ".github/workflows/c1001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  linux-dac-boundary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Read-only checkout of Origin
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Read-only commit-pinned Sovereign Veritas integration prerequisite
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          repository: holland202/sovereign-veritas
+          ref: 709da9eb435cbfe06a1ca00427843b12c673ceb0
+          path: .external_sv
+          persist-credentials: false
+
+      - name: Compile and run all earlier falsification suites
+        env:
+          SV_REPO_PATH: ${{ github.workspace }}/.external_sv
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 --version
+          python3 -m py_compile experiments/c1001/evaluator.py experiments/c1001/proposer.py \
+             experiments/c1001/run_linux_smoke.py tools/verify_c1001.py
+          python3 tools/research_assurance.py
+          python3 -m unittest discover -s tests -p 'test_exp003*.py' -v
+          python3 -m unittest discover -s tests -p 'test_research_assurance.py' -v
+          python3 -m unittest discover -s tests -p 'test_eba001.py' -v
+          python3 -m unittest discover -s tests -p 'test_c1001.py' -v
+
+      - name: Run actual Linux UID-separated evaluator and proposer (NO MOCK)
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(uname -s)" = Linux
+          command -v setpriv
+          test "$(id -u)" != 0
+          sudo -H python3 experiments/c1001/run_linux_smoke.py \
+            --run-linux-dac --output-dir "${RUNNER_TEMP}/c1001-artifacts"
+          test -f "${RUNNER_TEMP}/c1001-artifacts/c1001-independent-replay-receipt.json"
+          test -f "${RUNNER_TEMP}/c1001-artifacts/c1001-os-control-report.json"
+          python3 - "${RUNNER_TEMP}/c1001-artifacts/c1001-os-control-report.json" <<'PY'
+          import json, sys, hashlib, pathlib
+          from tools.verify_c1001 import verify
+          data=json.loads(pathlib.Path(sys.argv[1]).read_text())
+          assert data["scope"]=="PARTIAL_DAC_DEMONSTRATED_NOT_SANDBOXED"
+          assert data["linux_private_path_negative"]=="EACCES_OBSERVED_BY_RESTRICTED_TEST_CLIENT"
+          assert data["so_peercred_negative"]=="DENIED_UID_32004_WITH_SOCKET_GROUP_ACCESS"
+          assert data["legal_proposer_positive"]=="COMPLETE"
+          assert data["network_isolation"]=="NOT_TESTED"
+          source=pathlib.Path(sys.argv[1]).with_name("c1001-independent-replay-receipt.json").read_bytes()
+          result=verify(source,hashlib.sha256(source).hexdigest())
+          assert result["solved"] and result["secure_sandbox"]=="NOT_ESTABLISHED"
+          print("C1_OS_ACCEPTANCE: PARTIAL_DAC_DEMONSTRATED_NOT_SANDBOXED")
+          print("C1_ORIGINAL_RECEIPT_SHA256:",hashlib.sha256(source).hexdigest())
+          PY
+
+      - name: Upload exact post-session evidence and Linux control report
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: c1001-linux-dac-actual-boundary-smoke
+          path: ${{ runner.temp }}/c1001-artifacts
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Recheck historical EXP003-P0 evidence remains unchanged
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=evidence/exp003/exp003-p0-20261008T202705724022Z-146bee1a.json
+          SHA=627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+          python3 tools/verify_exp003_p0.py "$FILE" --sha256 "$SHA"
+
+      - name: Disclose bounded outcome only in CI summary
+        shell: bash
+        run: |
+          {
+            echo "### C1-001 — Actual Linux DAC evaluator/proposer separation"
+            echo "- Separate ephemeral non-root UIDs 32001 evaluator, 32002 proposer and 32004 other peer"
+            echo "- Protected evaluator-only 0700 directory + 0600 answer file"
+            echo "- Actual Linux permission-denied access; SO_PEERCRED denied other peer"
+            echo "- Honest proposer completed a randomly generated withheld task"
+            echo "- Independent mathematical receipt replay, salted commitment checked after finish"
+            echo "- **PARTIAL_DAC_DEMONSTRATED_NOT_SANDBOXED**"
+            echo "- **NOT TESTED:** network isolation, arbitrary code containment, kernel/ptrace attack resistance, human approval, external AI model"
+          } >> "$GITHUB_STEP_SUMMARY"
