@@ -116,7 +116,7 @@ def execute(output):
                "C1_OTHER_PEER_DENIED_BY_SO_PEERCRED" in outsider.stdout,
                "foreign socket peer incorrectly admitted: "+outsider.stderr[:500])
         proposer=restricted(P_UID,[
-            str(CLIENT),"--socket-path",str(socket_path),
+            str(staged_proposer),"--socket-path",str(socket_path),
             "--private-task-file",str(secret_file),
             "--expected-uid",str(P_UID),
         ],cwd=parent)
