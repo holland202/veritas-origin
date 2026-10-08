@@ -205,8 +205,10 @@ def reconstruct_arm(seed,mode,initial,select,cal,test,rounds,candidates_per_roun
         "macro_coverage":sum(z["coverage"] for z in coverage)/4,
         "mean_interval_width":sum(z["width"] for z in coverage)/4,
         "train_oracle_calls":calls,
-        "selection_evaluation_calls":16*4*(rounds+1),
-        "conformal_and_test_evaluation_calls":4*(32+64),
+        "selection_reference_labels":16*4,
+        "selection_score_comparisons":16*4*(rounds+1),
+        "conformal_and_test_reference_labels":4*(32+64),
+        "total_allocated_oracle_calls":calls+16*4+4*(32+64),
         "accepted":total_good,"rejected":total_bad,
         "false_labels_admitted":bad_admitted,
         "history":timeline,"events":trace,"weights_final":m.coeffs
@@ -271,6 +273,7 @@ def verify(raw,expected_sha256):
             "macro_coverage":0.0,
             "mean_interval_width":0.0,
             "train_oracle_calls":0.0,
+            "total_allocated_oracle_calls":0.0,
             "accepted":0.0,
             "rejected":0.0,
             "false_labels_admitted":0.0,
@@ -294,8 +297,8 @@ def verify(raw,expected_sha256):
             validate_match(outcome,record["arms"][index],f"run{seed}.{mode}")
             for field in ("final_test_macro_mse","improvement",
                           "macro_coverage","mean_interval_width",
-                          "train_oracle_calls","accepted",
-                          "rejected","false_labels_admitted"):
+                          "train_oracle_calls","total_allocated_oracle_calls",
+                          "accepted","rejected","false_labels_admitted"):
                 expected_summary[mode][field]+=outcome[field]/n
             expected_summary[mode]["per_seed_mse"].append(outcome["final_test_macro_mse"])
             checked+=1
