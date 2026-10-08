@@ -98,7 +98,7 @@ def evaluate(seed, policy, command=None, timeout=15):
         if len(active) == 1:
             break
         context = {
-            "protocol": "EXP003-P0", "task_seed": seed, "step": step,
+            "protocol": "EXP003-P0", "step": step,
             "domain": list(DOMAIN), "candidate_names": list(active),
             "observations": [{"probe": row["probe"], "outcome": row["outcome"]}
                              for row in history],
