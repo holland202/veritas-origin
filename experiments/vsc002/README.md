@@ -52,14 +52,12 @@ Writing an evidence JSON uses exclusive creation, so prior evidence is not overw
 
 ## First 24-seed exploratory result
 
-<box>
 
 - [Full numeric report and negative findings](../../reports/vsc002/VSC002_LONGITUDINAL_EXPLORATORY.md)
 - [Original CI run and six trajectory figures](https://github.com/holland202/veritas-origin/actions/runs/37855187413)
 - Raw evidence SHA256: `30377002245f2bb8df6454ecbc4f36ddb0e3114f7c7d9f682d8e658ef568f90c`
 - CI artifact: `vsc002-public-seed-evidence-and-figures` (ID `11583064547`, expires 2026-11-07; archive separately before then)
 
-</box>
 
 The direct `gold_natural` arm achieved mean final in-domain MSE **0.083416**. The proposed `checked_progress` arm achieved **0.099573** despite both receiving 96 new truth-label queries per seed, and lost to `gold_natural` on **23 of 24 seeds**. It rejected ≈28.6 pseudolabels and trained on ≈67.4 of its 96 oracle-queried examples. The oracle source truth would have been a better training signal in this experiment. This is a **negative result** for the proposed method as tested.
 
