@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+<title id="title">VSC-002 final error versus oracle and training budgets</title>
+<desc id="desc">24 synthetic public seeds, 12 generations. Direct oracle natural yielded 0.08342 in-domain MSE; checked-progress yielded 0.09957 at the same 96 new oracle queries. Eight policies compared. Not validated for language models.</desc>
+<rect width="1600" height="1100" fill="#0b1928"/>
+<rect x="26" y="25" width="1548" height="1048" rx="30" fill="#12263b" stroke="#36536d" stroke-width="2"/>
+<text x="52" y="88" font-family="Arial,sans-serif" font-size="42" fill="#f0f7ff" font-weight="700">VSC-002 · Final held-out error and truth-query cost</text>
+<text x="52" y="135" font-family="Arial,sans-serif" font-size="26" fill="#b8cde2">24 public seeds × 12 generations × 8 policies · one mathematical toy learner</text>
+<text x="52" y="185" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#ffc68b">EXPLORATORY SIMULATION — NOT VALIDATED · NO LANGUAGE MODEL</text>
+<line x1="52" y1="213" x2="1546" y2="213" stroke="#385d79" stroke-width="2"/>
+<text x="390" y="263" font-family="Arial,sans-serif" font-size="26" font-weight="600" fill="#f0f7ff">Final in-domain MSE ↓</text>
+<text x="1200" y="263" font-family="Arial,sans-serif" font-size="22" fill="#f0f7ff">New truth queries</text>
+<text x="1375" y="263" font-family="Arial,sans-serif" font-size="22" fill="#f0f7ff">Train updates</text>
+<text x="50" y="315" font-family="Arial,sans-serif" font-size="26" fill="#e8f2fd">gold_natural</text>
+<rect x="390" y="285" width="580" height="45" rx="8" fill="#253d55"/><rect x="390" y="285" width="322.54" height="45" rx="8" fill="#40cfaa"/>
+<text x="990" y="315" font-family="monospace" font-size="25" fill="#e8f2fd">0.08342</text>
+<text x="1215" y="315" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="1390" y="315" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="50" y="395" font-family="Arial,sans-serif" font-size="26" fill="#e8f2fd">gold_balanced</text>
+<rect x="390" y="365" width="580" height="45" rx="8" fill="#253d55"/><rect x="390" y="365" width="328.41" height="45" rx="8" fill="#709bd8"/>
+<text x="990" y="395" font-family="monospace" font-size="25" fill="#e8f2fd">0.08493</text>
+<text x="1215" y="395" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="1390" y="395" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="50" y="475" font-family="Arial,sans-serif" font-size="26" fill="#e8f2fd">gold_error</text>
+<rect x="390" y="445" width="580" height="45" rx="8" fill="#253d55"/><rect x="390" y="445" width="333.84" height="45" rx="8" fill="#709bd8"/>
+<text x="990" y="475" font-family="monospace" font-size="25" fill="#e8f2fd">0.08634</text>
+<text x="1215" y="475" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="1390" y="475" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="50" y="555" font-family="Arial,sans-serif" font-size="26" fill="#e8f2fd">gold_progress</text>
+<rect x="390" y="525" width="580" height="45" rx="8" fill="#253d55"/><rect x="390" y="525" width="328.29" height="45" rx="8" fill="#709bd8"/>
+<text x="990" y="555" font-family="monospace" font-size="25" fill="#e8f2fd">0.08490</text>
+<text x="1215" y="555" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="1390" y="555" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="50" y="635" font-family="Arial,sans-serif" font-size="26" fill="#e8f2fd">checked_progress</text>
+<rect x="390" y="605" width="580" height="45" rx="8" fill="#253d55"/><rect x="390" y="605" width="385.02" height="45" rx="8" fill="#ec88d4"/>
+<text x="990" y="635" font-family="monospace" font-size="25" fill="#e8f2fd">0.09957</text>
+<text x="1215" y="635" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="1390" y="635" font-family="monospace" font-size="24" fill="#e8f2fd">67</text>
+<text x="50" y="715" font-family="Arial,sans-serif" font-size="26" fill="#e8f2fd">mixed_pseudo</text>
+<rect x="390" y="685" width="580" height="45" rx="8" fill="#253d55"/><rect x="390" y="685" width="348.29" height="45" rx="8" fill="#709bd8"/>
+<text x="990" y="715" font-family="monospace" font-size="25" fill="#e8f2fd">0.09007</text>
+<text x="1215" y="715" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="1390" y="715" font-family="monospace" font-size="24" fill="#e8f2fd">288</text>
+<text x="50" y="795" font-family="Arial,sans-serif" font-size="26" fill="#e8f2fd">gold_replay</text>
+<rect x="390" y="765" width="580" height="45" rx="8" fill="#253d55"/><rect x="390" y="765" width="352.47" height="45" rx="8" fill="#709bd8"/>
+<text x="990" y="795" font-family="monospace" font-size="25" fill="#e8f2fd">0.09116</text>
+<text x="1215" y="795" font-family="monospace" font-size="24" fill="#e8f2fd">96</text>
+<text x="1390" y="795" font-family="monospace" font-size="24" fill="#e8f2fd">288</text>
+<text x="50" y="875" font-family="Arial,sans-serif" font-size="26" fill="#e8f2fd">pseudo_only</text>
+<rect x="390" y="845" width="580" height="45" rx="8" fill="#253d55"/><rect x="390" y="845" width="532.51" height="45" rx="8" fill="#709bd8"/>
+<text x="990" y="875" font-family="monospace" font-size="25" fill="#e8f2fd">0.13772</text>
+<text x="1215" y="875" font-family="monospace" font-size="24" fill="#e8f2fd">0</text>
+<text x="1390" y="875" font-family="monospace" font-size="24" fill="#e8f2fd">288</text>
+<line x1="52" y1="952" x2="1546" y2="952" stroke="#385d79" stroke-width="2"/>
+<text x="52" y="990" font-family="Arial,sans-serif" font-size="24" fill="#d3e4f2">Ordinary gold_natural beat checked_progress in 23/24 seeds at the same 96 new oracle queries.</text>
+<text x="52" y="1032" font-family="Arial,sans-serif" font-size="20" fill="#95b2c9">Independent replay: GitHub Actions run 37855187413 · Original evidence SHA256 30377002245f2bb8…</text>
+</svg>

@@ -1,0 +1,95 @@
+name: VSC-002 generational falsification (exploratory)
+
+on:
+  push:
+    branches:
+      - experiment/vsc002-budgeted-generations
+    paths:
+      - "src/origin/vsc002.py"
+      - "tools/verify_vsc002.py"
+      - "tools/plot_vsc002.py"
+      - "tests/test_vsc002.py"
+      - "experiments/vsc002/**"
+      - "reports/vsc002/**"
+      - ".github/workflows/vsc002.yml"
+  pull_request:
+    paths:
+      - "src/origin/vsc002.py"
+      - "tools/verify_vsc002.py"
+      - "tools/plot_vsc002.py"
+      - "tests/test_vsc002.py"
+      - "experiments/vsc002/**"
+      - "reports/vsc002/**"
+      - ".github/workflows/vsc002.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  independent-replay-and-research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Compile runner, verifier, chart renderer and test both VSC lines
+        run: |
+          set -eu
+          python3 --version
+          python3 -m py_compile src/origin/vsc002.py tools/verify_vsc002.py tools/plot_vsc002.py
+          python3 -m unittest discover -s tests -p 'test_vsc001.py' -v
+          python3 -m unittest discover -s tests -p 'test_vsc002.py' -v
+
+      - name: VSC-002 public two-seed engineering smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUTPUT="$(python3 src/origin/vsc002.py --pilot --seed-base 50501 \
+              --seeds 2 --generations 3 --output-dir "${RUNNER_TEMP}/vsc002-smoke")"
+          printf '%s\n' "$OUTPUT"
+          FILE="$(printf '%s\n' "$OUTPUT" | sed -n 's/^EVIDENCE: //p')"
+          HASH="$(printf '%s\n' "$OUTPUT" | sed -n 's/^SHA256: //p')"
+          test -f "$FILE"
+          printf '%s  %s\n' "$HASH" "$FILE" | sha256sum -c -
+          python3 tools/verify_vsc002.py "$FILE" --sha256 "$HASH"
+
+      - name: Preregistered 24-public-seed VSC-002 exploratory evaluation
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUTPUT="$(python3 src/origin/vsc002.py --pilot --seed-base 20261009 \
+              --seeds 24 --generations 12 --output-dir "${RUNNER_TEMP}/vsc002-evidence")"
+          printf '%s\n' "$OUTPUT"
+          FILE="$(printf '%s\n' "$OUTPUT" | sed -n 's/^EVIDENCE: //p')"
+          HASH="$(printf '%s\n' "$OUTPUT" | sed -n 's/^SHA256: //p')"
+          test -f "$FILE"
+          printf '%s  %s\n' "$HASH" "$FILE" | sha256sum -c -
+          python3 tools/verify_vsc002.py "$FILE" --sha256 "$HASH"
+          mkdir -p "${RUNNER_TEMP}/vsc002-archive"
+          cp "$FILE" "${RUNNER_TEMP}/vsc002-archive/vsc002-public-exploratory.json"
+          python3 tools/plot_vsc002.py "$FILE" --sha256 "$HASH" \
+              --output-dir "${RUNNER_TEMP}/vsc002-archive"
+          echo "### VSC-002 public synthetic exploratory study" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 24 public seeds · 12 generations · 8 policies · fixed 8 new oracle labels/generation for oracle-assisted arms" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Evidence SHA256: `$HASH`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Six independently replay-qualified SVG figures and full raw evidence are stored as a workflow artifact" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **EXPLORATORY / SIMULATED / NOT VALIDATED**, no real LLM or independent oracle isolation" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Archive raw evidence and standalone SVG figures
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2, MIT
+        with:
+          name: vsc002-public-seed-evidence-and-figures
+          path: ${{ runner.temp }}/vsc002-archive
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Historical EXP003-P0 integrity and independently reproduced semantic replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=evidence/exp003/exp003-p0-20261008T202705724022Z-146bee1a.json
+          HASH=627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333
+          printf '%s  %s\n' "$HASH" "$FILE" | sha256sum -c -
+          python3 tools/verify_exp003_p0.py "$FILE" --sha256 "$HASH"

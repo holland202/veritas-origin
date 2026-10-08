@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1170" viewBox="0 0 1500 1170" role="img" aria-labelledby="title desc">
+<title id="title">VSC-002 coverage gaps between true labels and synthetic examples</title>
+<desc id="desc">In a 24-seed public synthetic experiment, the pseudo-only learner has 100 percent accepted training input coverage but only 64.6 percent gold-label coverage. Checked pseudolabels are not counted as true gold labels.</desc>
+<rect width="1500" height="1170" fill="#091827"/><rect x="22" y="25" width="1456" height="1115" rx="30" fill="#11263c" stroke="#315672" stroke-width="2"/>
+<text x="65" y="85" fill="#f0f8ff" font-family="Arial,sans-serif" font-size="41" font-weight="bold">VSC-002 · Dataset coverage is not evidence quality</text>
+<text x="65" y="132" fill="#bdcee3" font-family="Arial,sans-serif" font-size="23">Mean occupancy of 32 band×input-region cells after 12 training generations</text>
+<text x="65" y="176" fill="#ffc38a" font-family="Arial,sans-serif" font-size="22" font-weight="700">POST-RUN EXPLORATORY OBSERVATION · TOY SIMULATION · NOT VALIDATED</text>
+<rect x="65" y="209" width="26" height="24" rx="4" fill="#4bd6b5"/><text x="100" y="228" fill="#e1f2fc" font-family="Arial,sans-serif" font-size="22">True gold-labeled training coverage</text>
+<rect x="640" y="209" width="26" height="24" rx="4" fill="#efb878"/><text x="676" y="228" fill="#e1f2fc" font-family="Arial,sans-serif" font-size="22">All accepted training examples</text>
+<rect x="1085" y="209" width="26" height="24" rx="4" fill="#729ded"/><text x="1120" y="228" fill="#e1f2fc" font-family="Arial,sans-serif" font-size="22">Oracle-queried</text>
+<text x="65" y="348" fill="#e9f5ff" font-family="Arial,sans-serif" font-size="28">gold_balanced</text>
+<rect x="405" y="300" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="300" width="703.53" height="29" rx="5" fill="#4bd6b5"/><text x="1135" y="323" font-family="monospace" font-size="23" fill="#e9f5ff">99.1%</text>
+<rect x="405" y="334" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="334" width="703.53" height="29" rx="5" fill="#efb878"/><text x="1135" y="357" font-family="monospace" font-size="23" fill="#e9f5ff">99.1%</text>
+<rect x="405" y="368" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="368" width="703.53" height="29" rx="5" fill="#729ded"/><text x="1135" y="391" font-family="monospace" font-size="23" fill="#e9f5ff">99.1%</text>
+<text x="65" y="493" fill="#e9f5ff" font-family="Arial,sans-serif" font-size="28">gold_natural</text>
+<rect x="405" y="445" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="445" width="672.09" height="29" rx="5" fill="#4bd6b5"/><text x="1135" y="468" font-family="monospace" font-size="23" fill="#e9f5ff">94.7%</text>
+<rect x="405" y="479" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="479" width="672.09" height="29" rx="5" fill="#efb878"/><text x="1135" y="502" font-family="monospace" font-size="23" fill="#e9f5ff">94.7%</text>
+<rect x="405" y="513" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="513" width="672.09" height="29" rx="5" fill="#729ded"/><text x="1135" y="536" font-family="monospace" font-size="23" fill="#e9f5ff">94.7%</text>
+<text x="65" y="638" fill="#e9f5ff" font-family="Arial,sans-serif" font-size="28">checked_progress</text>
+<rect x="405" y="590" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="590" width="458.54" height="29" rx="5" fill="#4bd6b5"/><text x="1135" y="613" font-family="monospace" font-size="23" fill="#e9f5ff">64.6%</text>
+<rect x="405" y="624" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="624" width="621.25" height="29" rx="5" fill="#efb878"/><text x="1135" y="647" font-family="monospace" font-size="23" fill="#e9f5ff">87.5%</text>
+<rect x="405" y="658" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="658" width="659.16" height="29" rx="5" fill="#729ded"/><text x="1135" y="681" font-family="monospace" font-size="23" fill="#e9f5ff">92.8%</text>
+<text x="65" y="783" fill="#e9f5ff" font-family="Arial,sans-serif" font-size="28">mixed_pseudo</text>
+<rect x="405" y="735" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="735" width="672.09" height="29" rx="5" fill="#4bd6b5"/><text x="1135" y="758" font-family="monospace" font-size="23" fill="#e9f5ff">94.7%</text>
+<rect x="405" y="769" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="769" width="710.00" height="29" rx="5" fill="#efb878"/><text x="1135" y="792" font-family="monospace" font-size="23" fill="#e9f5ff">100.0%</text>
+<rect x="405" y="803" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="803" width="672.09" height="29" rx="5" fill="#729ded"/><text x="1135" y="826" font-family="monospace" font-size="23" fill="#e9f5ff">94.7%</text>
+<text x="65" y="928" fill="#e9f5ff" font-family="Arial,sans-serif" font-size="28">pseudo_only</text>
+<rect x="405" y="880" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="880" width="458.54" height="29" rx="5" fill="#4bd6b5"/><text x="1135" y="903" font-family="monospace" font-size="23" fill="#e9f5ff">64.6%</text>
+<rect x="405" y="914" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="914" width="710.00" height="29" rx="5" fill="#efb878"/><text x="1135" y="937" font-family="monospace" font-size="23" fill="#e9f5ff">100.0%</text>
+<rect x="405" y="948" width="710" height="29" rx="5" fill="#233d53"/><rect x="405" y="948" width="458.54" height="29" rx="5" fill="#729ded"/><text x="1135" y="971" font-family="monospace" font-size="23" fill="#e9f5ff">64.6%</text>
+
+<line x1="65" y1="1030" x2="1435" y2="1030" stroke="#365775" stroke-width="2"/>
+<text x="65" y="1070" fill="#e2edf8" font-family="Arial,sans-serif" font-size="21">Pseudolabel-only achieves 100% apparent input coverage without adding any new true labels.</text>
+<text x="65" y="1100" fill="#99b3ca" font-family="Arial,sans-serif" font-size="19">Source: VSC-002 GitHub run 37855187413 · 24 public seeds · not a world-truth certificate</text>
+</svg>
