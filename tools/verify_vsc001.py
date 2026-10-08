@@ -79,7 +79,7 @@ class Model:
 
     def output(self,b,x):
         w=self.coeffs[b]
-        return sum((w[0]*1.0,w[1]*x,w[2]*x*x))
+        return sum(a*v for a,v in zip(w,(1.0,x,x*x)))
 
     def step(self,b,x,y):
         e=self.output(b,x)-y
