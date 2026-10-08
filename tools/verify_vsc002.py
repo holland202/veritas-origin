@@ -189,7 +189,8 @@ def diversity(records):
     return -sum((v/n)*math.log(v/n) for v in counts if v)/math.log(4)
 
 
-def record_metrics(model,idtest,shift,cells,g,chosen,admitted,queried,steps,pseudo,replays,denied):
+def record_metrics(model,idtest,shift,queried_cells,accepted_cells,
+                   gold_cells,g,chosen,admitted,queried,steps,pseudo,replays,denied):
     a=accuracy(model,idtest)
     b=accuracy(model,shift)
     return {
@@ -199,12 +200,14 @@ def record_metrics(model,idtest,shift,cells,g,chosen,admitted,queried,steps,pseu
         "shift_mse_by_band":b,
         "shift_macro_mse":sum(b)/4,
         "rare_band_mse":a[3],
-        "trusted_cell_coverage":len(cells)/32,
-        "new_trusted_band_entropy":diversity(admitted),
+        "oracle_queried_cell_coverage":len(queried_cells)/32,
+        "accepted_cell_coverage":len(accepted_cells)/32,
+        "gold_label_cell_coverage":len(gold_cells)/32,
+        "new_accepted_band_entropy":diversity(admitted),
         "new_oracle_queries":queried,
         "selected_rare_fraction":(sum(x["band"]==3 for x in chosen)/len(chosen)
                                   if chosen else None),
-        "new_trusted_examples":len(admitted),
+        "new_accepted_examples":len(admitted),
         "updates":steps,
         "pseudolabel_updates":pseudo,
         "replay_updates":replays,
@@ -218,11 +221,15 @@ def replay_arm(seed,mode,anchors,selection,idtest,shift,ng):
         for b,rows in enumerate(anchors):
             for x,y in rows:
                 student.train(b,x,y)
-    cells={(b,xbucket(x)) for b,rows in enumerate(anchors) for x,y in rows}
+    initial_cells={(b,xbucket(x)) for b,rows in enumerate(anchors) for x,y in rows}
+    queried_cells=set(initial_cells)
+    accepted_cells=set(initial_cells)
+    gold_cells=set(initial_cells)
     prev=accuracy(student,selection)
     prev_old=None
     prev_new=None
-    history=[record_metrics(student,idtest,shift,cells,0,[],[],0,128,0,0,0)]
+    history=[record_metrics(student,idtest,shift,queried_cells,accepted_cells,
+                            gold_cells,0,[],[],0,128,0,0,0)]
     rounds=[]
     for gen in range(1,ng+1):
         candidates=available(seed,gen)
@@ -241,13 +248,14 @@ def replay_arm(seed,mode,anchors,selection,idtest,shift,ng):
         for row in selected:
             b,x=row["band"],row["x"]
             label=truth(seed,b,x)
+            queried_cells.add((b,xbucket(x)))
             offered=None
             if mode=="checked_progress":
                 offered=student.estimate(b,x)+gaussian.gauss(0,0.20)
                 allowed=abs(offered-label)<=0.30
                 if allowed:
                     student.train(b,x,offered)
-                    cells.add((b,xbucket(x)))
+                    accepted_cells.add((b,xbucket(x)))
                     admitted.append(row)
                     updates+=1
                 else:
@@ -255,7 +263,8 @@ def replay_arm(seed,mode,anchors,selection,idtest,shift,ng):
             else:
                 allowed=True
                 student.train(b,x,label)
-                cells.add((b,xbucket(x)))
+                accepted_cells.add((b,xbucket(x)))
+                gold_cells.add((b,xbucket(x)))
                 admitted.append(row)
                 updates+=1
             oracle_records.append({
@@ -275,6 +284,7 @@ def replay_arm(seed,mode,anchors,selection,idtest,shift,ng):
                 pseudo_records.append({
                     "id":row["id"],"band":b,"x":x,"pseudo_label":label,
                 })
+                accepted_cells.add((b,xbucket(x)))
                 updates+=1
         if mode=="gold_replay":
             draw=stream(seed,f"replay:{gen}")
@@ -298,7 +308,8 @@ def replay_arm(seed,mode,anchors,selection,idtest,shift,ng):
             "selection_errors_before":prev,
             "selection_errors_after":after,
         })
-        history.append(record_metrics(student,idtest,shift,cells,gen,selected,
+        history.append(record_metrics(student,idtest,shift,queried_cells,
+                                      accepted_cells,gold_cells,gen,selected,
                                       admitted,len(selected),updates,
                                       len(pseudo_records),len(replay_records),denied))
         prev_old=prev
@@ -339,8 +350,9 @@ def check(raw,pinned_sha):
     require(type(ng) is int and 1<=ng<=12,"generation count invalid")
     require(type(doc["runs"]) is list and len(doc["runs"])==n,"run count wrong")
 
-    measures=("id_macro_mse","shift_macro_mse",
-              "rare_band_mse","trusted_cell_coverage")
+    measures=("id_macro_mse","shift_macro_mse","rare_band_mse",
+              "oracle_queried_cell_coverage","accepted_cell_coverage",
+              "gold_label_cell_coverage")
     cost=("new_oracle_queries","updates","pseudolabel_updates",
           "replay_updates","rejected")
     summary={mode:{
