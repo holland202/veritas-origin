@@ -18,7 +18,7 @@
 - **H2:** An explicit, separately recorded input/access boundary can flag seeded truth/context leak and evaluator identity mismatches while admitting a clean reference; missing or untrusted provenance must give **UNOBSERVABLE/NOT_ESTABLISHED**, not clean.
 - **H3:** An oracle-informed proposer may appear more probe-efficient than honest deterministic greedy on some of 12 public P0 seeds; this is exploratory performance illustration, **not** a predefined success threshold or evidence that a model discovered anything.
 - **H4:** An attacker-controlled hash recomputed over a forged but syntactically valid record is not sufficient for provenance, methodological approval, or authorization.
-- **H5:** A fully self-consistent, hidden leak with no independently enforceable access log remains **UNDETECTABLE BY THESE CHECKS**; the experiment must expose that limit, not mark clean.
+- **H5:** A fully self-consistent hidden leak with a forged complete-clean access log may be **falsely classified clean** by a detector that trusts the log. E9 is the registered false-negative control. A missing/untrusted log must instead yield **UNOBSERVABLE**.
 
 ## Frozen fixture
 
@@ -43,8 +43,9 @@
 | E6 | Valid transcript, wrong pinned evaluator ID | `CONSISTENT` | `INVALID_EVALUATOR_IDENTITY` |
 | E7 | Valid transcript with self-resealed mutable manifest claim | `CONSISTENT` | `NOT_ESTABLISHED_SELF_ATTESTED_INTEGRITY` |
 | E8 | Valid transcript with no complete access/proposer provenance | `CONSISTENT` | `UNOBSERVABLE_ACCESS_PROVENANCE` |
+| E9 | Oracle-informed proposer **lies** that access was clean and completely attested | `CONSISTENT` | `CLEAN_WITHIN_DECLARED_FIXTURE` (**known false negative: untrusted trace**) |
 
-The dispositions are **registered policy outputs for simulated declared conditions**, not proof that any actual malicious agent was contained. E3/E8 are critical *unknowns*, not positives. If a case does not trigger its expected outcome, preserve it as a finding and fix only in a separate amendment, not by editing prior evidence.
+The dispositions are **registered policy outputs for simulated declared conditions**, not proof that any actual malicious agent was contained. E3/E8 are critical *unknowns*, not positives. **E9 is a deliberate false positive:** a dishonest self-attested clean log can fool the bounded methodology classifier. This must be reported as a failure, not dropped as an embarrassing outlier. If a case does not trigger its expected outcome, preserve it as a finding and fix only in a separate amendment, not by editing prior evidence.
 
 ## Restricted proposer-visible schema
 
@@ -63,7 +64,11 @@ Negative controls: altered task/answer, changed evaluator hash, fake `reviewed` 
 ## Acceptance conditions
 
 - An independent program reconstructs every toy transcript, decision and evidence state, including E2 pass-at-math/reject-at-methodology and E3 unknown-without-access-trace.
-- Positive E1 works; negative E2/E4/E5/E6 fail bounded methodology; E3/E8 are explicitly unknown; E7 never passes provenance on the basis of a self-resealed hash.
+- Positive E1 works; negative E2/E4/E5/E6 fail bounded methodology; E3/E8 are explicitly unknown; E9 intentionally misclassifies an unobservable hidden leak as clean (registered detector weakness); E7 never passes provenance on the basis of a self-resealed hash.
 - Tests mutate copies and force checker failures. CI uses read-only token permissions and fully pinned checkout action; original EXP003/RA-001 checks still pass.
 - Every stored result and visualization is labelled `EXPLORATORY TOY SIMULATION — NOT VALIDATED / OS isolation not tested`.
 - Independent OS-isolation, real model tests, fresh hidden-task confirmation, branch protection, and secure human authorization remain future work.
+
+## Before-run amendment A0 — explicit misleading positive
+
+Added scenario **E9** before the first EBA-001 implementation, test or run. It is important to make the **false-positive boundary** testable: a compromised proposer can lie about its own access history. The expected bounded classifier may accept an attested-looking but forged clean record, even though independent fixture knowledge says the proposer used oracle truth. This outcome must remain visible and count as a meaningful negative finding. The protocol's earlier version is retained in Git history. No quantitative results existed at the time of this amendment.
