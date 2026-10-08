@@ -1,0 +1,331 @@
+{
+  "schema_version": "prior-art-register/v1",
+  "scope": "design/research-led-architecture-v001",
+  "checked_on": "2026-10-08",
+  "policy": "Study external implementations; do not copy source until per-file license and notices have been reviewed, with an explicit manifest update and separate approval.",
+  "records": [
+    {
+      "id": "PA-001",
+      "component": "authorizer",
+      "source_repository": "open-policy-agent/opa",
+      "pinned_revision": "c325eb74782425059ded9d50eb8a0bdab914ec9d",
+      "source_url": "https://github.com/open-policy-agent/opa/blob/c325eb74782425059ded9d50eb8a0bdab914ec9d/README.md",
+      "license": {
+        "identifier": "Apache-2.0",
+        "source_url": "https://github.com/open-policy-agent/opa/blob/c325eb74782425059ded9d50eb8a0bdab914ec9d/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "General-purpose policy engine already exists. The contribution cannot simply be 'separate policy from code'.",
+      "unresolved_research_question": "Can the Gate's evidence/freshness rules be replayed against a fixed authorization contract?",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-002",
+      "component": "authorizer",
+      "source_repository": "cedar-policy/cedar",
+      "pinned_revision": "0b80d019b310950fbe58c56caf5a146f4a855ccf",
+      "source_url": "https://github.com/cedar-policy/cedar/blob/0b80d019b310950fbe58c56caf5a146f4a855ccf/README.md",
+      "license": {
+        "identifier": "Apache-2.0",
+        "source_url": "https://github.com/cedar-policy/cedar/blob/0b80d019b310950fbe58c56caf5a146f4a855ccf/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "Fine-grained authorization and policy analysis are established prior art.",
+      "unresolved_research_question": "Test explicitly whether reasons for DEFER/REFUSE differ and are evidence-grounded; no superiority assumed.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-003",
+      "component": "isolated_execution",
+      "source_repository": "UKGovernmentBEIS/inspect_ai",
+      "pinned_revision": "2c002827fa4c490bf5896269d4bbd84ff64ebcf6",
+      "source_url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/2c002827fa4c490bf5896269d4bbd84ff64ebcf6/docs/sandboxing.qmd",
+      "license": {
+        "identifier": "MIT",
+        "source_url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/2c002827fa4c490bf5896269d4bbd84ff64ebcf6/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "Distinguishes evaluator process from sandboxed tool execution.",
+      "unresolved_research_question": "Demonstrate evaluator secrets are not readable from proposer or its descendants.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-004",
+      "component": "isolated_execution",
+      "source_repository": "anthropics/sandbox-runtime",
+      "pinned_revision": "3f0bad7345238f47736435e3f2b064399c1cad74",
+      "source_url": "https://github.com/anthropics/sandbox-runtime/blob/3f0bad7345238f47736435e3f2b064399c1cad74/README.md",
+      "license": {
+        "identifier": "Apache-2.0",
+        "source_url": "https://github.com/anthropics/sandbox-runtime/blob/3f0bad7345238f47736435e3f2b064399c1cad74/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "OS enforced filesystem/network policy and process-tree restrictions are prior art.",
+      "unresolved_research_question": "Test deny-by-default filesystem and egress rules, including attacks on descendants and side channels.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-005",
+      "component": "isolated_execution",
+      "source_repository": "openai/codex",
+      "pinned_revision": "14ff9c3a43ebf9bf543cf5f7c45cff2bfea2e512",
+      "source_url": "https://github.com/openai/codex/blob/14ff9c3a43ebf9bf543cf5f7c45cff2bfea2e512/codex-rs/core/README.md",
+      "license": {
+        "identifier": "Apache-2.0",
+        "source_url": "https://github.com/openai/codex/blob/14ff9c3a43ebf9bf543cf5f7c45cff2bfea2e512/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "Workspace-write/read-only sandbox policies are established execution patterns.",
+      "unresolved_research_question": "Show explicit policy resolution and fail-closed behavior on unsupported kernel sandbox features.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-006",
+      "component": "isolated_execution",
+      "source_repository": "google/gvisor",
+      "pinned_revision": "0a438edc99965c50bac288b57f048db78a4d9006",
+      "source_url": "https://github.com/google/gvisor/blob/0a438edc99965c50bac288b57f048db78a4d9006/README.md",
+      "license": {
+        "identifier": "Apache-2.0",
+        "source_url": "https://github.com/google/gvisor/blob/0a438edc99965c50bac288b57f048db78a4d9006/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "gVisor demonstrates application-kernel isolation; container alone is not hardened sandbox proof.",
+      "unresolved_research_question": "Measure leakage and resource limits rather than naming a container feature as security proof.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-007",
+      "component": "provenance",
+      "source_repository": "in-toto/in-toto",
+      "pinned_revision": "e352b43ad7cb8915d84c36d791aa61346152a0a3",
+      "source_url": "https://github.com/in-toto/in-toto/blob/e352b43ad7cb8915d84c36d791aa61346152a0a3/README.md",
+      "license": {
+        "identifier": "Apache-2.0",
+        "source_url": "https://github.com/in-toto/in-toto/blob/e352b43ad7cb8915d84c36d791aa61346152a0a3/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "Attested step layouts, authorized functionaries and artifact chain are prior art.",
+      "unresolved_research_question": "Use or interoperate with versioned step/provenance metadata; independently replay decisions.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-008",
+      "component": "provenance",
+      "source_repository": "sigstore/rekor",
+      "pinned_revision": "042eebef2115137aa5c5ffe7ecc92983f931c684",
+      "source_url": "https://github.com/sigstore/rekor/blob/042eebef2115137aa5c5ffe7ecc92983f931c684/README.md",
+      "license": {
+        "identifier": "Apache-2.0",
+        "source_url": "https://github.com/sigstore/rekor/blob/042eebef2115137aa5c5ffe7ecc92983f931c684/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "Transparency logs and inclusion proofs are prior art for auditability.",
+      "unresolved_research_question": "Distinguish integrity, freshness and independent world truth and test missing/witness drift.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-009",
+      "component": "provenance",
+      "source_repository": "slsa-framework/slsa",
+      "pinned_revision": "3cd3fdd787abf91e04d8d82e310684de96dc1e5b",
+      "source_url": "https://github.com/slsa-framework/slsa/blob/3cd3fdd787abf91e04d8d82e310684de96dc1e5b/README.md",
+      "license": {
+        "identifier": "NOT_CONFIRMED_FOR_REUSE",
+        "source_url": null,
+        "status": "LICENSE_UNVERIFIED"
+      },
+      "prior_art_overlap": "Supply-chain levels and provenance requirements predate this research.",
+      "unresolved_research_question": "Do not claim invention of provenance pipeline; inspect per-file/spec licensing before any copy.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-010",
+      "component": "eval",
+      "source_repository": "NVIDIA/garak",
+      "pinned_revision": "6cea0c92ac8c8dfae0165a3ec47ed4e228299354",
+      "source_url": "https://github.com/NVIDIA/garak/blob/6cea0c92ac8c8dfae0165a3ec47ed4e228299354/README.md",
+      "license": {
+        "identifier": "Apache-2.0",
+        "source_url": "https://github.com/NVIDIA/garak/blob/6cea0c92ac8c8dfae0165a3ec47ed4e228299354/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "LLM red-teaming probes and detection suites are established prior art.",
+      "unresolved_research_question": "Test evaluator self-deception and preserve generated failures; compare scope, do not duplicate.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-011",
+      "component": "isolated_execution",
+      "source_repository": "e2b-dev/E2B",
+      "pinned_revision": "08945952ccefc1f74a9929e5ae4bc561c8b9aaf0",
+      "source_url": "https://github.com/e2b-dev/E2B/blob/08945952ccefc1f74a9929e5ae4bc561c8b9aaf0/packages/python-sdk/e2b/sandbox_sync/sandbox_api.py",
+      "license": {
+        "identifier": "Apache-2.0",
+        "source_url": "https://github.com/e2b-dev/E2B/blob/08945952ccefc1f74a9929e5ae4bc561c8b9aaf0/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "Remote sandbox lifecycles, network settings, and expiry endpoints are prior art.",
+      "unresolved_research_question": "Compare remote isolation, cost and token accounting under a reproducible fixture.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-012",
+      "component": "origin_experiments",
+      "source_repository": "holland202/veritas-origin",
+      "pinned_revision": "2131d9166deea94811155a746e57fb597491f53a",
+      "source_url": "https://github.com/holland202/veritas-origin/blob/2131d9166deea94811155a746e57fb597491f53a/README.md",
+      "license": {
+        "identifier": "NOT_LICENSED",
+        "source_url": null,
+        "status": "NO_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "P0 existing baseline and preserved original evidence; do not silently revise or claim P1 results as P0.",
+      "unresolved_research_question": "P1 comparison must preserve original run, hash, negative outcomes and scope.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-013",
+      "component": "authorizer",
+      "source_repository": "holland202/sovereign-veritas",
+      "pinned_revision": "709da9eb435cbfe06a1ca00427843b12c673ceb0",
+      "source_url": "https://github.com/holland202/sovereign-veritas/blob/709da9eb435cbfe06a1ca00427843b12c673ceb0/README.md",
+      "license": {
+        "identifier": "MIT",
+        "source_url": "https://github.com/holland202/sovereign-veritas/blob/709da9eb435cbfe06a1ca00427843b12c673ceb0/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "User-owned 13-rule fail-closed gate, independent replay and recorded authorization.",
+      "unresolved_research_question": "Only claim interoperation after a strict versioned adapter, vectors and negative tests.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-014",
+      "component": "provenance",
+      "source_repository": "holland202/evidence-ledger",
+      "pinned_revision": "396d285da4d30dd5d4a3691bf0b857562fd5cb48",
+      "source_url": "https://github.com/holland202/evidence-ledger/blob/396d285da4d30dd5d4a3691bf0b857562fd5cb48/README.md",
+      "license": {
+        "identifier": "NOT_LICENSED",
+        "source_url": null,
+        "status": "NO_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "User-owned evidence states, anti-vacuity and provenance architecture; README says unlicensed.",
+      "unresolved_research_question": "Do not automatically copy across repos; obtain explicit licensing decision and contracts.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-015",
+      "component": "eval",
+      "source_repository": "holland202/eace",
+      "pinned_revision": "8fcd2700c444e11f82a30966223f4966fb035e7e",
+      "source_url": "https://github.com/holland202/eace/blob/8fcd2700c444e11f82a30966223f4966fb035e7e/README.md",
+      "license": {
+        "identifier": "MIT",
+        "source_url": "https://github.com/holland202/eace/blob/8fcd2700c444e11f82a30966223f4966fb035e7e/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "User-owned adversarial verifier/containment research already exists.",
+      "unresolved_research_question": "Test claims under forged observer and missing-record conditions before calling containment supported.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-016",
+      "component": "model_routing",
+      "source_repository": "holland202/veritas-companion",
+      "pinned_revision": "85666579eb23393e1d741edda84be15389859790",
+      "source_url": "https://github.com/holland202/veritas-companion/blob/85666579eb23393e1d741edda84be15389859790/README.md",
+      "license": {
+        "identifier": "MIT",
+        "source_url": "https://github.com/holland202/veritas-companion/blob/85666579eb23393e1d741edda84be15389859790/LICENSE",
+        "status": "VERIFIED_ROOT_LICENSE"
+      },
+      "prior_art_overlap": "User-owned tiered model routing with a default fail-closed small-model backend.",
+      "unresolved_research_question": "Measure total token/latency cost per correct task; compare zero-model baselines.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    },
+    {
+      "id": "PA-017",
+      "component": "system_architecture",
+      "source_repository": "holland202/eunoia",
+      "pinned_revision": "bf437b0e54f56b88e563f8bc3bd1890d6e5430cb",
+      "source_url": "https://github.com/holland202/eunoia/blob/bf437b0e54f56b88e563f8bc3bd1890d6e5430cb/README.md",
+      "license": {
+        "identifier": "ALL_RIGHTS_RESERVED",
+        "source_url": "https://github.com/holland202/eunoia/blob/bf437b0e54f56b88e563f8bc3bd1890d6e5430cb/LICENSE",
+        "status": "AUTHOR_DECISION_REQUIRED"
+      },
+      "prior_art_overlap": "User-owned larger epistemic/authority architecture; root license text reserves rights pending selection.",
+      "unresolved_research_question": "Treat as reference design; never imply its substrate is deployed in VERITAS ORIGIN.",
+      "proposed_use": "STUDY_ONLY",
+      "source_code_copied": false,
+      "attribution_required_in_design": true,
+      "novelty": "NOT_ESTABLISHED",
+      "review": "INITIAL_REVIEW"
+    }
+  ]
+}
