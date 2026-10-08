@@ -14,6 +14,14 @@
 - GitHub CI: **33/33 tests passed**, independent VSC-001 semantic replay passed, original EXP003-P0 evidence hash/replay passed.
 - Earlier, much smaller **two-seed engineering smoke** run and debugging revisions are visible in workflow history, not promoted to independent confirmation. An intermediate CI failed because the new oracle-accounting fields were added to the runner before its independent verifier was updated; subsequent workflow runs passed after a separate verifier update. No failed record was erased.
 
+## Visual comparison
+
+![VSC-001 held-out macro MSE versus training oracle cost for six policies, five public synthetic seeds](figures/vsc001_public_five_seed_comparison.svg)
+
+The figure shows **two different scales**: final held-out MSE (lower is better) and privileged training oracle calls per seed (lower is cheaper). The visual makes no claim of matched oracle budgets or statistically significant superiority.
+
+For the research/training flow diagram see [VSC-001 experimental README](../../experiments/vsc001/README.md#visual-architecture--data-generation-selection-and-verification).
+
 ## Measured outcomes
 
 Five public synthetic seeds; lower final test MSE is better. All values below are means over five seeds, *not inferential estimates*.
