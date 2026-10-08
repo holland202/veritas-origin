@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="925" viewBox="0 0 1500 925" role="img" aria-labelledby="title desc">
+<title id="title">EBA-001 public twelve-task efficiency of honest and contaminated experiment selectors</title>
+<desc id="desc">The context-only greedy selector used 24 probes and an inadmissible oracle-informed selector used 13. It was faster in eleven of twelve tasks, but this is invalid as a comparison of scientific strategies because the latter knows the answer. All are synthetic, public tasks.</desc>
+<rect width="1500" height="925" fill="#071a2b"/>
+<rect x="26" y="26" width="1448" height="872" rx="28" fill="#13293f" stroke="#37607c" stroke-width="2"/>
+<text x="58" y="87" fill="#f1f9ff" font-family="Arial,sans-serif" font-weight="bold" font-size="38">The apparent performance gain from knowing the answer</text>
+<text x="58" y="130" fill="#b9d4eb" font-family="Arial,sans-serif" font-size="23">Same 12 public toy tasks · probe count lower is better · NOT a fair strategy comparison</text>
+<text x="58" y="170" fill="#ffd093" font-family="Arial,sans-serif" font-weight="bold" font-size="22">EXPLORATORY SIMULATED · NO MODEL · NOT VALIDATED</text>
+<rect x="232" y="197" width="23" height="23" fill="#45c9ab"/><text x="268" y="217" fill="#eff9ff" font-size="21" font-family="Arial,sans-serif">Context-only greedy</text>
+<rect x="815" y="197" width="23" height="23" fill="#f2a4a1"/><text x="850" y="217" fill="#eff9ff" font-size="21" font-family="Arial,sans-serif">Oracle-informed (illegal)</text>
+<text x="68" y="265" fill="#e6f3ff" font-family="monospace" font-size="21">00</text>
+<g transform="translate(232 243)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="264" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 243)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="264" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="313" fill="#e6f3ff" font-family="monospace" font-size="21">01</text>
+<g transform="translate(232 291)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="312" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 291)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="312" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="361" fill="#e6f3ff" font-family="monospace" font-size="21">02</text>
+<g transform="translate(232 339)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="360" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 339)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="360" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="409" fill="#e6f3ff" font-family="monospace" font-size="21">03</text>
+<g transform="translate(232 387)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="408" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 387)"><rect width="272" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="1104" y="408" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<text x="68" y="457" fill="#e6f3ff" font-family="monospace" font-size="21">04</text>
+<g transform="translate(232 435)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="456" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 435)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="456" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="505" fill="#e6f3ff" font-family="monospace" font-size="21">05</text>
+<g transform="translate(232 483)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="504" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 483)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="504" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="553" fill="#e6f3ff" font-family="monospace" font-size="21">06</text>
+<g transform="translate(232 531)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="552" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 531)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="552" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="601" fill="#e6f3ff" font-family="monospace" font-size="21">07</text>
+<g transform="translate(232 579)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="600" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 579)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="600" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="649" fill="#e6f3ff" font-family="monospace" font-size="21">08</text>
+<g transform="translate(232 627)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="648" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 627)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="648" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="697" fill="#e6f3ff" font-family="monospace" font-size="21">09</text>
+<g transform="translate(232 675)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="696" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 675)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="696" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="745" fill="#e6f3ff" font-family="monospace" font-size="21">10</text>
+<g transform="translate(232 723)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="744" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 723)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="744" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+<text x="68" y="793" fill="#e6f3ff" font-family="monospace" font-size="21">11</text>
+<g transform="translate(232 771)"><rect width="272" height="23" rx="5" fill="#45c9ab"/></g>
+<text x="518" y="792" fill="#edf9ff" font-size="18" font-family="monospace">2</text>
+<g transform="translate(815 771)"><rect width="136" height="23" rx="5" fill="#f2a4a1"/></g>
+<text x="968" y="792" fill="#edf9ff" font-size="18" font-family="monospace">1</text>
+
+<line x1="58" y1="841" x2="1451" y2="841" stroke="#3c617e"/>
+<text x="58" y="877" fill="#e6f2fc" font-family="Arial,sans-serif" font-size="23">24 honest probes versus 13 oracle-informed probes: 11/12 apparent wins due to leaked truth.</text>
+</svg>
