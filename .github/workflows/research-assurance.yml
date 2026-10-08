@@ -1,0 +1,82 @@
+name: RA-001 historical research assurance
+
+on:
+  push:
+    branches:
+      - audit/research-preservation-sv-boundary
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  historical-preservation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Read-only checkout of VERITAS ORIGIN
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Commit-pinned MIT Sovereign Veritas source for real Gate tests
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          repository: holland202/sovereign-veritas
+          ref: 709da9eb435cbfe06a1ca00427843b12c673ceb0
+          path: .external_sv
+          persist-credentials: false
+
+      - name: Parse and compile research assurance and actual SV adapter
+        run: |
+          set -euo pipefail
+          python3 --version
+          python3 -m py_compile tools/research_assurance.py tools/sv_research_bridge.py
+
+      - name: Verify archived original bytes and EXPLORATORY-only claim ledger
+        run: |
+          set -euo pipefail
+          python3 tools/research_assurance.py --root .
+          python3 tools/verify_exp002.py
+          FILE=evidence/exp003/exp003-p0-20261008T202705724022Z-146bee1a.json
+          SHA=627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+          python3 tools/verify_exp003_p0.py "$FILE" --sha256 "$SHA"
+
+      - name: Run historical original and adversarial RA-001 positive/negative controls
+        env:
+          SV_REPO_PATH: ${{ github.workspace }}/.external_sv
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s tests -p 'test_exp003*.py' -v
+          python3 -m unittest discover -s tests -p 'test_research_assurance.py' -v
+
+      - name: Verify SV claim-promotion intent always remains unauthorized
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/sv_research_bridge.py --claim-id EXP003-P0-C02 > "${RUNNER_TEMP}/sv_claim_intent.json"
+          python3 - "${RUNNER_TEMP}/sv_claim_intent.json" <<'PY'
+          import json, sys
+          with open(sys.argv[1], encoding="utf-8") as f:
+              packet=json.load(f)
+          assert packet["capability"]["authorized"] is False
+          assert packet["record"]["metadata"]["human_approval_verified"] is False
+          assert packet["record"]["verification"]["status"] == "INSUFFICIENT_EVIDENCE"
+          assert packet["runtime"]["thermal_status"] == "unknown"
+          print("SV BRIDGE: UNAUTHORIZED_REVIEW_INTENT_ONLY — PASS")
+          PY
+
+      - name: Archive-scope report in GitHub run summary
+        shell: bash
+        run: |
+          {
+            echo "### RA-001 preservation and Sovereign Veritas contract boundary"
+            echo "- Original historical files are byte-pinned to main 2131d9166deea94811155a746e57fb597491f53a"
+            echo "- EXP003-P0: 12/12 completion for all 3 deterministic arms, and post-hoc probe efficiency not promoted"
+            echo "- Actual SV Gate tested from commit 709da9eb435cbfe06a1ca00427843b12c673ceb0, synthetic ALLOW test explicitly NOT real authorization"
+            echo "- **No publication or deployment capability granted; no OS-level proposer isolation claimed**"
+            echo "- Branch protection is a separate owner action; CI does not prevent admin-level history rewriting"
+          } >> "$GITHUB_STEP_SUMMARY"
