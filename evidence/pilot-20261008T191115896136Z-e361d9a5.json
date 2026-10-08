@@ -1,0 +1,1811 @@
+{
+  "environment": {
+    "high": 0.8,
+    "low": 0.2,
+    "medium": 0.5
+  },
+  "records": [
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 0,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 1,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 2,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 3,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 4,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 5,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 6,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 7,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 8,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 9,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 10,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 11,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 12,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 13,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 14,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 15,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 16,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 17,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 18,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 19,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 20,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 21,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 22,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 23,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 24,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 25,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 26,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 27,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 28,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 29,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 30,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 31,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 32,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 33,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 34,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 35,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 36,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 37,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 38,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 39,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 40,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 41,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 42,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 43,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 44,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 45,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 46,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 47,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 48,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 49,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 50,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 51,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 52,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 53,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 54,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 55,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 56,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 57,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 58,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 59,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 60,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 61,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 62,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 63,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 64,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 65,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 66,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 67,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 68,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 69,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 70,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 71,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 72,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 73,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 74,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 75,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 76,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 77,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 78,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 79,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 80,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 81,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 82,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 83,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 84,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 85,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 86,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 87,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 88,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 89,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 90,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 91,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 92,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 93,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 94,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 95,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 96,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 97,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 98,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 99,
+      "strategy": "fixed"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 0,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 1,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 2,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 3,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 4,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 5,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 6,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 7,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 8,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 9,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 10,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 11,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 12,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 13,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 14,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 15,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 16,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 17,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 18,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 19,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 20,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 21,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 22,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 23,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 24,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 25,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 26,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 27,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 28,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 29,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 30,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 31,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 32,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 33,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 34,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 35,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 36,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 37,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 38,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 39,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 40,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 41,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 42,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 43,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 44,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 45,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 46,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 47,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 48,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 49,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 50,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 51,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 52,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 53,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 54,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 55,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 56,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 57,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 58,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 59,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 60,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 61,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 62,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 63,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 64,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 65,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 66,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 67,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 68,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 69,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 70,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 71,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 72,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 73,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 74,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 75,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 76,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 77,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 78,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 79,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 80,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 81,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 82,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 83,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 84,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 85,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 86,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 87,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 88,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 89,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 90,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 91,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 92,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 93,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 94,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 95,
+      "strategy": "random"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 96,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 97,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 98,
+      "strategy": "random"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 99,
+      "strategy": "random"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 0,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 1,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 2,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 3,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 4,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 5,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 6,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 7,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 8,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 9,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 10,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 11,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 12,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 13,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 14,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 15,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 16,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 17,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 18,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 19,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 20,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 21,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 22,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 23,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 24,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 25,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 26,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 27,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 28,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 29,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 30,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 31,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 32,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 33,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 34,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 35,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 36,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 37,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 38,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 39,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 40,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 41,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 42,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 43,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 44,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 45,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 46,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 47,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 48,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 49,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 50,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 51,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 52,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 53,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 54,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 55,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 56,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 57,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 58,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 59,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 60,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 61,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 62,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 63,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 64,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 65,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 66,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 67,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 68,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 69,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 70,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 71,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 72,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 73,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 74,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 75,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 76,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 77,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 78,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 79,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 80,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 81,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 1,
+      "step": 82,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "medium",
+      "reward": 0,
+      "step": 83,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 1,
+      "step": 84,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "low",
+      "reward": 0,
+      "step": 85,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 86,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 87,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 88,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 89,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 90,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 91,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 92,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 93,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 94,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 95,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 96,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 97,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 0,
+      "step": 98,
+      "strategy": "adaptive"
+    },
+    {
+      "arm": "high",
+      "reward": 1,
+      "step": 99,
+      "strategy": "adaptive"
+    }
+  ],
+  "seed": 42,
+  "trials_per_strategy": 100
+}
