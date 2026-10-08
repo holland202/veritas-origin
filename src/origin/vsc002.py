@@ -167,12 +167,13 @@ def entropy_bands(counters):
     return -sum((c/total)*math.log(c/total) for c in counters if c)/math.log(4)
 
 
-def snapshot(model, id_test, shift_test, cells, generation, selected, accepted_gold,
+def snapshot(model, id_test, shift_test, oracle_cells, accepted_cells,
+             gold_cells, generation, selected, accepted_examples,
              oracle_queries, updates, pseudo_updates, replay_updates, rejected):
     id_mse=per_band_mse(model,id_test)
     shifted=per_band_mse(model,shift_test)
     counts=[0]*4
-    for record in accepted_gold:
+    for record in accepted_examples:
         counts[record["band"]]+=1
     return {
         "generation":generation,
@@ -181,13 +182,15 @@ def snapshot(model, id_test, shift_test, cells, generation, selected, accepted_g
         "shift_mse_by_band":shifted,
         "shift_macro_mse":sum(shifted)/4,
         "rare_band_mse":id_mse[3],
-        "trusted_cell_coverage":len(cells)/32,
-        "new_trusted_band_entropy":entropy_bands(counts),
+        "oracle_queried_cell_coverage":len(oracle_cells)/32,
+        "accepted_cell_coverage":len(accepted_cells)/32,
+        "gold_label_cell_coverage":len(gold_cells)/32,
+        "new_accepted_band_entropy":entropy_bands(counts),
         "new_oracle_queries":oracle_queries,
         "selected_rare_fraction": (
             sum(r["band"]==3 for r in selected)/len(selected) if selected else None
         ),
-        "new_trusted_examples":len(accepted_gold),
+        "new_accepted_examples":len(accepted_examples),
         "updates":updates,
         "pseudolabel_updates":pseudo_updates,
         "replay_updates":replay_updates,
@@ -199,11 +202,14 @@ def evaluate_arm(seed, mode, initial, selection, id_test, shift_test, n_generati
     model=Model()
     fit_initial(model,initial)
     initial_cells={(b,bucket(x)) for b,items in enumerate(initial) for x,y in items}
-    cells=set(initial_cells)
+    oracle_cells=set(initial_cells)
+    accepted_cells=set(initial_cells)
+    gold_cells=set(initial_cells)
     current_selection_error=per_band_mse(model,selection)
     last_before=None
     last_after=None
-    history=[snapshot(model,id_test,shift_test,cells,0,[],[],0,
+    history=[snapshot(model,id_test,shift_test,oracle_cells,accepted_cells,
+                      gold_cells,0,[],[],0,
                       N_BANDS*INITIAL*INITIAL_PASSES,0,0,0)]
     rounds=[]
     for gen in range(1,n_generations+1):
@@ -217,13 +223,14 @@ def evaluate_arm(seed, mode, initial, selection, id_test, shift_test, n_generati
         oracle_events=[]
         pseudo_events=[]
         replay_events=[]
-        accepted_gold=[]
+        accepted_examples=[]
         verified_rejected=0
         updates=0
         noise=seeded(seed, f"noise:{'checked' if mode=='checked_progress' else mode}:{gen}")
         for selected in chosen:
             b,x=selected["band"],selected["x"]
             true=oracle(seed,b,x)
+            oracle_cells.add((b,bucket(x)))
             offered=None
             if mode=="checked_progress":
                 offered=model.predict(b,x)+noise.gauss(0,PSEUDO_NOISE)
@@ -231,15 +238,16 @@ def evaluate_arm(seed, mode, initial, selection, id_test, shift_test, n_generati
                 if accept:
                     model.update(b,x,offered)
                     updates+=1
-                    accepted_gold.append(selected)
-                    cells.add((b,bucket(x)))
+                    accepted_examples.append(selected)
+                    accepted_cells.add((b,bucket(x)))
                 else:
                     verified_rejected+=1
             else:
                 accept=True
                 model.update(b,x,true)
-                accepted_gold.append(selected)
-                cells.add((b,bucket(x)))
+                accepted_examples.append(selected)
+                accepted_cells.add((b,bucket(x)))
+                gold_cells.add((b,bucket(x)))
                 updates+=1
             oracle_events.append({
                 "id":selected["id"],"band":b,"x":x,"oracle_label":true,
@@ -259,6 +267,7 @@ def evaluate_arm(seed, mode, initial, selection, id_test, shift_test, n_generati
                 pseudo_events.append({
                     "id":sample["id"],"band":b,"x":x,"pseudo_label":proposed
                 })
+                accepted_cells.add((b,bucket(x)))
                 updates+=1
         if mode=="gold_replay":
             draw=seeded(seed,f"replay:{gen}")
@@ -282,9 +291,9 @@ def evaluate_arm(seed, mode, initial, selection, id_test, shift_test, n_generati
             "selection_errors_after":after_selection,
         })
         history.append(snapshot(
-            model,id_test,shift_test,cells,gen,chosen,accepted_gold,
-            len(chosen),updates,len(pseudo_events),len(replay_events),
-            verified_rejected,
+            model,id_test,shift_test,oracle_cells,accepted_cells,gold_cells,
+            gen,chosen,accepted_examples,len(chosen),updates,
+            len(pseudo_events),len(replay_events),verified_rejected,
         ))
         last_before=current_selection_error
         last_after=after_selection
@@ -315,7 +324,8 @@ def evaluate_seed(seed,n_generations):
 def averages(runs,n_generations):
     out={}
     metrics=("id_macro_mse","shift_macro_mse","rare_band_mse",
-             "trusted_cell_coverage")
+             "oracle_queried_cell_coverage","accepted_cell_coverage",
+             "gold_label_cell_coverage")
     for mode in ARMS:
         arm_rows=[next(a for a in run["arms"] if a["mode"]==mode) for run in runs]
         means={
