@@ -222,8 +222,11 @@ def run_arm(seed, mode, initial, selection, calibration, testing,
         "macro_coverage": sum(v["coverage"] for v in conf)/N_BANDS,
         "mean_interval_width": sum(v["width"] for v in conf)/N_BANDS,
         "train_oracle_calls": train_oracle_calls,
-        "selection_evaluation_calls": SELECT_PER_BAND*N_BANDS*(rounds+1),
-        "conformal_and_test_evaluation_calls": N_BANDS*(CONFORMAL_PER_BAND+TEST_PER_BAND),
+        "selection_reference_labels": SELECT_PER_BAND*N_BANDS,
+        "selection_score_comparisons": SELECT_PER_BAND*N_BANDS*(rounds+1),
+        "conformal_and_test_reference_labels": N_BANDS*(CONFORMAL_PER_BAND+TEST_PER_BAND),
+        "total_allocated_oracle_calls": (train_oracle_calls + SELECT_PER_BAND*N_BANDS
+                                         + N_BANDS*(CONFORMAL_PER_BAND+TEST_PER_BAND)),
         "accepted": accepted, "rejected": rejected,
         "false_labels_admitted": false_admitted,
         "history": history, "events": events,
@@ -252,7 +255,8 @@ def summarize(runs):
     for mode in MODES:
         arms = [next(a for a in row["arms"] if a["mode"] == mode) for row in runs]
         fields = ("final_test_macro_mse", "improvement", "macro_coverage",
-                  "mean_interval_width", "train_oracle_calls", "accepted",
+                  "mean_interval_width", "train_oracle_calls",
+                  "total_allocated_oracle_calls", "accepted",
                   "rejected", "false_labels_admitted")
         result[mode] = {name:sum(a[name] for a in arms)/n for name in fields}
         result[mode]["per_seed_mse"] = [a["final_test_macro_mse"] for a in arms]
