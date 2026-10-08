@@ -39,3 +39,9 @@ jobs:
       - name: Verify EXP002 historical evidence remains replayable
         run: |
           python3 tools/verify_exp002.py
+      - name: Verify archived EXP003-P0 evidence and its SHA-256
+        run: |
+          FILE=evidence/exp003/exp003-p0-20261008T202705724022Z-146bee1a.json
+          HASH=627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333
+          printf '%s  %s\n' "$HASH" "$FILE" | sha256sum -c -
+          python3 tools/verify_exp003_p0.py "$FILE" --sha256 "$HASH"
