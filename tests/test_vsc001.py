@@ -97,6 +97,10 @@ class VSC001BehaviorTests(unittest.TestCase):
                 expected=32+(2*count if arm["mode"].startswith("verified_")
                              else 0 if arm["mode"]=="recursive_natural" else count)
                 self.assertEqual(arm["train_oracle_calls"],expected)
+                self.assertEqual(arm["selection_reference_labels"],64)
+                self.assertEqual(arm["selection_score_comparisons"],64*4)
+                self.assertEqual(arm["conformal_and_test_reference_labels"],384)
+                self.assertEqual(arm["total_allocated_oracle_calls"],expected+448)
 
     def test_recursive_never_gets_training_oracle_label(self):
         rec=next(a for a in self.doc["runs"][0]["arms"]
@@ -210,6 +214,11 @@ class VSC001VerifierTests(unittest.TestCase):
     def test_rehashed_fake_oracle_budget(self):
         x=copy.deepcopy(self.doc)
         x["runs"][0]["arms"][3]["train_oracle_calls"]-=1
+        self.rejected(x,"replay mismatch")
+
+    def test_rehashed_forged_allocated_oracle_budget(self):
+        x=copy.deepcopy(self.doc)
+        x["runs"][0]["arms"][4]["total_allocated_oracle_calls"]=0
         self.rejected(x,"replay mismatch")
 
     def test_rehashed_fake_heldout_score(self):
