@@ -17,6 +17,43 @@ The six policies are `oracle_natural`, `oracle_balanced`, `noisy_natural`, `veri
 
 The verified policies use **two simulator oracle calls per candidate**, whereas direct oracle and noisy policies use one, and recursive uses none beyond the original labeled examples. The `train_oracle_calls` measure counts initial labels plus candidate oracle access; `total_allocated_oracle_calls` adds shared validation, conformal and held-out labeling as an *allocated accounting comparison*. Those fixed evaluation labels are generated once per seed and are shared by all policies, not called afresh for every model scoring pass. The `selection_score_comparisons` field counts repeated model evaluations, **not oracle calls**.
 
+## Visual architecture — data generation, selection and verification
+
+This Mermaid diagram renders directly in GitHub. **All training is toy numerical simulation**, and the model's scores on the final held-out test set do not influence which training examples it receives.
+
+```mermaid
+flowchart TD
+  O["Independent mathematical oracle"] --> I["32 trusted initial training labels"]
+  I --> L["3-feature polynomial student"]
+  G["Synthetic candidate generator"] --> X{"Policy arm"}
+  L --> P["Current learner predictions"]
+  P -->|"recursive_natural only"| X
+  O -->|"oracle_* controls"| X
+  X -->|"noisy_natural"| N["Unverified synthetic labels"]
+  X -->|"verified_*"| V{"Oracle agreement check"}
+  X -->|"oracle_*"| T["Train on oracle labels"]
+  X -->|"recursive_natural"| T
+  N --> T
+  V -->|pass| T
+  V -->|reject; keep record| R["Rejected example"]
+  T --> L
+  L --> S["Selection-validation MSE"]
+  S -->|"positive error reduction only"| W["Progress-weighted sampler"]
+  W --> G
+  C["Separate conformal calibration pool"] --> Q["Interval calibration"]
+  L --> Q
+  H["Untouched final test pool"] --> F["Final macro MSE & coverage"]
+  Q --> F
+```
+
+The oracle is *not physically isolated*: exact mathematical truth is defined in the same execution environment, and checking it consumes extra privileged oracle calls. This is only a strict simulator study, **not evidence that an independent model could not read hidden truth**.
+
+### Results at a glance
+
+![VSC-001 measured held-out error and oracle-cost comparison](../../reports/vsc001/figures/vsc001_public_five_seed_comparison.svg)
+
+**Figure scope:** public-fixture, five synthetic seeds. Lower MSE is better; lower oracle cost is cheaper. Error and training-oracle calls use separate labeled scales so the visual doesn't conflate them. This is not confirmatory.
+
 ## Reproduce without Azure
 
 From repository root (Python standard library; no NumPy or external services):
