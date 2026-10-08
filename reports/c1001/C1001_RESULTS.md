@@ -55,7 +55,7 @@ These are engineering and environment integration defects, not automatically res
 
 ## Security interpretation: strongest supported claim
 
-<escape>**SUPPORTED IN THIS CI ENVIRONMENT:** Linux discretionary file permissions denied a known restricted process's read of evaluator-only task material; the kernel's Unix-socket peer identity rejected a separate UID; a legal responder succeeded; and a separately written mathematical verifier checked the disclosed synthetic transcript.</escape>
+**SUPPORTED IN THIS CI ENVIRONMENT:** Linux discretionary file permissions denied a known restricted process's read of evaluator-only task material; the kernel's Unix-socket peer identity rejected a separate UID; a legal responder succeeded; and a separately written mathematical verifier checked the disclosed synthetic transcript.
 
 **NOT ESTABLISHED:** containment of arbitrary hostile Python, privileged escalation resistance, cross-user ptrace behavior, kernel/proc mount isolation, process namespace separation, network egress restriction, resource-exhaustion limits, covert-channel detection, independent access telemetry under root compromise, protection against leaking sensitive information in model-visible text, secure external attestation, real model generalization, human publication authorization, or applicability to Android/Termux.
 
