@@ -39,7 +39,7 @@ Every arm gets the same unlabeled candidate pool; gold_natural, mixed_pseudo and
 1. Final and per-generation **macro in-domain held-out MSE**, 4 equal-weight bands.
 2. Final and per-generation **shifted-domain macro MSE**.
 3. Final and per-generation **rare-band MSE** (band 3), to detect gains that erase rare cases.
-4. Accumulating **trusted-label training diversity**: fraction of occupied (band, eight x-bucket) cells, 0..1, and per-generation **selected-label band entropy** (0..1 normalized); measure this on **new oracle-queried candidates**, separately from pseudolabels.
+4. Three **separate provenance-aware diversities**: fraction of occupied (band, eight x-bucket) cells, 0..1 for (a) all candidates *queried* from the oracle, (b) all examples *accepted for training* including pseudolabels, and (c) examples trained with the oracle's **true gold label** only. A checked pseudolabel stays a checked pseudolabel even when accepted and **never** raises gold-label diversity. Per-generation normalized (0..1) band entropy records accepted oracle-query examples; keep pseudolabel-only diversity distinct.
 5. Training oracle queries, pseudolabel updates, anchor replay updates, and rejected checked-pseudolabel examples; report all. The 32 initial, 64 selection and 384 test reference labels are **shared fixed data per seed**, not free to create in actual-world experimentation, and not repeatedly charged to each arm.
 6. All per-generation values and selected candidate identities logged. No final-test adaptation.
 
@@ -69,3 +69,7 @@ A pointwise model improvement in a publicly seeded toy simulation is not a stati
 - Self-training, teacher checking, active learning, replay, domain randomization, and adaptive curriculum learning are established research topics. Originality and patent non-infringement **NOT ESTABLISHED**.
 
 **STOP line:** Before a confirmatory claim, freeze a separate independent holdout, preregister a minimum effect with paired inference and correction for multiple comparisons, test realistic corruption/shift, and validate a real model and external oracle trust boundary. No production or commercial-safety claims.
+
+## Protocol clarification before any VSC-002 run
+
+**Amendment A0 (design review, before first CI experiment):** A verified *pseudolabel* within a numeric tolerance is not a ground-truth measurement. The initial draft's ambiguous term “trusted-label diversity” was replaced with three disjointly defined coverage measures: oracle-queried input coverage, model-training accepted-example coverage, and gold-label-training coverage. Oracle-checked pseudolabels affect the first two, **not** gold-label coverage; unchecked pseudolabels affect accepted-example coverage only. This change was made on the development branch before any VSC-002 results existed; the original protocol text remains in Git history. This does not change arm allocations, test seeds, endpoints, or initial research hypothesis.
