@@ -2,6 +2,14 @@
 
 **PUBLIC EXPLORATORY SIMULATION — NOT VALIDATED.** This experiment investigates a *toy mathematical learner*. It does not establish general language-model collapse, human-text data replacement, production reliability, model independence, or a novel training method.
 
+## Permanent visual summary (tracked in Git)
+
+![24-seed VSC-002 results compare final error and truth-query cost for eight policies](figures/vsc002_final_outcomes.svg)
+
+![VSC-002 distinguishes training example coverage from true gold-label evidence coverage](figures/vsc002_evidence_coverage_gap.svg)
+
+The source-data curves for every generation—including shifted-domain, rare-band, direct-gold diversity, accepted-example diversity and training-update cost—are available as **six additional SVG artifacts** in [the completed CI run](https://github.com/holland202/veritas-origin/actions/runs/37855187413). The complete original JSON is stored in the same time-limited artifact; the two figures above are intentionally maintained alongside this report for permanent readability.
+
 ## Original evidence and reproducibility
 
 - Protocol: [`experiments/vsc002/PROTOCOL.md`](../../experiments/vsc002/PROTOCOL.md), committed *before first VSC-002 run* at `80a288d0b6e88ace4505b028073558eaeb4f674b`.
