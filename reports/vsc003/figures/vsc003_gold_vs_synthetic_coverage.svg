@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1230" viewBox="0 0 1500 1230" role="img" aria-labelledby="title desc">
+<title id="title">VSC-003 gold evidence versus accepted synthetic input diversity</title>
+<desc id="desc">After ten generations over 24 synthetic public seeds, checked progress covers 90.4 percent of input cells with accepted examples but only 63.8 percent with genuine gold labels used in training. These are different properties and verification of a pseudolabel does not turn it into a true oracle label.</desc>
+<rect width="1500" height="1230" fill="#071827"/><rect x="22" y="25" width="1456" height="1180" rx="30" fill="#11263b" stroke="#315774" stroke-width="2"/>
+<text x="55" y="85" fill="#effaff" font-family="Arial,sans-serif" font-size="38" font-weight="bold">Evidence quality ≠ synthetic input coverage</text>
+<text x="55" y="134" fill="#b5d0e5" font-family="Arial,sans-serif" font-size="22">After 10 generations · mean of 24 public synthetic seeds · 32 input cells</text>
+<text x="55" y="174" fill="#ffc58b" font-family="Arial,sans-serif" font-size="22" font-weight="bold">EXPLORATORY SIMULATED — NOT VALIDATED</text>
+<rect x="55" y="203" width="25" height="24" fill="#46d4ad"/><text x="90" y="225" fill="#e7f4fe" font-family="Arial,sans-serif" font-size="20">Direct gold-label trained</text>
+<rect x="440" y="203" width="25" height="24" fill="#eeab75"/><text x="475" y="225" fill="#e7f4fe" font-family="Arial,sans-serif" font-size="20">All accepted training</text>
+<rect x="810" y="203" width="25" height="24" fill="#7dacf0"/><text x="845" y="225" fill="#e7f4fe" font-family="Arial,sans-serif" font-size="20">Queried input cells</text>
+<text x="55" y="330" font-family="Arial,sans-serif" font-size="25" fill="#e7f4fe">gold_natural</text>
+<rect x="405" y="292" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="292" width="696.15" height="29" rx="6" fill="#46d4ad"/><text x="1320" y="314" font-family="monospace" font-size="22" fill="#eefaff">79.6%</text>
+<rect x="405" y="325" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="325" width="696.15" height="29" rx="6" fill="#eeab75"/><text x="1320" y="347" font-family="monospace" font-size="22" fill="#eefaff">79.6%</text>
+<rect x="405" y="358" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="358" width="696.15" height="29" rx="6" fill="#7dacf0"/><text x="1320" y="381" font-family="monospace" font-size="22" fill="#eefaff">79.6%</text>
+<text x="55" y="444" font-family="Arial,sans-serif" font-size="25" fill="#e7f4fe">checked_natural</text>
+<rect x="405" y="406" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="406" width="558.25" height="29" rx="6" fill="#46d4ad"/><text x="1320" y="428" font-family="monospace" font-size="22" fill="#eefaff">63.8%</text>
+<rect x="405" y="439" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="439" width="790.65" height="29" rx="6" fill="#eeab75"/><text x="1320" y="461" font-family="monospace" font-size="22" fill="#eefaff">90.4%</text>
+<rect x="405" y="472" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="472" width="846.48" height="29" rx="6" fill="#7dacf0"/><text x="1320" y="495" font-family="monospace" font-size="22" fill="#eefaff">96.7%</text>
+<text x="55" y="558" font-family="Arial,sans-serif" font-size="25" fill="#e7f4fe">checked_balanced</text>
+<rect x="405" y="520" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="520" width="558.25" height="29" rx="6" fill="#46d4ad"/><text x="1320" y="542" font-family="monospace" font-size="22" fill="#eefaff">63.8%</text>
+<rect x="405" y="553" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="553" width="810.07" height="29" rx="6" fill="#eeab75"/><text x="1320" y="575" font-family="monospace" font-size="22" fill="#eefaff">92.6%</text>
+<rect x="405" y="586" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="586" width="863.63" height="29" rx="6" fill="#7dacf0"/><text x="1320" y="609" font-family="monospace" font-size="22" fill="#eefaff">98.7%</text>
+<text x="55" y="672" font-family="Arial,sans-serif" font-size="25" fill="#e7f4fe">checked_progress</text>
+<rect x="405" y="634" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="634" width="558.25" height="29" rx="6" fill="#46d4ad"/><text x="1320" y="656" font-family="monospace" font-size="22" fill="#eefaff">63.8%</text>
+<rect x="405" y="667" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="667" width="790.65" height="29" rx="6" fill="#eeab75"/><text x="1320" y="689" font-family="monospace" font-size="22" fill="#eefaff">90.4%</text>
+<rect x="405" y="700" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="700" width="848.84" height="29" rx="6" fill="#7dacf0"/><text x="1320" y="723" font-family="monospace" font-size="22" fill="#eefaff">97.0%</text>
+<text x="55" y="786" font-family="Arial,sans-serif" font-size="25" fill="#e7f4fe">hybrid_progress</text>
+<rect x="405" y="748" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="748" width="649.42" height="29" rx="6" fill="#46d4ad"/><text x="1320" y="770" font-family="monospace" font-size="22" fill="#eefaff">74.2%</text>
+<rect x="405" y="781" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="781" width="741.74" height="29" rx="6" fill="#eeab75"/><text x="1320" y="803" font-family="monospace" font-size="22" fill="#eefaff">84.8%</text>
+<rect x="405" y="814" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="814" width="782.69" height="29" rx="6" fill="#7dacf0"/><text x="1320" y="837" font-family="monospace" font-size="22" fill="#eefaff">89.5%</text>
+<text x="55" y="900" font-family="Arial,sans-serif" font-size="25" fill="#e7f4fe">gold_plus_pseudo</text>
+<rect x="405" y="862" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="862" width="696.15" height="29" rx="6" fill="#46d4ad"/><text x="1320" y="884" font-family="monospace" font-size="22" fill="#eefaff">79.6%</text>
+<rect x="405" y="895" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="895" width="869.31" height="29" rx="6" fill="#eeab75"/><text x="1320" y="917" font-family="monospace" font-size="22" fill="#eefaff">99.4%</text>
+<rect x="405" y="928" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="928" width="696.15" height="29" rx="6" fill="#7dacf0"/><text x="1320" y="951" font-family="monospace" font-size="22" fill="#eefaff">79.6%</text>
+<text x="55" y="1014" font-family="Arial,sans-serif" font-size="25" fill="#e7f4fe">pseudo_only</text>
+<rect x="405" y="976" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="976" width="558.25" height="29" rx="6" fill="#46d4ad"/><text x="1320" y="998" font-family="monospace" font-size="22" fill="#eefaff">63.8%</text>
+<rect x="405" y="1009" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="1009" width="846.48" height="29" rx="6" fill="#eeab75"/><text x="1320" y="1031" font-family="monospace" font-size="22" fill="#eefaff">96.7%</text>
+<rect x="405" y="1042" width="875" height="29" rx="6" fill="#263e53"/><rect x="405" y="1042" width="558.25" height="29" rx="6" fill="#7dacf0"/><text x="1320" y="1065" font-family="monospace" font-size="22" fill="#eefaff">63.8%</text>
+<line x1="55" y1="1120" x2="1440" y2="1120" stroke="#3d5a78"/>
+<text x="55" y="1157" font-family="Arial,sans-serif" font-size="21" fill="#e6f4ff">A weak Boolean acceptance does not establish that an example is truth-labeled.</text>
+<text x="55" y="1189" font-family="Arial,sans-serif" font-size="18" fill="#9cbad1">Source: VSC-003 independently replayed CI 37856725904 · full raw JSON artifact.</text>
+</svg>
