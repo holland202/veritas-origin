@@ -4,7 +4,7 @@
 
 ## T1 — Deterministic oracle leakage (HIGH)
 
-The pilot generator and seed-based truth selection are public. Its optional external-proposer JSON context currently includes `task_seed`. A proposer with source access could deterministically reconstruct the hidden truth without collecting observations. Even removing `task_seed` is insufficient on its own: small candidate sets can be matched to enumerated seeds, and model exposure to evidence, task files, or the host filesystem breaks experimental blinding.
+The pilot generator and seed-based truth selection are public. The initial exploratory implementation included `task_seed` in the external-proposer context; this was removed before the first Azure P0 pilot. A proposer with source access and seed access could reconstruct the hidden truth without observations. Removing `task_seed` is insufficient on its own: small candidate sets can be matched to enumerated seeds, and model exposure to evidence, task files, or the host filesystem breaks experimental blinding.
 
 **Interpretation:** A high external-proposer score in P0 does not demonstrate information-seeking autonomy, even if it exceeds fixed/random baselines. Mark any such result `LEAKAGE_RISK` until an independently controlled oracle separation is implemented.
 
