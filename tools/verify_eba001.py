@@ -287,7 +287,7 @@ def verify(raw,pinned_sha,root=ROOT):
           set(doc["transcripts"])==set(METHODS),"transcript roster missing")
     check(type(doc["scenarios"]) is list and
           len(doc["scenarios"])==len(CONDITIONS),"scenario count changed")
-    check(type(root) is Path,"root must be a Path")
+    check(isinstance(root,Path),"root must be a Path")
     archive_path=root/ARCHIVE
     check(archive_path.is_file() and not archive_path.is_symlink(),
           "original historical evidence missing")
