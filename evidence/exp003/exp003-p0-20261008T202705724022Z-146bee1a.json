@@ -1,0 +1,1909 @@
+{
+  "evidence_status": "EXPLORATORY_SIMULATED",
+  "limitations": [
+    "synthetic binary predicates",
+    "oracle labels recorded in evidence",
+    "external proposer not sandboxed",
+    "no model benchmark unless external policy configured"
+  ],
+  "max_steps": 6,
+  "policies": [
+    "fixed",
+    "random",
+    "greedy"
+  ],
+  "protocol": "EXP003-P0",
+  "results": [
+    {
+      "candidates": [
+        "bit1",
+        "bit3",
+        "mod4eq1",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit3",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit1",
+            "bit3",
+            "mod4eq1",
+            "multiple5"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3",
+            "mod4eq1"
+          ],
+          "probe": 1,
+          "step": 1
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit3"
+          ],
+          "probe": 2,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 0,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit3",
+        "mod4eq1",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "bit1",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3",
+            "mod4eq1",
+            "multiple5"
+          ],
+          "probe": 14,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit3"
+          ],
+          "probe": 28,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 0,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit3",
+        "mod4eq1",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3",
+            "mod4eq1",
+            "multiple5"
+          ],
+          "probe": 5,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit3"
+          ],
+          "probe": 2,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 0,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit3",
+        "mod4eq1",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit3",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit1",
+            "bit3",
+            "mod4eq1",
+            "multiple5"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3",
+            "mod4eq1"
+          ],
+          "probe": 1,
+          "step": 1
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3"
+          ],
+          "probe": 2,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "bit3"
+      ],
+      "seed": 1,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit3"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit3",
+        "mod4eq1",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit3",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit1",
+            "bit3",
+            "mod4eq1",
+            "multiple5"
+          ],
+          "probe": 20,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3",
+            "mod4eq1"
+          ],
+          "probe": 21,
+          "step": 1
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3"
+          ],
+          "probe": 15,
+          "step": 2
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3"
+          ],
+          "probe": 28,
+          "step": 3
+        }
+      ],
+      "remaining": [
+        "bit3"
+      ],
+      "seed": 1,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit3"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit3",
+        "mod4eq1",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3",
+            "mod4eq1",
+            "multiple5"
+          ],
+          "probe": 5,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit3"
+          ],
+          "probe": 2,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit3"
+      ],
+      "seed": 1,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit3"
+    },
+    {
+      "candidates": [
+        "bit2",
+        "even",
+        "multiple3",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "even",
+            "multiple3",
+            "multiple5"
+          ],
+          "pre": [
+            "bit2",
+            "even",
+            "multiple3",
+            "multiple5"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "even",
+            "multiple3",
+            "multiple5"
+          ],
+          "pre": [
+            "even",
+            "multiple3",
+            "multiple5"
+          ],
+          "probe": 1,
+          "step": 1
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "multiple3",
+            "multiple5"
+          ],
+          "pre": [
+            "even",
+            "multiple3",
+            "multiple5"
+          ],
+          "probe": 2,
+          "step": 2
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "multiple5"
+          ],
+          "pre": [
+            "multiple3",
+            "multiple5"
+          ],
+          "probe": 3,
+          "step": 3
+        }
+      ],
+      "remaining": [
+        "multiple5"
+      ],
+      "seed": 2,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "multiple5"
+    },
+    {
+      "candidates": [
+        "bit2",
+        "even",
+        "multiple3",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit2",
+            "even",
+            "multiple5"
+          ],
+          "pre": [
+            "bit2",
+            "even",
+            "multiple3",
+            "multiple5"
+          ],
+          "probe": 9,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "even",
+            "multiple5"
+          ],
+          "pre": [
+            "bit2",
+            "even",
+            "multiple5"
+          ],
+          "probe": 23,
+          "step": 1
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "multiple5"
+          ],
+          "pre": [
+            "even",
+            "multiple5"
+          ],
+          "probe": 6,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "multiple5"
+      ],
+      "seed": 2,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "multiple5"
+    },
+    {
+      "candidates": [
+        "bit2",
+        "even",
+        "multiple3",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "multiple3",
+            "multiple5"
+          ],
+          "pre": [
+            "bit2",
+            "even",
+            "multiple3",
+            "multiple5"
+          ],
+          "probe": 4,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "multiple5"
+          ],
+          "pre": [
+            "multiple3",
+            "multiple5"
+          ],
+          "probe": 3,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "multiple5"
+      ],
+      "seed": 2,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "multiple5"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "even",
+        "lowhalf",
+        "mod4eq1"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "even",
+            "lowhalf"
+          ],
+          "pre": [
+            "bit1",
+            "even",
+            "lowhalf",
+            "mod4eq1"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "lowhalf"
+          ],
+          "pre": [
+            "even",
+            "lowhalf"
+          ],
+          "probe": 1,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "lowhalf"
+      ],
+      "seed": 3,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "lowhalf"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "even",
+        "lowhalf",
+        "mod4eq1"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "lowhalf",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit1",
+            "even",
+            "lowhalf",
+            "mod4eq1"
+          ],
+          "probe": 20,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "lowhalf",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit1",
+            "lowhalf",
+            "mod4eq1"
+          ],
+          "probe": 5,
+          "step": 1
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "lowhalf"
+          ],
+          "pre": [
+            "lowhalf",
+            "mod4eq1"
+          ],
+          "probe": 2,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "lowhalf"
+      ],
+      "seed": 3,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "lowhalf"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "even",
+        "lowhalf",
+        "mod4eq1"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "even",
+            "lowhalf"
+          ],
+          "pre": [
+            "bit1",
+            "even",
+            "lowhalf",
+            "mod4eq1"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "lowhalf"
+          ],
+          "pre": [
+            "even",
+            "lowhalf"
+          ],
+          "probe": 1,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "lowhalf"
+      ],
+      "seed": 3,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "lowhalf"
+    },
+    {
+      "candidates": [
+        "bit2",
+        "bit3",
+        "lowhalf",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit2",
+            "bit3"
+          ],
+          "pre": [
+            "bit2",
+            "bit3",
+            "lowhalf",
+            "multiple3"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit2",
+            "bit3"
+          ],
+          "pre": [
+            "bit2",
+            "bit3"
+          ],
+          "probe": 1,
+          "step": 1
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit2",
+            "bit3"
+          ],
+          "pre": [
+            "bit2",
+            "bit3"
+          ],
+          "probe": 2,
+          "step": 2
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit2",
+            "bit3"
+          ],
+          "pre": [
+            "bit2",
+            "bit3"
+          ],
+          "probe": 3,
+          "step": 3
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit3"
+          ],
+          "pre": [
+            "bit2",
+            "bit3"
+          ],
+          "probe": 4,
+          "step": 4
+        }
+      ],
+      "remaining": [
+        "bit3"
+      ],
+      "seed": 4,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit3"
+    },
+    {
+      "candidates": [
+        "bit2",
+        "bit3",
+        "lowhalf",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "bit3"
+          ],
+          "pre": [
+            "bit2",
+            "bit3",
+            "lowhalf",
+            "multiple3"
+          ],
+          "probe": 26,
+          "step": 0
+        }
+      ],
+      "remaining": [
+        "bit3"
+      ],
+      "seed": 4,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit3"
+    },
+    {
+      "candidates": [
+        "bit2",
+        "bit3",
+        "lowhalf",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit2",
+            "bit3"
+          ],
+          "pre": [
+            "bit2",
+            "bit3",
+            "lowhalf",
+            "multiple3"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit3"
+          ],
+          "pre": [
+            "bit2",
+            "bit3"
+          ],
+          "probe": 4,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit3"
+      ],
+      "seed": 4,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit3"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "bit3",
+        "mod4eq1"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2",
+            "bit3",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "bit3",
+            "mod4eq1"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "bit3",
+            "mod4eq1"
+          ],
+          "probe": 1,
+          "step": 1
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "bit3"
+          ],
+          "probe": 2,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 5,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "bit3",
+        "mod4eq1"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "bit3",
+            "mod4eq1"
+          ],
+          "probe": 17,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "bit3"
+          ],
+          "probe": 9,
+          "step": 1
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit2"
+          ],
+          "probe": 10,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 5,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "bit3",
+        "mod4eq1"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit3"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "bit3",
+            "mod4eq1"
+          ],
+          "probe": 5,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit3"
+          ],
+          "probe": 2,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 5,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "even",
+        "lowhalf"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "even",
+            "lowhalf"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2"
+          ],
+          "pre": [
+            "bit1",
+            "bit2"
+          ],
+          "probe": 1,
+          "step": 1
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit2"
+          ],
+          "probe": 2,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 6,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "even",
+        "lowhalf"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "even",
+            "lowhalf"
+          ],
+          "probe": 12,
+          "step": 0
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 6,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "even",
+        "lowhalf"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "even",
+            "lowhalf"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit2"
+          ],
+          "probe": 2,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 6,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "even",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "even",
+            "multiple5"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "even",
+            "multiple5"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "even",
+            "multiple5"
+          ],
+          "pre": [
+            "even",
+            "multiple5"
+          ],
+          "probe": 1,
+          "step": 1
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "multiple5"
+          ],
+          "pre": [
+            "even",
+            "multiple5"
+          ],
+          "probe": 2,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "multiple5"
+      ],
+      "seed": 7,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "multiple5"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "even",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "even",
+            "multiple5"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "even",
+            "multiple5"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "multiple5"
+          ],
+          "pre": [
+            "even",
+            "multiple5"
+          ],
+          "probe": 18,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "multiple5"
+      ],
+      "seed": 7,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "multiple5"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "even",
+        "multiple5"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "even",
+            "multiple5"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "even",
+            "multiple5"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "multiple5"
+          ],
+          "pre": [
+            "even",
+            "multiple5"
+          ],
+          "probe": 2,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "multiple5"
+      ],
+      "seed": 7,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "multiple5"
+    },
+    {
+      "candidates": [
+        "bit2",
+        "lowhalf",
+        "mod4eq1",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit2",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit2",
+            "lowhalf",
+            "mod4eq1",
+            "multiple3"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit2"
+          ],
+          "pre": [
+            "bit2",
+            "mod4eq1"
+          ],
+          "probe": 1,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit2"
+      ],
+      "seed": 8,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit2"
+    },
+    {
+      "candidates": [
+        "bit2",
+        "lowhalf",
+        "mod4eq1",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "bit2",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit2",
+            "lowhalf",
+            "mod4eq1",
+            "multiple3"
+          ],
+          "probe": 29,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit2"
+          ],
+          "pre": [
+            "bit2",
+            "mod4eq1"
+          ],
+          "probe": 23,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit2"
+      ],
+      "seed": 8,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit2"
+    },
+    {
+      "candidates": [
+        "bit2",
+        "lowhalf",
+        "mod4eq1",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit2",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit2",
+            "lowhalf",
+            "mod4eq1",
+            "multiple3"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit2"
+          ],
+          "pre": [
+            "bit2",
+            "mod4eq1"
+          ],
+          "probe": 1,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit2"
+      ],
+      "seed": 8,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit2"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "even",
+        "lowhalf"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "even",
+            "lowhalf"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2"
+          ],
+          "pre": [
+            "bit1",
+            "bit2"
+          ],
+          "probe": 1,
+          "step": 1
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit2"
+          ],
+          "probe": 2,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 9,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "even",
+        "lowhalf"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "even",
+            "lowhalf"
+          ],
+          "probe": 12,
+          "step": 0
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 9,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "bit2",
+        "even",
+        "lowhalf"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "bit2"
+          ],
+          "pre": [
+            "bit1",
+            "bit2",
+            "even",
+            "lowhalf"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "bit2"
+          ],
+          "probe": 2,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 9,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit3",
+        "lowhalf",
+        "mod4eq1",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "lowhalf",
+            "multiple3"
+          ],
+          "pre": [
+            "bit3",
+            "lowhalf",
+            "mod4eq1",
+            "multiple3"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "lowhalf"
+          ],
+          "pre": [
+            "lowhalf",
+            "multiple3"
+          ],
+          "probe": 1,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "lowhalf"
+      ],
+      "seed": 10,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "lowhalf"
+    },
+    {
+      "candidates": [
+        "bit3",
+        "lowhalf",
+        "mod4eq1",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "lowhalf",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit3",
+            "lowhalf",
+            "mod4eq1",
+            "multiple3"
+          ],
+          "probe": 24,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "lowhalf"
+          ],
+          "pre": [
+            "lowhalf",
+            "mod4eq1"
+          ],
+          "probe": 0,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "lowhalf"
+      ],
+      "seed": 10,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "lowhalf"
+    },
+    {
+      "candidates": [
+        "bit3",
+        "lowhalf",
+        "mod4eq1",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "lowhalf",
+            "multiple3"
+          ],
+          "pre": [
+            "bit3",
+            "lowhalf",
+            "mod4eq1",
+            "multiple3"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "lowhalf"
+          ],
+          "pre": [
+            "lowhalf",
+            "multiple3"
+          ],
+          "probe": 1,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "lowhalf"
+      ],
+      "seed": 10,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "lowhalf"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "even",
+        "mod4eq1",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "fixed",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit1",
+            "even",
+            "mod4eq1",
+            "multiple3"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "mod4eq1"
+          ],
+          "probe": 1,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 11,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "even",
+        "mod4eq1",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "random",
+      "records": [
+        {
+          "outcome": 1,
+          "post": [
+            "bit1",
+            "multiple3"
+          ],
+          "pre": [
+            "bit1",
+            "even",
+            "mod4eq1",
+            "multiple3"
+          ],
+          "probe": 15,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "multiple3"
+          ],
+          "pre": [
+            "bit1",
+            "multiple3"
+          ],
+          "probe": 8,
+          "step": 1
+        },
+        {
+          "outcome": 1,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "multiple3"
+          ],
+          "probe": 10,
+          "step": 2
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 11,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    },
+    {
+      "candidates": [
+        "bit1",
+        "even",
+        "mod4eq1",
+        "multiple3"
+      ],
+      "failure": null,
+      "policy": "greedy",
+      "records": [
+        {
+          "outcome": 0,
+          "post": [
+            "bit1",
+            "mod4eq1"
+          ],
+          "pre": [
+            "bit1",
+            "even",
+            "mod4eq1",
+            "multiple3"
+          ],
+          "probe": 0,
+          "step": 0
+        },
+        {
+          "outcome": 0,
+          "post": [
+            "bit1"
+          ],
+          "pre": [
+            "bit1",
+            "mod4eq1"
+          ],
+          "probe": 1,
+          "step": 1
+        }
+      ],
+      "remaining": [
+        "bit1"
+      ],
+      "seed": 11,
+      "solved": true,
+      "status": "COMPLETE",
+      "truth": "bit1"
+    }
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "summary": {
+    "fixed": {
+      "deferred": 0,
+      "mean_remaining": 1.0,
+      "solved_rate": 1.0
+    },
+    "greedy": {
+      "deferred": 0,
+      "mean_remaining": 1.0,
+      "solved_rate": 1.0
+    },
+    "random": {
+      "deferred": 0,
+      "mean_remaining": 1.0,
+      "solved_rate": 1.0
+    }
+  }
+}
