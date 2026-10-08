@@ -249,6 +249,7 @@ def evaluate_arm(seed, mode, initial, selection, id_test, shift_test, n_generati
         if mode in ("mixed_pseudo","pseudo_only"):
             chosen_ids={e["id"] for e in chosen}
             other=[sample for sample in pool if sample["id"] not in chosen_ids]
+            seeded(seed, f"pseudo_candidate_order:{gen}").shuffle(other)
             if mode=="mixed_pseudo":
                 other=other[:16]
             for sample in other:
