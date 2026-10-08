@@ -116,9 +116,18 @@ class ProtocolTests(unittest.TestCase):
                 evaluator.enforce_fs(pri,pub,100000,200000)
 
     def test_independent_replayer_no_evaluator_import(self):
-        s=(ROOT/"tools/verify_c1001.py").read_text()
-        self.assertNotIn("import evaluator",s)
-        self.assertNotIn("from experiments.c1001",s)
+        import ast
+        module=ast.parse((ROOT/"tools/verify_c1001.py").read_text())
+        imports=[]
+        for n in ast.walk(module):
+            if isinstance(n,ast.Import):
+                imports.extend(alias.name for alias in n.names)
+            elif isinstance(n,ast.ImportFrom):
+                imports.append(n.module or "")
+        self.assertFalse(any(
+            part.startswith(("experiments.c1001","evaluator","proposer"))
+            for part in imports
+        ),"independent verifier imported runner or proposer")
 
     def test_absence_of_external_model_or_power_claims(self):
         self.assertIn("NOT_SANDBOXED",self.receipt["scope"])
