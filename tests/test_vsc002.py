@@ -206,12 +206,12 @@ class VSC002VerifierTests(unittest.TestCase):
 
     def test_forged_oracle_label_rehashed(self):
         self.mutate(lambda d:d["runs"][0]["arms"][0]["rounds"][0]
-                    ["oracle_events"][0].__setitem__("oracle_label",-999),
+                    ["oracle_events"][0].__setitem__("oracle_label",-999.0),
                     "replay mismatch")
 
     def test_forged_pseudolabel_rehashed(self):
         self.mutate(lambda d:d["runs"][0]["arms"][6]["rounds"][0]
-                    ["replay_events"][0].__setitem__("label",0),
+                    ["replay_events"][0].__setitem__("label",0.0),
                     "replay mismatch")
 
     def test_forged_candidate_rehashed(self):
