@@ -1,0 +1,78 @@
+name: ITC-001 one-time immutable archive commit
+
+on:
+  push:
+    branches:
+      - experiment/itc001-recurrent-internal-deliberation
+    paths:
+      - ".github/workflows/itc001-archive-once.yml"
+
+jobs:
+  archive-known-original:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    # Exception: one-time evidence archival requires a Git write.
+    # Every scientific/verification workflow remains contents:read.
+    permissions:
+      contents: write
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      PYTHONHASHSEED: "0"
+    steps:
+      - name: Read repository with no persisted credential
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Refuse changed code, changed branch or existing archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/experiment/itc001-recurrent-internal-deliberation"
+          test "$(git hash-object src/origin/itc001.py)" = "30ee3e9cf0d6dbe7e6f800888020edf56059bb09"
+          test "$(git hash-object tools/verify_itc001.py)" = "f527883cd19f649a4a1a4e26597fe7a500d8fc3a"
+          test ! -e evidence/itc001/ITC001_PUBLIC_6SEED.json
+          mkdir -p evidence/itc001
+          python3 -m pip install 'numpy==2.2.6'
+          python3 - <<'PY'
+          import numpy
+          assert numpy.__version__=="2.2.6"
+          PY
+
+      - name: Recreate and independently check exact historical public data
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUTPUT="$(python3 src/origin/itc001.py --pilot --output-dir "${RUNNER_TEMP}/itc001-archive-candidate")"
+          FILE="$(printf '%s\n' "$OUTPUT" | sed -n 's/^EVIDENCE: //p')"
+          SHA="$(printf '%s\n' "$OUTPUT" | sed -n 's/^SHA256: //p')"
+          test -f "$FILE"
+          test "$SHA" = "701703011d39482020bbfd9c40c203fc23fcd64859887cb9edcf15ea93d7ff68"
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+          python3 tools/verify_itc001.py "$FILE" --sha256 "$SHA"
+          install -m 0644 "$FILE" evidence/itc001/ITC001_PUBLIC_6SEED.json
+          printf '%s  %s\n' "$SHA" evidence/itc001/ITC001_PUBLIC_6SEED.json | sha256sum --check
+          echo "ITC001_REGENERATED_ORIGINAL_HASH_AND_NUMERICAL_REPLAY_PASSED"
+
+      - name: Commit only new raw evidence to the same research draft branch
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -n "$GH_TOKEN"
+          test -f evidence/itc001/ITC001_PUBLIC_6SEED.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- evidence/itc001/ITC001_PUBLIC_6SEED.json
+          git diff --cached --name-only > "${RUNNER_TEMP}/staged_files"
+          test "$(wc -l < "${RUNNER_TEMP}/staged_files")" -eq 1
+          test "$(cat "${RUNNER_TEMP}/staged_files")" = "evidence/itc001/ITC001_PUBLIC_6SEED.json"
+          git commit -m "Permanently archive original verified ITC-001 six-seed evidence without changing prior files"
+          AUTH="$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH" \
+            push origin HEAD:refs/heads/experiment/itc001-recurrent-internal-deliberation
+          echo "ITC001_RAW_EVIDENCE_ADDED_ONLY_TO_DRAFT_BRANCH"
