@@ -1,0 +1,8 @@
+VERDICT  2 of 20 cases as expected (mutant always_ready)
+exit 1
+VERDICT  4 of 20 cases as expected (mutant always_insufficient)
+exit 1
+VERDICT  7 of 20 cases as expected (mutant always_invalid)
+exit 1
+VERDICT  2 of 20 cases as expected (mutant always_structural)
+exit 1
