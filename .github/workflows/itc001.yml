@@ -85,7 +85,12 @@ jobs:
           SHA=701703011d39482020bbfd9c40c203fc23fcd64859887cb9edcf15ea93d7ff68
           test -f "$FILE"
           printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
-          python3 tools/verify_itc001.py "$FILE" --sha256 "$SHA"
+          if ! python3 tools/verify_itc001.py "$FILE" --sha256 "$SHA"; then
+            echo "ORIGINAL_BYTES_MATCH_BUT_FRESH_NUMERICAL_REPLAY_FAILED" >&2
+            python3 tools/diagnose_itc001_replay.py "$FILE" \
+              --output-dir "${RUNNER_TEMP}/itc001-same-run-failure-forensics"
+            exit 1
+          fi
           echo "ORIGINAL_REGISTERED_ITC001_ARCHIVE_REPLAY_PASSED"
 
       - name: Six-seed preregistered training, fixed and adaptive inference
@@ -152,6 +157,15 @@ jobs:
             echo "- Hardware timing is exploratory; latent passes are not Joules"
             echo "- **NOT VALIDATED AS HUMAN THOUGHTS OR FORMAL COMPUTATIONAL THRESHOLD**"
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Retain exact-run numerical failure diagnostic if strict replay failed
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: itc001-same-job-failed-fresh-training-drift
+          path: ${{ runner.temp }}/itc001-same-run-failure-forensics
+          retention-days: 30
+          if-no-files-found: warn
 
       - name: Retain original raw evidence, source manifest and exploratory compute audits
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
