@@ -1,14 +1,14 @@
 name: ITC-001 one-time immutable archive commit
 
+# Inert preserved record of successful one-time archival workflow.
+# Original execution: https://github.com/holland202/veritas-origin/actions/runs/37868677991
+# No ongoing push trigger and the job is permanently guarded off.
 on:
-  push:
-    branches:
-      - experiment/itc001-recurrent-internal-deliberation
-    paths:
-      - ".github/workflows/itc001-archive-once.yml"
+  workflow_dispatch:
 
 jobs:
   archive-known-original:
+    if: ${{ false }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     # Exception: one-time evidence archival requires a Git write.
