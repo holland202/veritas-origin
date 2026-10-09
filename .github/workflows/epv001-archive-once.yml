@@ -1,14 +1,15 @@
 name: EPV-001 one-time original evidence preservation
 
+# Inert historical workflow. Successful original evidence commit: 
+# https://github.com/holland202/veritas-origin/actions/runs/37872210659
+# Prior failed source-hash pin: https://github.com/holland202/veritas-origin/actions/runs/37872154497
+
 on:
-  push:
-    branches:
-      - experiment/epv001-multiagent-evidence-vigilance
-    paths:
-      - ".github/workflows/epv001-archive-once.yml"
+  workflow_dispatch:
 
 jobs:
   preserve-exact-published-artifact:
+    if: ${{ false }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
