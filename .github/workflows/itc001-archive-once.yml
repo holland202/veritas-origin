@@ -15,6 +15,7 @@ jobs:
     # Every scientific/verification workflow remains contents:read.
     permissions:
       contents: write
+      actions: read
     env:
       OPENBLAS_NUM_THREADS: "1"
       OMP_NUM_THREADS: "1"
@@ -42,20 +43,30 @@ jobs:
           assert numpy.__version__=="2.2.6"
           PY
 
-      - name: Recreate and independently check exact historical public data
+      - name: Retrieve original verified GitHub artifact bytes without recomputation
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          OUTPUT="$(python3 src/origin/itc001.py --pilot --output-dir "${RUNNER_TEMP}/itc001-archive-candidate")"
-          FILE="$(printf '%s\n' "$OUTPUT" | sed -n 's/^EVIDENCE: //p')"
-          SHA="$(printf '%s\n' "$OUTPUT" | sed -n 's/^SHA256: //p')"
-          test -f "$FILE"
-          test "$SHA" = "701703011d39482020bbfd9c40c203fc23fcd64859887cb9edcf15ea93d7ff68"
-          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
-          python3 tools/verify_itc001.py "$FILE" --sha256 "$SHA"
-          install -m 0644 "$FILE" evidence/itc001/ITC001_PUBLIC_6SEED.json
-          printf '%s  %s\n' "$SHA" evidence/itc001/ITC001_PUBLIC_6SEED.json | sha256sum --check
-          echo "ITC001_REGENERATED_ORIGINAL_HASH_AND_NUMERICAL_REPLAY_PASSED"
+          test -n "$GH_TOKEN"
+          ZIP="${RUNNER_TEMP}/itc001-original-artifact-11588844275.zip"
+          curl --fail --silent --show-error --location --retry 2 --max-time 90 \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            --output "$ZIP" \
+            "https://api.github.com/repos/holland202/veritas-origin/actions/artifacts/11588844275/zip"
+          test -s "$ZIP"
+          unzip -l "$ZIP" | grep -F "itc001-public-original.json"
+          ORIG="${RUNNER_TEMP}/itc001-original-exact.json"
+          unzip -p "$ZIP" "itc001-public-original.json" > "$ORIG"
+          test -s "$ORIG"
+          SHA="701703011d39482020bbfd9c40c203fc23fcd64859887cb9edcf15ea93d7ff68"
+          printf '%s  %s\\n' "$SHA" "$ORIG" | sha256sum --check
+          python3 tools/verify_itc001.py "$ORIG" --sha256 "$SHA"
+          install -m 0644 "$ORIG" evidence/itc001/ITC001_PUBLIC_6SEED.json
+          printf '%s  %s\\n' "$SHA" evidence/itc001/ITC001_PUBLIC_6SEED.json | sha256sum --check
+          echo "ITC001_ORIGINAL_ARTIFACT_BYTES_VERIFIED_WITHOUT_REGENERATION"
 
       - name: Commit only new raw evidence to the same research draft branch
         shell: bash
