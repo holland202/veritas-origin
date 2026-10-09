@@ -1,0 +1,114 @@
+name: EPV-001 evidence provenance and decisive dissent
+
+on:
+  push:
+    branches:
+      - experiment/epv001-multiagent-evidence-vigilance
+    paths:
+      - "experiments/epv001/**"
+      - "src/origin/epv001.py"
+      - "tools/verify_epv001.py"
+      - "tests/test_epv001.py"
+      - "reports/epv001/**"
+      - "docs/FRONTIER_RED_TEAM_RESEARCH_EXTRAPOLATION.md"
+      - ".github/workflows/epv001.yml"
+  pull_request:
+    paths:
+      - "experiments/epv001/**"
+      - "src/origin/epv001.py"
+      - "tools/verify_epv001.py"
+      - "tests/test_epv001.py"
+      - "reports/epv001/**"
+      - "docs/FRONTIER_RED_TEAM_RESEARCH_EXTRAPOLATION.md"
+      - ".github/workflows/epv001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  provenance-lab:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Read-only source checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Compile and test prospective evidence-fusion mechanisms
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 --version
+          python3 -m py_compile src/origin/epv001.py tools/verify_epv001.py
+          python3 -m unittest discover -s tests -p 'test_epv001.py' -v
+
+      - name: Check historical mathematical pilot remains byte-identical
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=evidence/exp003/exp003-p0-20261008T202705724022Z-146bee1a.json
+          SHA=627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+          python3 tools/verify_exp003_p0.py "$FILE" --sha256 "$SHA"
+          python3 -m unittest discover -s tests -p 'test_exp003*.py' -v
+
+      - name: Run all preregistered synthetic four-scout cases and independent replayer
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUTPUT="$(python3 src/origin/epv001.py --pilot --output-dir "${RUNNER_TEMP}/epv001-original")"
+          printf '%s\n' "$OUTPUT"
+          FILE="$(printf '%s\n' "$OUTPUT" | sed -n 's/^EVIDENCE: //p')"
+          SHA="$(printf '%s\n' "$OUTPUT" | sed -n 's/^SHA256: //p')"
+          test -f "$FILE"
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+          python3 tools/verify_epv001.py "$FILE" --sha256 "$SHA"
+          mkdir -p "${RUNNER_TEMP}/epv001-archive"
+          cp "$FILE" "${RUNNER_TEMP}/epv001-archive/epv001-public-original.json"
+          python3 - "$FILE" "$SHA" "${RUNNER_TEMP}/epv001-archive" <<'PY'
+          import json,hashlib,os,pathlib,sys
+          f=pathlib.Path(sys.argv[1])
+          doc=json.loads(f.read_text())
+          output=pathlib.Path(sys.argv[3])
+          short={
+              "protocol":doc["protocol"],"status":doc["status"],
+              "seeds":doc["seeds"],"cases":doc["cases"],
+              "trial_count":len(doc["trial_records"]),
+              "summary":doc["summary"],
+              "registered_controls":doc["registered_controls"],
+              "raw_evidence_sha256":sys.argv[2],
+              "source_revision":os.environ["GITHUB_SHA"],
+              "source_sha256":{
+                  str(x):hashlib.sha256(pathlib.Path(x).read_bytes()).hexdigest()
+                  for x in (
+                     "experiments/epv001/PROTOCOL.md",
+                     "src/origin/epv001.py",
+                     "tools/verify_epv001.py",
+                     "tests/test_epv001.py"
+                  )
+              },
+              "limitations":doc["limitations"],
+          }
+          path=output/"epv001-verified-public-summary.json"
+          path.write_text(json.dumps(short,sort_keys=True,indent=2)+"\n")
+          print("PUBLIC_SUMMARY:",path)
+          print("PUBLIC_SUMMARY_SHA256:",hashlib.sha256(path.read_bytes()).hexdigest())
+          PY
+          {
+            echo "### EPV-001: synthetic multiagent evidence vigilance"
+            echo "- 3072 registered trials, four deterministic policies, six epistemic conditions"
+            echo "- Original full record SHA256: `$SHA`"
+            echo "- Independent full seeded replay passed"
+            echo "- Intentional poisoned-anchor false positive remains preserved"
+            echo "- Reference hashes are fixture assumptions, not world truth"
+            echo "- **NOT AN LLM EXPERIMENT / NOT VALIDATED**"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Preserve full immutable source-linked records
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: epv001-evidence-vigilance-full-raw-and-summary
+          path: ${{ runner.temp }}/epv001-archive
+          retention-days: 30
+          if-no-files-found: error
