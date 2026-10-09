@@ -26,8 +26,8 @@ jobs:
         run: |
           set -euo pipefail
           test "$GITHUB_REF" = "refs/heads/experiment/epv001-multiagent-evidence-vigilance"
-          test "$(git hash-object src/origin/epv001.py)" = "4c0181f70616b843dea4f367978760c2b4a152b9"
-          test "$(git hash-object tools/verify_epv001.py)" = "d888e84ac996d08d1ff2cc35c295c2938afa5027"
+          test "$(git hash-object src/origin/epv001.py)" = "f4feefdd3950ddb9c11c1471ee578787c27d1639"
+          test "$(git hash-object tools/verify_epv001.py)" = "5ee475cc6ec0b069df919846f9f312f08ad4a1d1"
           test ! -e evidence/epv001/EPV001_PUBLIC_ORIGINAL.json
           mkdir -p evidence/epv001
 
