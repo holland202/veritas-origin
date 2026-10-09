@@ -12,6 +12,8 @@ This research program asks:
 
 That is an empirical question, **not a presumption of success**.
 
+A second, independent question concerns **internal computation at inference time**, not weight learning: can a trained recurrent system use extra hidden-state updates and allocate them effectively under an actual runtime budget? ITC-001 studies that separately and preserves the failures of adaptive allocation and actual wall-time speedup.
+
 ## Layers of the artificial system
 
 | Working analogy | Actual technical objects | Measurement |
@@ -32,6 +34,7 @@ A gate such as [Sovereign Veritas](https://github.com/holland202/sovereign-verit
 | Project | Question | Status |
 |---|---|---|
 | [ASP-001](../experiments/asp001/PROTOCOL.md) | Does error/gradient-based self-generated update modulation improve sequential learning? | **Prospectively registered exploratory NumPy experiment; not validated** |
+| [ITC-001](../experiments/itc001/PROTOCOL.md) | Do repeated latent neural updates and a confidence-based stop rule improve accuracy per unit of computation? | **H1 depth benefit met exploratory threshold; H2 adaptive allocation NOT SUPPORTED; masked runtime slower in post-hoc test** |
 | [EXP003-P0](../experiments/exp003/README.md) | How efficiently do known policies disambiguate a controlled hypothesis set? | **Archived exploratory mathematical pilot, 100% completion ceiling** |
 | [VSC-001](https://github.com/holland202/veritas-origin/pull/7) | Does verified synthetic curriculum improve a simple student? | **Draft exploratory study** |
 | [VSC-002](https://github.com/holland202/veritas-origin/pull/8) | Does validation help under matched exact-label budgets over generations? | **Draft exploratory negative result** |
