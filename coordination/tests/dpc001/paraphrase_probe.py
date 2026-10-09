@@ -24,13 +24,34 @@ P = [  # (probe id, visible case, dotted field, new text)
  ("C2", "V03", None, None),
 ]
 
+# Round 2, registered 2026-10-09 before running it against any checker revision.
+# New wordings for the same six visible cases, plus two READY rewordings (R*) that
+# must stay READY, so a checker can't pass by blocking everything unfamiliar.
+Q = [
+ ("Q1", "V03", "comparators.primary_strong_baseline", "a policy that pulls arm 2 every time (expected 50/100)"),
+ ("Q1", "V03", "comparators.baseline_selection_reason", "non-learning references"),
+ ("Q2", "V09", "design.policy_inputs_allowed", "model outputs at each depth plus a flag saying which depth predicted correctly"),
+ ("Q3", "V08", "feasibility.contrast_bound", "an oracle that chooses depth after seeing the gold answers reaches +4.358 pp over the shuffle"),
+ ("Q3", "V08", "feasibility.forecast_input_provenance", "the oracle uses the gold answers"),
+ ("Q4", "V20", "claim.hypothesis", "Once the parity8 task is set aside, ITC-001 H2 becomes SUPPORTED"),
+ ("Q4", "V20", "claim.intended_contribution", "reclassify a registered hypothesis"),
+ ("Q5", "V10", "design.task_distribution", "each of the 512 episodes was hand-built around one poisoned anchor"),
+ ("Q5", "V10", "claim.hypothesis", "evidence-first fusion accepts a poisoned trusted anchor 100% of the time in production multiagent use"),
+ ("Q6", "V17", "feasibility.contrast_bound", "the largest achievable paired difference is 20 rewards (200 x 0.10); the registered +25 margin is larger"),
+ ("R1", "V15", "comparators.primary_strong_baseline", "the Auer, Cesa-Bianchi & Fischer (2002) index policy with its standard exploration constant"),
+ ("R2", "V15", "feasibility.planned_precision", "calibration spread about 6 rewards per seed, so the standard error over 400 seeds is about 0.30 and the smallest effect detectable with 80% probability is about 0.84, below the 1.0 margin"),
+]
+SETS = {"1": P, "2": Q}
+
+
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("checker"); ap.add_argument("cases"); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("checker"); ap.add_argument("cases")
+    ap.add_argument("--set", choices=sorted(SETS), default="1"); a = ap.parse_args()
     path, fn = a.checker.rsplit(":", 1)
     spec = importlib.util.spec_from_file_location("chk", path); mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
     d = json.load(open(a.cases, encoding="utf-8")); base = d["base_contract"]; by = {c["id"]: c for c in d["cases"]}
     probes = {}
-    for pid, cid, field, text in P:
+    for pid, cid, field, text in SETS[a.set]:
         probes.setdefault(pid, [cid, copy.deepcopy(by[cid]["overrides"])])
         if field:
             o = probes[pid][1]; *head, last = field.split(".")
