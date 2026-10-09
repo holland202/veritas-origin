@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1710" height="990" viewBox="0 0 1710 990" role="img" aria-labelledby="title desc">
+<title id="title">ITC-001 empirical accuracy versus latent computation cost</title>
+<desc id="desc">Six public model seeds, mean accuracy versus mean recurrent passes. Fixed three passes achieves 91.2598 percent macro accuracy; adaptive 91.2435 percent with 2.980 passes; fixed five 91.1730 percent at five passes. The adaptive heuristic did not meet the registered per-task shuffled allocation advantage. A post-hoc exploratory Pareto frontier, not a complexity lower bound.</desc>
+<rect width="1710" height="990" fill="#091b2e"/>
+<rect x="23" y="24" width="1664" height="942" rx="30" fill="#132a40" stroke="#385a75" stroke-width="2"/>
+<text x="61" y="83" fill="#f0faff" font-family="Arial,sans-serif" font-size="38" font-weight="bold">ITC-001 · Accuracy versus internal computation</text>
+<text x="61" y="126" fill="#c7dced" font-family="Arial,sans-serif" font-size="23">One trained recurrent network per seed · 6 seeds · 3,072 withheld-pattern decisions per seed</text>
+<text x="61" y="167" fill="#ffcd93" font-family="Arial,sans-serif" font-size="22" font-weight="bold">POST-HOC EMPIRICAL FRONTIER · NOT A STATISTICAL-COMPUTATIONAL THRESHOLD</text>
+<line x1="168" y1="700.00" x2="1150" y2="700.00" stroke="#375874" stroke-dasharray="5,9"/>
+<text x="149" y="707.00" fill="#d3e9f8" text-anchor="end" font-family="monospace" font-size="20">87%</text>
+<line x1="168" y1="623.33" x2="1150" y2="623.33" stroke="#375874" stroke-dasharray="5,9"/>
+<text x="149" y="630.33" fill="#d3e9f8" text-anchor="end" font-family="monospace" font-size="20">88%</text>
+<line x1="168" y1="546.67" x2="1150" y2="546.67" stroke="#375874" stroke-dasharray="5,9"/>
+<text x="149" y="553.67" fill="#d3e9f8" text-anchor="end" font-family="monospace" font-size="20">89%</text>
+<line x1="168" y1="470.00" x2="1150" y2="470.00" stroke="#375874" stroke-dasharray="5,9"/>
+<text x="149" y="477.00" fill="#d3e9f8" text-anchor="end" font-family="monospace" font-size="20">90%</text>
+<line x1="168" y1="393.33" x2="1150" y2="393.33" stroke="#375874" stroke-dasharray="5,9"/>
+<text x="149" y="400.33" fill="#d3e9f8" text-anchor="end" font-family="monospace" font-size="20">91%</text>
+<line x1="168" y1="316.67" x2="1150" y2="316.67" stroke="#375874" stroke-dasharray="5,9"/>
+<text x="149" y="323.67" fill="#d3e9f8" text-anchor="end" font-family="monospace" font-size="20">92%</text>
+<line x1="168" y1="240.00" x2="1150" y2="240.00" stroke="#375874" stroke-dasharray="5,9"/>
+<text x="149" y="247.00" fill="#d3e9f8" text-anchor="end" font-family="monospace" font-size="20">93%</text>
+<text x="170" y="741" fill="#c8e1f2" text-anchor="middle" font-family="monospace" font-size="21">1</text>
+<text x="412.5" y="741" fill="#c8e1f2" text-anchor="middle" font-family="monospace" font-size="21">2</text>
+<text x="655" y="741" fill="#c8e1f2" text-anchor="middle" font-family="monospace" font-size="21">3</text>
+<text x="897.5" y="741" fill="#c8e1f2" text-anchor="middle" font-family="monospace" font-size="21">4</text>
+<text x="1140" y="741" fill="#c8e1f2" text-anchor="middle" font-family="monospace" font-size="21">5</text>
+<text x="390" y="793" fill="#e2f2ff" font-family="Arial,sans-serif" font-size="24">Mean recurrent-state updates / sample →</text>
+<text x="165" y="221" fill="#cce3f3" font-family="Arial,sans-serif" font-size="20">Macro accuracy ↑</text>
+<polyline points="170.000,631.303 412.500,405.446 650.132,374.666 655.000,373.418" fill="none" stroke="#5ecfb0" stroke-width="4" stroke-dasharray="13,8"/>
+<circle cx="170.000" cy="631.303" r="12" fill="#89b5ef" stroke="#f4faff" stroke-width="2"/>
+<circle cx="1260" cy="207" r="11" fill="#89b5ef"/>
+<text x="1286" y="214" font-family="Arial,sans-serif" font-size="22" fill="#e9f7ff">Fixed 1</text>
+<text x="1286" y="236" font-family="monospace" font-size="18" fill="#b6d6eb">87.896% · 1.000 passes</text>
+<circle cx="412.500" cy="405.446" r="12" fill="#8cc6e7" stroke="#f4faff" stroke-width="2"/>
+<circle cx="1260" cy="276" r="11" fill="#8cc6e7"/>
+<text x="1286" y="283" font-family="Arial,sans-serif" font-size="22" fill="#e9f7ff">Fixed 2</text>
+<text x="1286" y="305" font-family="monospace" font-size="18" fill="#b6d6eb">90.842% · 2.000 passes</text>
+<circle cx="650.132" cy="374.666" r="12" fill="#cba4ee" stroke="#f4faff" stroke-width="2"/>
+<circle cx="1260" cy="345" r="11" fill="#cba4ee"/>
+<text x="1286" y="352" font-family="Arial,sans-serif" font-size="22" fill="#e9f7ff">Adaptive</text>
+<text x="1286" y="374" font-family="monospace" font-size="18" fill="#b6d6eb">91.243% · 2.980 passes</text>
+<circle cx="655.000" cy="373.418" r="12" fill="#53d0b5" stroke="#f4faff" stroke-width="2"/>
+<circle cx="1260" cy="414" r="11" fill="#53d0b5"/>
+<text x="1286" y="421" font-family="Arial,sans-serif" font-size="22" fill="#e9f7ff">Fixed 3</text>
+<text x="1286" y="443" font-family="monospace" font-size="18" fill="#b6d6eb">91.260% · 3.000 passes</text>
+<circle cx="650.132" cy="376.854" r="12" fill="#ffad88" stroke="#f4faff" stroke-width="2"/>
+<circle cx="1260" cy="483" r="11" fill="#ffad88"/>
+<text x="1286" y="490" font-family="Arial,sans-serif" font-size="22" fill="#e9f7ff">Task-shuffled</text>
+<text x="1286" y="512" font-family="monospace" font-size="18" fill="#b6d6eb">91.215% · 2.980 passes</text>
+<circle cx="650.132" cy="387.639" r="12" fill="#b8b4ba" stroke="#f4faff" stroke-width="2"/>
+<circle cx="1260" cy="552" r="11" fill="#b8b4ba"/>
+<text x="1286" y="559" font-family="Arial,sans-serif" font-size="22" fill="#e9f7ff">Global-shuffled</text>
+<text x="1286" y="581" font-family="monospace" font-size="18" fill="#b6d6eb">91.074% · 2.980 passes</text>
+<circle cx="1140.000" cy="380.073" r="12" fill="#e5d17f" stroke="#f4faff" stroke-width="2"/>
+<circle cx="1260" cy="621" r="11" fill="#e5d17f"/>
+<text x="1286" y="628" font-family="Arial,sans-serif" font-size="22" fill="#e9f7ff">Fixed 5</text>
+<text x="1286" y="650" font-family="monospace" font-size="18" fill="#b6d6eb">91.173% · 5.000 passes</text>
+<line x1="61" y1="854" x2="1648" y2="854" stroke="#3b607a"/>
+<text x="61" y="891" font-family="Arial,sans-serif" font-size="21" fill="#f0d6ad">Fixed-3 slightly exceeds fixed-5 accuracy using fewer recurrent updates in this public fixture.</text>
+<text x="61" y="926" font-family="Arial,sans-serif" font-size="19" fill="#afd0e5">GitHub Actions 37868100328 · H1 threshold met; H2 adaptive superiority NOT SUPPORTED.</text>
+</svg>
