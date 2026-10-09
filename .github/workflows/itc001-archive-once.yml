@@ -62,10 +62,10 @@ jobs:
           unzip -p "$ZIP" "itc001-public-original.json" > "$ORIG"
           test -s "$ORIG"
           SHA="701703011d39482020bbfd9c40c203fc23fcd64859887cb9edcf15ea93d7ff68"
-          printf '%s  %s\\n' "$SHA" "$ORIG" | sha256sum --check
+          printf '%s  %s\n' "$SHA" "$ORIG" | sha256sum --check
           python3 tools/verify_itc001.py "$ORIG" --sha256 "$SHA"
           install -m 0644 "$ORIG" evidence/itc001/ITC001_PUBLIC_6SEED.json
-          printf '%s  %s\\n' "$SHA" evidence/itc001/ITC001_PUBLIC_6SEED.json | sha256sum --check
+          printf '%s  %s\n' "$SHA" evidence/itc001/ITC001_PUBLIC_6SEED.json | sha256sum --check
           echo "ITC001_ORIGINAL_ARTIFACT_BYTES_VERIFIED_WITHOUT_REGENERATION"
 
       - name: Commit only new raw evidence to the same research draft branch
