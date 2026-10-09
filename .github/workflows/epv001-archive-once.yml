@@ -1,0 +1,75 @@
+name: EPV-001 one-time original evidence preservation
+
+on:
+  push:
+    branches:
+      - experiment/epv001-multiagent-evidence-vigilance
+    paths:
+      - ".github/workflows/epv001-archive-once.yml"
+
+jobs:
+  preserve-exact-published-artifact:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - name: Checkout without persisted write credentials
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Verify expected source and no existing original
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/experiment/epv001-multiagent-evidence-vigilance"
+          test "$(git hash-object src/origin/epv001.py)" = "4c0181f70616b843dea4f367978760c2b4a152b9"
+          test "$(git hash-object tools/verify_epv001.py)" = "d888e84ac996d08d1ff2cc35c295c2938afa5027"
+          test ! -e evidence/epv001/EPV001_PUBLIC_ORIGINAL.json
+          mkdir -p evidence/epv001
+
+      - name: Retrieve exact bytes from first successful published run
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -n "$GH_TOKEN"
+          ZIP="${RUNNER_TEMP}/epv001-original-artifact-11590892458.zip"
+          curl --fail --silent --show-error --location --retry 2 --max-time 90 \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -o "$ZIP" \
+            "https://api.github.com/repos/holland202/veritas-origin/actions/artifacts/11590892458/zip"
+          test -s "$ZIP"
+          unzip -l "$ZIP" | grep -F "epv001-public-original.json"
+          ORIGINAL="${RUNNER_TEMP}/epv001-original-exact.json"
+          unzip -p "$ZIP" "epv001-public-original.json" > "$ORIGINAL"
+          SHA=5867b9ea49b97065dafd96d190daba53cb2417e4a13ff6c4e1f9a99521d10368
+          printf '%s  %s\n' "$SHA" "$ORIGINAL" | sha256sum --check
+          python3 tools/verify_epv001.py "$ORIGINAL" --sha256 "$SHA"
+          install -m 0644 "$ORIGINAL" evidence/epv001/EPV001_PUBLIC_ORIGINAL.json
+          printf '%s  %s\n' "$SHA" evidence/epv001/EPV001_PUBLIC_ORIGINAL.json | sha256sum --check
+          echo "EPV001_ORIGINAL_BYTES_PRESERVED_AND_VERIFIED"
+
+      - name: Stage and commit only newly added original JSON
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -n "$GH_TOKEN"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- evidence/epv001/EPV001_PUBLIC_ORIGINAL.json
+          git diff --cached --name-only > "${RUNNER_TEMP}/staged"
+          test "$(wc -l < "${RUNNER_TEMP}/staged")" -eq 1
+          test "$(cat "${RUNNER_TEMP}/staged")" = "evidence/epv001/EPV001_PUBLIC_ORIGINAL.json"
+          git commit -m "Archive original EPV-001 exact raw JSON from passing Actions run, no replacement"
+          AUTH="$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH" \
+            push origin HEAD:refs/heads/experiment/epv001-multiagent-evidence-vigilance
+          echo "EPV001_EXACT_RAW_ARTIFACT_ADDED_TO_DRAFT_ONLY"
