@@ -76,6 +76,12 @@ No external model API, root privileges, cloud account, or network calls are need
 
 ## Full original evidence
 
+The **exact original 4,060,668-byte JSON is now stored permanently in this draft branch**, not merely in a 30-day workflow attachment:
+
+**[Open the original ITC-001 full numerical evidence](../../evidence/itc001/ITC001_PUBLIC_6SEED.json)**
+
+Git blob SHA-1: `d818bd27e509b3b578496dd028c949b619466e77`. [Archival run 37868677991](https://github.com/holland202/veritas-origin/actions/runs/37868677991) retrieved the **exact first-run bytes**, verified the original SHA256, performed independent replay, and committed them without modifying an existing file. Two unsuccessful archival attempts were retained; the write-permission workflow was disabled after the successful commit. Read [the archival correction record](../../reports/itc001/ITC001_PUBLIC_EXPLORATORY.md#long-term-original-evidence-preservation--completed-after-the-first-run).
+
 [GitHub Actions artifact — complete JSON and audits](https://github.com/holland202/veritas-origin/actions/runs/37868100328/artifacts/11588844275), 30-day retention, expires approximately **2026-11-08 01:06 UTC**.
 
 Original full evidence SHA256:
