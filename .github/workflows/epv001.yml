@@ -98,7 +98,7 @@ jobs:
           {
             echo "### EPV-001: synthetic multiagent evidence vigilance"
             echo "- 3072 registered trials, four deterministic policies, six epistemic conditions"
-            echo "- Original full record SHA256: `$SHA`"
+            printf -- '- Original full record SHA256: %s\n' "$SHA"
             echo "- Independent full seeded replay passed"
             echo "- Intentional poisoned-anchor false positive remains preserved"
             echo "- Reference hashes are fixture assumptions, not world truth"
