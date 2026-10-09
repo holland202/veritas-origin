@@ -1,0 +1,219 @@
+name: ITC-001 recurrent internal computation and tradeoff audit
+
+on:
+  push:
+    branches:
+      - experiment/itc001-recurrent-internal-deliberation
+    paths:
+      - "experiments/itc001/**"
+      - "src/origin/itc001.py"
+      - "tools/verify_itc001.py"
+      - "tools/measure_itc001_compute.py"
+      - "tools/analyze_itc001_tradeoffs.py"
+      - "tests/test_itc001*.py"
+      - "reports/itc001/**"
+      - ".github/workflows/itc001.yml"
+  pull_request:
+    paths:
+      - "experiments/itc001/**"
+      - "src/origin/itc001.py"
+      - "tools/verify_itc001.py"
+      - "tools/measure_itc001_compute.py"
+      - "tools/analyze_itc001_tradeoffs.py"
+      - "tests/test_itc001*.py"
+      - "reports/itc001/**"
+      - ".github/workflows/itc001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  latent-computation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      PYTHONHASHSEED: "0"
+    steps:
+      - name: Read-only source checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Pin numerical environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 --version
+          python3 -m pip install 'numpy==2.2.6'
+          python3 - <<'PY'
+          import numpy as np
+          assert np.__version__=="2.2.6",np.__version__
+          print("PINNED_NUMPY:",np.__version__)
+          PY
+
+      - name: Compile genuine recurrent model, independent verifier and post-hoc audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile src/origin/itc001.py tools/verify_itc001.py \
+            tools/measure_itc001_compute.py tools/analyze_itc001_tradeoffs.py
+
+      - name: Positive and adversarial ITC-001 tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s tests -p 'test_itc001*.py' -v
+
+      - name: Preserve original historical P0 and independent verifier
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=evidence/exp003/exp003-p0-20261008T202705724022Z-146bee1a.json
+          SHA=627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+          python3 tools/verify_exp003_p0.py "$FILE" --sha256 "$SHA"
+          python3 -m unittest discover -s tests -p 'test_exp003*.py' -v
+
+      - name: Verify permanent original ITC-001 evidence bytes and numerical content
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=evidence/itc001/ITC001_PUBLIC_6SEED.json
+          SHA=701703011d39482020bbfd9c40c203fc23fcd64859887cb9edcf15ea93d7ff68
+          test -f "$FILE"
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+          if ! python3 tools/verify_itc001.py "$FILE" --sha256 "$SHA"; then
+            echo "ORIGINAL_BYTES_MATCH_BUT_FRESH_NUMERICAL_REPLAY_FAILED" >&2
+            python3 tools/diagnose_itc001_replay.py "$FILE" \
+              --output-dir "${RUNNER_TEMP}/itc001-same-run-failure-forensics"
+            exit 1
+          fi
+          echo "ORIGINAL_REGISTERED_ITC001_ARCHIVE_REPLAY_PASSED"
+
+      - name: Six-seed preregistered training, fixed and adaptive inference
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUTPUT="$(python3 src/origin/itc001.py --pilot --output-dir "${RUNNER_TEMP}/itc001-original")"
+          printf '%s\n' "$OUTPUT"
+          FILE="$(printf '%s\n' "$OUTPUT" | sed -n 's/^EVIDENCE: //p')"
+          SHA="$(printf '%s\n' "$OUTPUT" | sed -n 's/^SHA256: //p')"
+          test -f "$FILE"
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+          python3 tools/verify_itc001.py "$FILE" --sha256 "$SHA"
+
+          mkdir -p "${RUNNER_TEMP}/itc001-archive"
+          cp "$FILE" "${RUNNER_TEMP}/itc001-archive/itc001-public-original.json"
+          python3 tools/analyze_itc001_tradeoffs.py "$FILE" --sha256 "$SHA" \
+            --output-dir "${RUNNER_TEMP}/itc001-archive"
+          python3 tools/measure_itc001_compute.py "$FILE" --sha256 "$SHA" \
+            --repetitions 7 --output-dir "${RUNNER_TEMP}/itc001-archive"
+
+          python3 - "$FILE" "$SHA" "${RUNNER_TEMP}/itc001-archive" <<'PY'
+          import json, sys, pathlib, hashlib, os, platform, numpy
+          original=pathlib.Path(sys.argv[1])
+          sha=sys.argv[2]
+          folder=pathlib.Path(sys.argv[3])
+          sources=[
+              'experiments/itc001/PROTOCOL.md',
+              'docs/INTERNAL_COMPUTATION_RESEARCH_MAP.md',
+              'src/origin/itc001.py','tools/verify_itc001.py',
+              'tools/analyze_itc001_tradeoffs.py','tools/measure_itc001_compute.py',
+              'tests/test_itc001.py','tests/test_itc001_compute.py',
+          ]
+          d=json.loads(original.read_text())
+          manifest={
+              'experiment':'ITC-001',
+              'status':'PUBLIC_EXPLORATORY_INTERNAL_COMPUTATION_NOT_VALIDATED',
+              'source_commit':os.environ['GITHUB_SHA'],
+              'original_sha256':sha,
+              'numpy_version':numpy.__version__,
+              'python_version':platform.python_version(),
+              'seed_count':len(d['seed_records']),
+              'H1':d['aggregate']['H1'],
+              'H2':d['aggregate']['H2'],
+              'files':{name:hashlib.sha256(pathlib.Path(name).read_bytes()).hexdigest()
+                       for name in sources},
+              'limitations':['No neural thoughts or consciousness established',
+                             'No formal statistical-computational threshold',
+                             'Wall timing is environment- and batch-size-specific',
+                             'Post-hoc frontier is not preregistered superiority claim'],
+          }
+          destination=folder/'itc001-source-evidence-manifest.json'
+          destination.write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+          print('MANIFEST:',destination)
+          print('MANIFEST_SHA256:',hashlib.sha256(destination.read_bytes()).hexdigest())
+          PY
+          {
+            echo "### ITC-001 latent internal computation"
+            echo "- Fixed source and 6 public seeds; 640 recurrent BPTT training updates per model"
+            echo "- Original full JSON SHA256: `$SHA`"
+            echo "- Independent 1153-parameter numerical reconstruction and all depth controls PASS"
+            echo "- Post-hoc empirical accuracy/compute Pareto frontier separately marked"
+            echo "- Real masked early exit checked against counterfactual archived outputs"
+            echo "- Hardware timing is exploratory; latent passes are not Joules"
+            echo "- **NOT VALIDATED AS HUMAN THOUGHTS OR FORMAL COMPUTATIONAL THRESHOLD**"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Retain exact-run numerical failure diagnostic if strict replay failed
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: itc001-same-job-failed-fresh-training-drift
+          path: ${{ runner.temp }}/itc001-same-run-failure-forensics
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Retain original raw evidence, source manifest and exploratory compute audits
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: itc001-original-evidence-and-compute-frontier
+          path: ${{ runner.temp }}/itc001-archive
+          retention-days: 30
+          if-no-files-found: error
+
+
+  cross-run-numerical-forensics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      PYTHONHASHSEED: "0"
+    steps:
+      - name: Checkout read-only without publishing credentials
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Pin NumPy and verify original immutable byte identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install 'numpy==2.2.6'
+          FILE=evidence/itc001/ITC001_PUBLIC_6SEED.json
+          SHA=701703011d39482020bbfd9c40c203fc23fcd64859887cb9edcf15ea93d7ff68
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+
+      - name: Measure per-seed fresh-training drift without promoting a failed strict replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/diagnose_itc001_replay.py \
+            evidence/itc001/ITC001_PUBLIC_6SEED.json \
+            --output-dir "${RUNNER_TEMP}/itc001-numeric-forensics"
+          test -s "${RUNNER_TEMP}/itc001-numeric-forensics/itc001_fresh_training_drift_diagnostic.json"
+
+      - name: Preserve read-only failure forensics for independent inspection
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: itc001-fresh-training-cross-run-drift
+          path: ${{ runner.temp }}/itc001-numeric-forensics
+          if-no-files-found: error
+          retention-days: 30
