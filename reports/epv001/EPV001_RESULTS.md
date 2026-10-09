@@ -16,6 +16,7 @@ Motivated by independently reported Anthropic [*Patterns and problems in emergin
 - Original **3,072-trial raw JSON SHA-256**: `5867b9ea49b97065dafd96d190daba53cb2417e4a13ff6c4e1f9a99521d10368`.
 - [Original full JSON and compact source-linked summary, GitHub artifact ID 11590892458](https://github.com/holland202/veritas-origin/actions/runs/37871992687/artifacts/11590892458), GitHub Actions retention until approximately **2026-11-08 01:54 UTC**. Archive separately before expiration; a PDF/this report is not a substitute.
 - GitHub-generated summary SHA-256: `c36709438229abcc9c1383c3dd984c761409b6fee76c94087ba76f56c4bb547a`.
+- **Permanent original raw JSON:** [exact SHA-verified EPV001_PUBLIC_ORIGINAL.json in this research draft branch](../../evidence/epv001/EPV001_PUBLIC_ORIGINAL.json), copied from the first successful published Actions artifact **without numerical regeneration**. The [one-time archive job 37872210659](https://github.com/holland202/veritas-origin/actions/runs/37872210659) checked both the recorded byte SHA-256 and independent semantic replay before committing only the new artifact. The [first archive attempt 37872154497](https://github.com/holland202/veritas-origin/actions/runs/37872154497) refused to proceed because the archival script initially pinned Git commit IDs rather than actual blob IDs; this failed run is retained. The one-time archive workflow has since been disabled.
 
 ## Actual engineered setup and registered limitations
 
