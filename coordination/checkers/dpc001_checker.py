@@ -74,6 +74,10 @@ def _analytic_impossibility(bound: str, threshold: str, phase: str) -> bool:
     target = re.search(r"(?:>=|>|at least|minimum)\s*\+?([\d.]+)", threshold)
     if match and target and ("possible" in bound or "bound" in bound):
         return float(target.group(1)) > float(match.group(2))
+    # Absolute maximum declared in different, equivalent notation.
+    limit = re.search(r"cannot exceed\s*([0-9]+(?:\.[0-9]+)?)", bound)
+    if limit and target and float(target.group(1)) > float(limit.group(1)):
+        return True
     return False
 
 
@@ -118,7 +122,7 @@ def classify(contract: dict[str, Any]) -> dict[str, Any]:
 
     # G0/G1: contradictory or retrospective result rewriting cannot be blessed.
     if phase == "RETROSPECTIVE_DIAGNOSTIC" and re.search(
-        r"\b(supported once|now supported|revised status|exclude.{0,30}parity8)\b", text_claim
+        r"\b(supported once|now supported|revised status|exclude.{0,30}parity8|holds after dropping|updated verdict)\b", text_claim
     ):
         return _out("CONTRACT_INVALID", "RETROSPECTIVE_OUTCOME_RELABELLING")
     if kind == "STRUCTURAL":
@@ -135,14 +139,14 @@ def classify(contract: dict[str, Any]) -> dict[str, Any]:
 
     if kind == "DESCRIPTIVE_RATE" and (
         "every episode deliberately" in _s(design["task_distribution"])
-        or "constructed" in _s(design["task_distribution"])
-    ) and ("deployment" in text_claim or "real.world" in text_claim):
+        or "constructed" in _s(design["task_distribution"]) or "all 512 episodes were built" in _s(design["task_distribution"])
+    ) and ("deployment" in text_claim or "real.world" in text_claim or "real multiagent" in text_claim):
         return _out("CONTRACT_INVALID", "SYNTHETIC_RATE_EXTRAPOLATION")
 
     # G2: do not mistake optimistic hindsight label-oracle bounds for feasible policies.
-    label_oracle = bool(re.search(r"(true labels?|held.out true labels?|evaluation labels?|correctness of each depth)", bound + " " + provenance + " " + permitted))
+    label_oracle = bool(re.search(r"(true labels?|held.out true labels?|evaluation labels?|correctness of each depth|ground.truth answers|test.set answers|answer was right)", bound + " " + provenance + " " + permitted))
     if label_oracle:
-        if "correctness of each depth" in permitted or ("achievable" in bound and "oracle" in bound):
+        if ("correctness of each depth" in permitted or "answer was right" in permitted) or ("achievable" in bound and "oracle" in bound):
             return _out("CONTRACT_INVALID", "ORACLE_MISREPRESENTED_AS_FEASIBLE")
         return _out("INSUFFICIENT_INFORMATION", "ORACLE_LEAKAGE_TO_HEADROOM_ARGUMENT")
 
@@ -155,8 +159,8 @@ def classify(contract: dict[str, Any]) -> dict[str, Any]:
         floor = _s(cmp["trivial_floor_controls"])
         selection = _s(cmp["baseline_selection_reason"])
         contribution = _s(claim["intended_contribution"])
-        weak_only = ("fixed.medium" in baseline or "uniform random" in baseline or
-                     ("simple reference" in selection and "random" in floor))
+        weak_only = ("fixed.medium" in baseline or "always pull the middle arm" in baseline or "uniform random" in baseline or
+                     (("simple reference" in selection or "easy-to-compute reference" in selection) and "random" in floor))
         if weak_only and ("advantage" in contribution or "superior" in contribution):
             return _out("DEMONSTRATION", "WEAK_COMPARATOR_FOR_CLAIM")
 
@@ -175,5 +179,18 @@ def classify(contract: dict[str, Any]) -> dict[str, Any]:
     if "pilot" in bound and ("claimed" in bound or "prove" in bound):
         return _out("INSUFFICIENT_INFORMATION", "PILOT_NOT_ANALYTIC_BOUND")
 
+    # Fail closed. Unknown prose is not affirmative readiness evidence.
+    if kind != "COMPARATIVE_EFFECT" or phase != "PROSPECTIVE":
+        return _out("INSUFFICIENT_INFORMATION", "READINESS_NOT_ESTABLISHED")
+    if not isinstance(cmp, dict) or not re.search(r"\b(ucb1|ucb|baseline|benchmark|prior.art|published|replication)\b", _s(cmp.get("primary_strong_baseline"))):
+        return _out("INSUFFICIENT_INFORMATION", "STRONG_BASELINE_NOT_ESTABLISHED")
+    if not re.search(r"(separate|disjoint|independent)", _s(design.get("calibration_data"))):
+        return _out("INSUFFICIENT_INFORMATION", "CALIBRATION_SEPARATION_NOT_ESTABLISHED")
+    if not re.search(r"(seed|independent|paired)", _s(claim.get("denominator"))):
+        return _out("INSUFFICIENT_INFORMATION", "INDEPENDENT_UNITS_NOT_ESTABLISHED")
+    if not re.search(r"\b(sd|se|mde|variance|power|confidence interval|95% ci)\b", _s(feas.get("planned_precision"))):
+        return _out("INSUFFICIENT_INFORMATION", "PRECISION_NOT_ESTABLISHED")
+    if not re.search(r"(predict|forecast|interval|probability)", _s(feas.get("forecast", ""))):
+        return _out("INSUFFICIENT_INFORMATION", "FORECAST_NOT_ESTABLISHED")
     return _out("READY_FOR_COMPARISON", "PROSPECTIVE_REQUIREMENTS_DECLARED",
                 claim_kind=kind, review_phase=phase)
