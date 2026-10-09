@@ -77,6 +77,17 @@ jobs:
           python3 tools/verify_exp003_p0.py "$FILE" --sha256 "$SHA"
           python3 -m unittest discover -s tests -p 'test_exp003*.py' -v
 
+      - name: Verify permanent original ITC-001 evidence bytes and numerical content
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=evidence/itc001/ITC001_PUBLIC_6SEED.json
+          SHA=701703011d39482020bbfd9c40c203fc23fcd64859887cb9edcf15ea93d7ff68
+          test -f "$FILE"
+          printf '%s  %s\n' "$SHA" "$FILE" | sha256sum --check
+          python3 tools/verify_itc001.py "$FILE" --sha256 "$SHA"
+          echo "ORIGINAL_REGISTERED_ITC001_ARCHIVE_REPLAY_PASSED"
+
       - name: Six-seed preregistered training, fixed and adaptive inference
         shell: bash
         run: |
