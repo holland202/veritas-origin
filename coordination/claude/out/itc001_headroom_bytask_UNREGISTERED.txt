@@ -1,0 +1,7 @@
+copy       ceiling-minus-shuffle  +0.233 pp   flip-flopping instances   0.07%
+AND        ceiling-minus-shuffle  +0.000 pp   flip-flopping instances   0.00%
+XOR        ceiling-minus-shuffle  +0.033 pp   flip-flopping instances   0.03%
+parity4    ceiling-minus-shuffle  +0.726 pp   flip-flopping instances   0.46%
+majority5  ceiling-minus-shuffle  +0.686 pp   flip-flopping instances   0.13%
+parity8    ceiling-minus-shuffle +24.470 pp   flip-flopping instances  14.88%
+macro, all tasks: +4.358 pp ; macro excluding parity8: +0.280 pp contribution of tasks 1-5 to the 6-task macro

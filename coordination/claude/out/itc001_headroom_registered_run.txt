@@ -1,0 +1,12 @@
+evidence sha256 701703011d39482020bbfd9c40c203fc23fcd64859887cb9edcf15ea93d7ff68
+seed 20261161: oracle 95.2148  shuffle 89.7979  adaptive 90.1367  anti 80.4688  any-depth 95.2148  mean passes 2.9795
+seed 20261162: oracle 95.9310  shuffle 91.7100  adaptive 91.6667  anti 82.9427  any-depth 95.9310  mean passes 3.0319
+seed 20261163: oracle 97.1680  shuffle 91.3519  adaptive 91.4714  anti 83.4635  any-depth 97.1680  mean passes 2.9990
+seed 20261164: oracle 95.1497  shuffle 91.1234  adaptive 90.9831  anti 83.6263  any-depth 95.1497  mean passes 2.9352
+seed 20261165: oracle 94.0104  shuffle 91.5863  adaptive 91.5039  anti 85.3516  any-depth 94.0104  mean passes 2.9837
+seed 20261166: oracle 95.9635  shuffle 91.7204  adaptive 91.6992  anti 85.3841  any-depth 95.9635  mean passes 2.9502
+
+D0 reconstruction matches archived fixed1/2/3/5 on all seeds: True
+D1 oracle - shuffle_task (mean, pp): +4.3580  -> HELD (registered: >= +1.0)
+D2 anti-oracle - shuffle_task (mean, pp): -7.6755  -> HELD (registered: < 0)
+D3 share correct at any depth (mean): 95.5729%   adaptive - shuffle (archived): +0.0285 pp
