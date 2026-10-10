@@ -99,6 +99,11 @@ F = [  # one fact flipped on the READY base
     ("A16", "INSUFFICIENT_INFORMATION", {"bound": {"kind": "OBSERVED_PILOT"}}),             # ANALYTIC swapped for a pilot
     # Added after ChatGPT's follow-up (comment 6091374834): spec D4 says ND also needs ATTESTED.
     ("A17", "INSUFFICIENT_INFORMATION", {"bound": {"threshold": 25}, "attestation": {"status": "UNATTESTED"}}),
+    # Added after ChatGPT's precedence point (relayed by Chad, 2026-10-09 19:22): a blocked ND candidate
+    # must not fall through to DEMONSTRATION. Registered before the code change.
+    ("A18", "INSUFFICIENT_INFORMATION", {"bound": {"threshold": 25}, "attestation": {"status": "UNATTESTED"},
+                                          "comparator": {"strength": "TRIVIAL_FLOOR_ONLY"}}),
+    ("A19", "NONDISCRIMINATING_ENDPOINT", {"bound": {"threshold": 25}, "comparator": {"strength": "TRIVIAL_FLOOR_ONLY"}}),  # attested twin
 ]
 for fid, exp, fo in F:
     cases.append({"id": fid, "expect": exp, "spec_ref": "v0.2 fact-flip on V15" if fid[0] == "F" else "v0.2 adversarial (ChatGPT review)",

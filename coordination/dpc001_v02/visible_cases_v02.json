@@ -1165,6 +1165,39 @@
      }
     }
    }
+  },
+  {
+   "id": "A18",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 25
+     },
+     "attestation": {
+      "status": "UNATTESTED"
+     },
+     "comparator": {
+      "strength": "TRIVIAL_FLOOR_ONLY"
+     }
+    }
+   }
+  },
+  {
+   "id": "A19",
+   "expect": "NONDISCRIMINATING_ENDPOINT",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 25
+     },
+     "comparator": {
+      "strength": "TRIVIAL_FLOOR_ONLY"
+     }
+    }
+   }
   }
  ]
 }

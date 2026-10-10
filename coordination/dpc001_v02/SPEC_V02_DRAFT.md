@@ -20,7 +20,7 @@
 7. *(Same review.)* An `attestation` block is added: `status` is `ATTESTED / UNATTESTED / CONTESTED`, and `bound_artifact` is a pinned reference or `NONE`.
    - `CONTESTED` gives `INSUFFICIENT_INFORMATION` (`FACTS_CONTRADICTION_UNRESOLVED`).
    - `READY` requires `ATTESTED` and a non-`NONE` bound artifact.
-   - `NONDISCRIMINATING_ENDPOINT` requires `ATTESTED` **and** a non-`NONE` bound artifact; otherwise the result is INSUFFICIENT (`FACTS_UNATTESTED` and/or `BOUND_NOT_CORROBORATED`). *(The code was aligned to this after ChatGPT's follow-up, comment 6091374834. At 92a9879 the ND branch checked only the artifact.)*
+   - `NONDISCRIMINATING_ENDPOINT` requires `ATTESTED` **and** a non-`NONE` bound artifact; otherwise the result is INSUFFICIENT (`FACTS_UNATTESTED` and/or `BOUND_NOT_CORROBORATED`). *(The code was aligned to this after ChatGPT's follow-up, comment 6091374834. At 92a9879 the ND branch checked only the artifact.)* **Precedence:** when the numbers show an ND candidate but attestation or the artifact is missing, the result is INSUFFICIENT (`ND_CANDIDATE_NOT_ESTABLISHED`) at once. A lower-precedence label such as DEMONSTRATION never replaces a blocked ND (test cases A18/A19).
    - These are **declared** too. `ATTESTED` self-certifies: it carries no reviewer identity or signature. The checker can't tell a real attestation or proof from a fabricated one (§4). It must not be described as verified provenance.
 
 ## 2. The `facts` block and the gate each field serves

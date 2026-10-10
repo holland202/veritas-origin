@@ -198,8 +198,11 @@ def classify(contract: dict[str, Any]) -> dict[str, Any]:
         if corroborated and att["status"] == "ATTESTED":
             gates["G2"] = "FAIL"
             return _out("NONDISCRIMINATING_ENDPOINT", ["DECLARED_BOUND_PRECLUDES_MARGIN"], gates)
-        # spec D4: an unbacked or unattested bound can't prove impossibility
-        missing += [] if corroborated else ["BOUND_NOT_CORROBORATED"]
+        # spec D4: an unbacked or unattested bound can't prove impossibility, and a blocked
+        # ND candidate stops here: lower-precedence labels (DEMONSTRATION) must not override it.
+        blocked = ([] if corroborated else ["BOUND_NOT_CORROBORATED"]) + ([] if att["status"] == "ATTESTED" else ["FACTS_UNATTESTED"])
+        gates["G2"] = "UNKNOWN"
+        return _out("INSUFFICIENT_INFORMATION", ["ND_CANDIDATE_NOT_ESTABLISHED"] + blocked, gates)
 
     # (4) DEMONSTRATION: known/trivial comparison as framed.
     if cmp_["contribution"] == "NOVEL_ADVANTAGE" and cmp_["strength"] == "TRIVIAL_FLOOR_ONLY":
