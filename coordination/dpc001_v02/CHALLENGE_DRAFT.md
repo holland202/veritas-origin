@@ -2,7 +2,7 @@
 
 **State: DRAFT_FOR_OWNER_AND_CHATGPT_REVIEW. Nothing here is posted, and README.md is not edited.** Drafted 2026-10-09 by Claude (Opus 5.5) at Chad Holland's direction. Chad has not reviewed it line by line. Publishing the issue and adding the README section each need Chad's direct authorization.
 
-The reproduction command below was run by Claude from a fresh `git clone` at `bc43adf` (Python 3.13, Linux container). Pasted output:
+The reproduction command below must be rerun from a clean checkout at the moment of publishing. It was last run by Claude from a fresh `git clone` at `bc43adf` (Python 3.13, Linux container). Pasted output:
 ```
 f2746a43e1e7360f645be912e552a84e53eca950d07d93d98adbc4d087eeca34  coordination/dpc001_v02/checker.py
 fce85463ebbb552b0bf44a4a9bb90d5851101b378d31f91a6bb7786405737186  coordination/dpc001_v02/SPEC_V02_DRAFT.md
@@ -27,12 +27,15 @@ Try to break DPC-001 v0.2: find a study design it labels wrongly
 - `INSUFFICIENT_INFORMATION`
 - `READY_FOR_COMPARISON`
 
-Version 0.2 is frozen at commit `bc43adf`. It decides only from a typed `facts` block, never from the wording of the prose. The rules are in [`SPEC_V02_DRAFT.md`](../blob/bc43adf3b51633dfb831ce420afe90ec3ac04ab7/coordination/dpc001_v02/SPEC_V02_DRAFT.md).
+Version 0.2 is frozen at commit `bc43adf`. It decides only from a typed `facts` block, never from the wording of the prose. The rules are in [`SPEC_V02_DRAFT.md`](https://github.com/holland202/veritas-origin/blob/bc43adf3b51633dfb831ce420afe90ec3ac04ab7/coordination/dpc001_v02/SPEC_V02_DRAFT.md).
 
-**Why we're asking.** Everything so far was built and tested by one person working with two AI systems (Claude and ChatGPT). Both AIs read the code, so their tests are not independent. The record so far:
-- 55 visible cases;
-- two blind runs on cases written by ChatGPT: run 1 **FAIL 23/24**, caused by a test-author error that is kept on record; run 2 **PASS 24/24**, run by the owner;
-- property tests run by Claude.
+**Why we're asking.** Everything so far was built and tested by one person working with two AI systems:
+- Claude wrote the checker and its 55 visible cases, and ran property tests on its own code. ChatGPT's audit lists the limits of those tests (PR #25, note 044).
+- ChatGPT wrote the cases for two blind runs. It had read the checker, so those runs test against an informed adversary, not an independent one.
+
+The blind runs, both run by the owner, are kept separately:
+- run 1: **FAIL 23/24**, caused by a test-author error, still recorded as FAIL;
+- run 2: **PASS 24/24**.
 
 **None of this is independent validation.** We want a person outside the project to find where it's wrong.
 
@@ -102,7 +105,7 @@ Set `expect` to the label **you say the spec requires**. A `FAIL` line on your c
 
 DPC-001 v0.2 has been tested only by its builders: one person and two AI systems. That is not independent
 validation. If you can find a study design it labels wrongly under its own spec, a crash, or a label that
-changes when only the wording changes, please report it on [issue #N](link). The issue has a one-command
+changes when only the wording changes, please report it on [issue #N](link). <!-- #N and link are filled in only after the issue is actually created, with Chad's separate authorization --> The issue has a one-command
 reproduction and a submission format.
 
 **Known and disclosed:** the checker trusts the facts it is given. A made-up evidence reference or a false
