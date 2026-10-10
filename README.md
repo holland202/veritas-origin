@@ -35,9 +35,8 @@ Each result keeps three things apart: **what was observed** → **what caused it
 
 ```mermaid
 flowchart TD
-    A["Proposed study"] --> B["Typed facts<br/>(filled in by the author)"]
-    B --> R["Reviewer attests the facts<br/>(declared, not verified by code)"]
-    R --> C["DPC-001 checker<br/>(reads facts only, never the wording)"]
+    A["Proposed study"] --> B["Typed facts, filled in by the author,<br/>incl. a declared attestation status<br/>(self-declared, not authenticated)"]
+    B --> C["DPC-001 checker<br/>(reads facts only, never the wording)"]
     C --> D{"One label"}
     D --> E["CONTRACT_INVALID"]
     D --> F["STRUCTURAL_TEST"]
@@ -47,6 +46,8 @@ flowchart TD
     D --> J["READY_FOR_COMPARISON"]
     J --> K["Still needs the owner's authorization<br/>and an independent evidence review"]
 ```
+
+Only READY_FOR_COMPARISON and NONDISCRIMINATING_ENDPOINT require the declared attestation to be `ATTESTED` with a linked artifact. The checker can't tell whether that declaration is true.
 
 ### How DPC-001 got here
 
