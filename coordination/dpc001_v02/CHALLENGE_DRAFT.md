@@ -67,6 +67,7 @@ For example, pointing V15's artifact at a file that doesn't exist still gives `R
 - fake or unverifiable artifacts and attestations accepted, and false facts accepted (spec §4, disclosed above);
 - disagreement with a rule that is applied as written, such as D1–D6 in `FREEZE_RECORD.md`. That is a design objection, which we also want, but please label it as one;
 - disagreement with an enum boundary (e.g. what counts as `STRONG_PRIOR_ART`). These are per-study judgements by design.
+- extra keys at the top level of the contract are ignored. Only the `facts` block is strict (spec §1.5). A contract can carry e.g. `"status": "VALIDATED"` at the top level and the label does not change, because the checker never reads it. A downstream reader might trust such a field, so this is a design objection worth making, but it is not a break of v0.2's spec. Gemini found it on 2026-10-09; see PR #25 note 047.
 
 **How to submit.** Put your case in a file such as `my_cases.json`, as changes ("overrides") to the shared base contract in `visible_cases_v02.json`:
 ```json
