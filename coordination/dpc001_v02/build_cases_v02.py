@@ -15,11 +15,13 @@ base["facts"] = {
     "construct": {"structural_scope": "NOT_STRUCTURAL", "structural_includes_rate_claim": False,
                   "rate_population": "NOT_A_RATE_CLAIM", "rate_generalized_beyond_sample": False},
     "oracle": {"policy_inputs_include_eval_labels": False, "label_oracle_role": "NONE"},
-    "bound": {"kind": "ANALYTIC", "max_abs_contrast": 20, "threshold": 1.0},
+    "bound": {"kind": "ANALYTIC", "max_abs_contrast": 20, "threshold": 1.0, "units": "rewards per 200 pulls"},
     "comparator": {"strength": "STRONG_PRIOR_ART", "contribution": "NOVEL_ADVANTAGE"},
     "forecast": {"status": "PREDECLARED_FORECAST"},
-    "precision": {"status": "ESTIMATED", "mde": 0.84, "min_effect": 1.0, "calibration_disjoint": "YES", "independent_units": 400},
+    "precision": {"status": "ESTIMATED", "mde": 0.84, "min_effect": 1.0, "calibration_disjoint": "YES", "independent_units": 400,
+                  "units": "rewards per 200 pulls"},
     "controls": {"positive": True, "negative": True},
+    "attestation": {"status": "ATTESTED", "bound_artifact": "experiments/example/BOUND_DERIVATION.md@1111111 (illustrative fixture)"},
 }
 STRUCT = {"construct": {"structural_scope": "ENUMERATED"}, "comparator": {"strength": "NOT_APPLICABLE_STRUCTURAL", "contribution": "CORRECTNESS"},
           "forecast": {"status": "NOT_APPLICABLE"}, "bound": {"kind": "NONE", "max_abs_contrast": "NOT_APPLICABLE", "threshold": "NOT_APPLICABLE"},
@@ -78,14 +80,31 @@ F = [  # one fact flipped on the READY base
     ("F14", "INSUFFICIENT_INFORMATION", {"comparator": {"strength": "TRIVIAL_FLOOR_ONLY", "contribution": "REPLICATION"}}),
     ("F15", "INSUFFICIENT_INFORMATION", {"forecast": {"status": "UNCERTAIN"}}),
     ("F16", "CONTRACT_INVALID", {"construct": {"structural_scope": "ENUMERATED"}}),
+    # Round 2, added after ChatGPT's review of 65c421a (PR #25 comment 6091333519), registered before running:
+    ("A01", "CONTRACT_INVALID", {"controls": {"positive": [True]}}),                       # nested list where bool expected
+    ("A02", "CONTRACT_INVALID", {"bound": {"max_abs_contrast": {"value": 20}}}),            # nested object where number expected
+    ("A03", "CONTRACT_INVALID", {"bound": {"max_abs_contrast": float("nan")}}),
+    ("A04", "CONTRACT_INVALID", {"bound": {"threshold": float("inf")}}),
+    ("A05", "CONTRACT_INVALID", {"bound": {"max_abs_contrast": -5}}),                       # negative bound
+    ("A06", "CONTRACT_INVALID", {"bound": {"threshold": 0}}),                               # zero margin
+    ("A07", "CONTRACT_INVALID", {"precision": {"independent_units": 0}}),
+    ("A08", "CONTRACT_INVALID", {"precision": {"mde": -0.5}}),
+    ("A09", "CONTRACT_INVALID", {"construct": {"structural_includes_rate_claim": True}}),    # rate flag on a comparative claim
+    ("A10", "CONTRACT_INVALID", {"extra_unchecked_flag": True}),                            # unknown facts key: strict schema
+    ("A11", "CONTRACT_INVALID", {"bound": {"units": ""}}),
+    ("A12", "INSUFFICIENT_INFORMATION", {"attestation": {"status": "UNATTESTED"}}),          # READY needs attested facts
+    ("A13", "INSUFFICIENT_INFORMATION", {"attestation": {"status": "CONTESTED"}}),           # facts vs prose disagreement
+    ("A14", "INSUFFICIENT_INFORMATION", {"attestation": {"bound_artifact": "NONE"}}),        # READY needs a backed bound
+    ("A15", "INSUFFICIENT_INFORMATION", {"bound": {"threshold": 25}, "attestation": {"bound_artifact": "NONE"}}),  # unbacked bound can't prove ND
+    ("A16", "INSUFFICIENT_INFORMATION", {"bound": {"kind": "OBSERVED_PILOT"}}),             # ANALYTIC swapped for a pilot
 ]
 for fid, exp, fo in F:
-    cases.append({"id": fid, "expect": exp, "spec_ref": "v0.2 fact-flip on V15",
+    cases.append({"id": fid, "expect": exp, "spec_ref": "v0.2 fact-flip on V15" if fid[0] == "F" else "v0.2 adversarial (ChatGPT review)",
                   "overrides": {"facts": fo}})
 
 out = {k: v for k, v in v01.items() if k not in ("base_contract", "cases", "spec")}
 out["spec"] = {"path": "coordination/dpc001_v02/SPEC_V02_DRAFT.md", "status": "DRAFT_NOT_FROZEN", "derived_from_v01_commit": v01["spec"]["commit"]}
 out["base_contract"] = base
 out["cases"] = cases
-json.dump(out, open("visible_cases_v02.json", "w", encoding="utf-8", newline="\n"), indent=1, ensure_ascii=False)
+json.dump(out, open("visible_cases_v02.json", "w", encoding="utf-8", newline="\n"), indent=1, ensure_ascii=False, allow_nan=True)
 print(f"wrote {len(cases)} cases")

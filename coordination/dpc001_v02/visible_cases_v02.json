@@ -82,7 +82,8 @@
    "bound": {
     "kind": "ANALYTIC",
     "max_abs_contrast": 20,
-    "threshold": 1.0
+    "threshold": 1.0,
+    "units": "rewards per 200 pulls"
    },
    "comparator": {
     "strength": "STRONG_PRIOR_ART",
@@ -96,11 +97,16 @@
     "mde": 0.84,
     "min_effect": 1.0,
     "calibration_disjoint": "YES",
-    "independent_units": 400
+    "independent_units": 400,
+    "units": "rewards per 200 pulls"
    },
    "controls": {
     "positive": true,
     "negative": true
+   },
+   "attestation": {
+    "status": "ATTESTED",
+    "bound_artifact": "experiments/example/BOUND_DERIVATION.md@1111111 (illustrative fixture)"
    }
   }
  },
@@ -944,6 +950,203 @@
     "facts": {
      "construct": {
       "structural_scope": "ENUMERATED"
+     }
+    }
+   }
+  },
+  {
+   "id": "A01",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "controls": {
+      "positive": [
+       true
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "A02",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "max_abs_contrast": {
+       "value": 20
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "A03",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "max_abs_contrast": NaN
+     }
+    }
+   }
+  },
+  {
+   "id": "A04",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": Infinity
+     }
+    }
+   }
+  },
+  {
+   "id": "A05",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "max_abs_contrast": -5
+     }
+    }
+   }
+  },
+  {
+   "id": "A06",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 0
+     }
+    }
+   }
+  },
+  {
+   "id": "A07",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "precision": {
+      "independent_units": 0
+     }
+    }
+   }
+  },
+  {
+   "id": "A08",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "precision": {
+      "mde": -0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "A09",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "construct": {
+      "structural_includes_rate_claim": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A10",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "extra_unchecked_flag": true
+    }
+   }
+  },
+  {
+   "id": "A11",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "units": ""
+     }
+    }
+   }
+  },
+  {
+   "id": "A12",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "attestation": {
+      "status": "UNATTESTED"
+     }
+    }
+   }
+  },
+  {
+   "id": "A13",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "attestation": {
+      "status": "CONTESTED"
+     }
+    }
+   }
+  },
+  {
+   "id": "A14",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "attestation": {
+      "bound_artifact": "NONE"
+     }
+    }
+   }
+  },
+  {
+   "id": "A15",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 25
+     },
+     "attestation": {
+      "bound_artifact": "NONE"
+     }
+    }
+   }
+  },
+  {
+   "id": "A16",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "kind": "OBSERVED_PILOT"
      }
     }
    }
