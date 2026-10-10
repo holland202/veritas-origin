@@ -62,7 +62,8 @@ flowchart LR
     F2 --> B1["Blind run 1<br/>23/24 = FAIL"]
     B1 --> RC["Cause: T01 test-author error<br/>(confirmed by unsealing)"]
     RC --> G["Pre-seal gate added"]
-    G --> B2["Blind run 2<br/>24/24 = PASS"]
+    G --> M1["Gate catches T03 error<br/>before sealing (M1)"]
+    M1 --> B2["Blind run 2<br/>24/24 = PASS"]
 ```
 
 ### Blind evaluation 1, in full
@@ -82,11 +83,13 @@ flowchart LR
 | Measure | Result |
 |---|---|
 | Cases run | 24 new cases (one authorized run, on the owner's phone), including invalid-schema cases |
-| Pre-seal gate | PASS before sealing (0 fail, 0 warn) |
+| Pre-seal gate | First draft **FAILED** the gate (T03: expected a missing study id, but one was present); corrected set PASS (0 fail, 0 warn) |
 | Matched the expected answer | 24 of 24 |
 | Preregistered outcome | **PASS** |
 | Evidence | sha256 `78bca603…`; commitments cases `6ea0e754…`, oracle `e2927f11…` |
 | Not yet done | Independent inspection of the run-2 reason-code evidence; unsealing for public audit |
+
+**Finding DPC-001-M1, pre-seal error interception.** Run 1's failure came from a test-writing error that was found only after the run. The gate built from that failure caught an error of the same kind in run 2's first draft, before sealing. That was observed once, for one class of error. The improvement came from the research process, not from any AI learning on its own. Details: `coordination/dpc001_v02/FINDING_M1.md` on PR #25.
 
 What the two runs together show: the frozen checker gave the expected label on 47 of 48 blind cases written by an AI that had read its code, and the one miss was a test error. That is evidence, not validation. No one outside the project has yet tried to break it.
 
