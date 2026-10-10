@@ -195,10 +195,11 @@ def classify(contract: dict[str, Any]) -> dict[str, Any]:
     admissible = bnd["kind"] in ("ANALYTIC", "INDEPENDENT_CALIBRATION") or (
         bnd["kind"] == "OBSERVED_OUTCOME" and not prospective)
     if admissible and _num(bnd["max_abs_contrast"]) and _num(bnd["threshold"]) and bnd["threshold"] > bnd["max_abs_contrast"]:
-        if corroborated:
+        if corroborated and att["status"] == "ATTESTED":
             gates["G2"] = "FAIL"
             return _out("NONDISCRIMINATING_ENDPOINT", ["DECLARED_BOUND_PRECLUDES_MARGIN"], gates)
-        missing.append("BOUND_NOT_CORROBORATED")  # an unbacked bound can't prove impossibility
+        # spec D4: an unbacked or unattested bound can't prove impossibility
+        missing += [] if corroborated else ["BOUND_NOT_CORROBORATED"]
 
     # (4) DEMONSTRATION: known/trivial comparison as framed.
     if cmp_["contribution"] == "NOVEL_ADVANTAGE" and cmp_["strength"] == "TRIVIAL_FLOOR_ONLY":

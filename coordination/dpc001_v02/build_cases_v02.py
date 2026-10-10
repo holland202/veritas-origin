@@ -97,6 +97,8 @@ F = [  # one fact flipped on the READY base
     ("A14", "INSUFFICIENT_INFORMATION", {"attestation": {"bound_artifact": "NONE"}}),        # READY needs a backed bound
     ("A15", "INSUFFICIENT_INFORMATION", {"bound": {"threshold": 25}, "attestation": {"bound_artifact": "NONE"}}),  # unbacked bound can't prove ND
     ("A16", "INSUFFICIENT_INFORMATION", {"bound": {"kind": "OBSERVED_PILOT"}}),             # ANALYTIC swapped for a pilot
+    # Added after ChatGPT's follow-up (comment 6091374834): spec D4 says ND also needs ATTESTED.
+    ("A17", "INSUFFICIENT_INFORMATION", {"bound": {"threshold": 25}, "attestation": {"status": "UNATTESTED"}}),
 ]
 for fid, exp, fo in F:
     cases.append({"id": fid, "expect": exp, "spec_ref": "v0.2 fact-flip on V15" if fid[0] == "F" else "v0.2 adversarial (ChatGPT review)",

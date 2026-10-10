@@ -1150,6 +1150,21 @@
      }
     }
    }
+  },
+  {
+   "id": "A17",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 25
+     },
+     "attestation": {
+      "status": "UNATTESTED"
+     }
+    }
+   }
   }
  ]
 }
