@@ -1,0 +1,2374 @@
+[
+  {
+    "case_id": "T01",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T01",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T02",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": [],
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T02",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T03",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": -0.01,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T03",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T04",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED",
+          "surprise": "data"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T04",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T05",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "BROAD"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T05",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T06",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "OBSERVED_OUTCOME",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T06",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T07",
+    "contract": {
+      "claim": {
+        "claim_kind": "DESCRIPTIVE_RATE",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": true,
+          "rate_population": "CONSTRUCTED_NOT_SAMPLED",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T07",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T08",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "TRIVIAL_FLOOR_ONLY"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": true,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T08",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T09",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T09",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T10",
+    "contract": {
+      "claim": {
+        "claim_kind": "DESCRIPTIVE_RATE",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "SAMPLED_FROM_TARGET",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T10",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T11",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "NO",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T11",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T12",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.2,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T12",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T13",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "ANALYTICALLY_PREDICTABLE"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T13",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T14",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "TRIVIAL_FLOOR_ONLY"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T14",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T15",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "DEMONSTRATION",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T15",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T16",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "REPLICATION",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "UNCERTAIN"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T16",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T17",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "UNATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.02,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "TRIVIAL_FLOOR_ONLY"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T17",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T18",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "NONE",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.02,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T18",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T19",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "CONTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.02,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T19",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T20",
+    "contract": {
+      "claim": {
+        "claim_kind": "COMPARATIVE_EFFECT",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.02,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "TRIVIAL_FLOOR_ONLY"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T20",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T21",
+    "contract": {
+      "claim": {
+        "claim_kind": "DESCRIPTIVE_RATE",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "CONSTRUCTED_NOT_SAMPLED",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "NOT_STRUCTURAL"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T21",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T22",
+    "contract": {
+      "claim": {
+        "claim_kind": "STRUCTURAL",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "CORRECTNESS",
+          "strength": "NOT_APPLICABLE_STRUCTURAL"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "ENUMERATED"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T22",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T23",
+    "contract": {
+      "claim": {
+        "claim_kind": "STRUCTURAL",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "ENUMERATED"
+        },
+        "controls": {
+          "negative": false,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T23",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  },
+  {
+    "case_id": "T24",
+    "contract": {
+      "claim": {
+        "claim_kind": "STRUCTURAL",
+        "denominator": "Declared hypothetical placeholder; not independently validated.",
+        "direction": "Declared hypothetical placeholder; not independently validated.",
+        "hypothesis": "Declared hypothetical placeholder; not independently validated.",
+        "intended_contribution": "Declared hypothetical placeholder; not independently validated.",
+        "minimum_meaningful_effect": "Declared hypothetical placeholder; not independently validated.",
+        "primary_endpoint": "Declared hypothetical placeholder; not independently validated.",
+        "success_threshold": "Declared hypothetical placeholder; not independently validated.",
+        "unit_of_analysis": "Declared hypothetical placeholder; not independently validated."
+      },
+      "comparators": {
+        "baseline_selection_reason": "Declared hypothetical placeholder; not independently validated.",
+        "omitted_competitors": "Declared hypothetical placeholder; not independently validated.",
+        "primary_strong_baseline": "Declared hypothetical placeholder; not independently validated.",
+        "trivial_floor_controls": "Declared hypothetical placeholder; not independently validated."
+      },
+      "design": {
+        "calibration_data": "Declared hypothetical placeholder; not independently validated.",
+        "evaluation_data": "Declared hypothetical placeholder; not independently validated.",
+        "policy_inputs_allowed": "Declared hypothetical placeholder; not independently validated.",
+        "protected_oracle": "Declared hypothetical placeholder; not independently validated.",
+        "resources": "Declared hypothetical placeholder; not independently validated.",
+        "stop_rule": "Declared hypothetical placeholder; not independently validated.",
+        "task_distribution": "Declared hypothetical placeholder; not independently validated."
+      },
+      "facts": {
+        "attestation": {
+          "bound_artifact": "sha256:declared-hypothetical-artifact-not-verified",
+          "status": "ATTESTED"
+        },
+        "bound": {
+          "kind": "ANALYTIC",
+          "max_abs_contrast": 0.5,
+          "threshold": 0.1,
+          "units": "fraction"
+        },
+        "comparator": {
+          "contribution": "NOVEL_ADVANTAGE",
+          "strength": "STRONG_PRIOR_ART"
+        },
+        "construct": {
+          "rate_generalized_beyond_sample": false,
+          "rate_population": "NOT_A_RATE_CLAIM",
+          "structural_includes_rate_claim": false,
+          "structural_scope": "BROAD"
+        },
+        "controls": {
+          "negative": true,
+          "positive": true
+        },
+        "forecast": {
+          "status": "PREDECLARED_FORECAST"
+        },
+        "oracle": {
+          "label_oracle_role": "NONE",
+          "policy_inputs_include_eval_labels": false
+        },
+        "precision": {
+          "calibration_disjoint": "YES",
+          "independent_units": 50,
+          "mde": 0.05,
+          "min_effect": 0.1,
+          "status": "ESTIMATED",
+          "units": "fraction"
+        },
+        "registration": {
+          "outcome_informed_design_choice": false,
+          "relabels_registered_outcome": false
+        }
+      },
+      "feasibility": {
+        "assumptions_and_failure_modes": "Declared hypothetical placeholder; not independently validated.",
+        "contrast_bound": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_input_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "forecast_method": "Declared hypothetical placeholder; not independently validated.",
+        "planned_precision": "Declared hypothetical placeholder; not independently validated."
+      },
+      "review_phase": "PROSPECTIVE",
+      "schema": "dpc-study-v0.2",
+      "source": {
+        "evidence_provenance": "Declared hypothetical placeholder; not independently validated.",
+        "fixture_or_generator_revision": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_path": "Declared hypothetical placeholder; not independently validated.",
+        "protocol_sha256": "Declared hypothetical placeholder; not independently validated.",
+        "repository": "Declared hypothetical placeholder; not independently validated.",
+        "revision_sha": "Declared hypothetical placeholder; not independently validated."
+      },
+      "study_id": "T24",
+      "threat_scope": {
+        "negative_control": "Declared hypothetical placeholder; not independently validated.",
+        "positive_control": "Declared hypothetical placeholder; not independently validated.",
+        "tested_mechanism_or_attack": "Declared hypothetical placeholder; not independently validated."
+      }
+    }
+  }
+]

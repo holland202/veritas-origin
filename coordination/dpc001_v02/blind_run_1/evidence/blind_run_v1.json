@@ -1,0 +1,184 @@
+{
+  "cases": [
+    {
+      "actual_primary": "READY_FOR_COMPARISON",
+      "case_id": "T01",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [
+        "PRIMARY_MISMATCH"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "actual_primary": "CONTRACT_INVALID",
+      "case_id": "T02",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "CONTRACT_INVALID",
+      "case_id": "T03",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "CONTRACT_INVALID",
+      "case_id": "T04",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "CONTRACT_INVALID",
+      "case_id": "T05",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "CONTRACT_INVALID",
+      "case_id": "T06",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "CONTRACT_INVALID",
+      "case_id": "T07",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "CONTRACT_INVALID",
+      "case_id": "T08",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "READY_FOR_COMPARISON",
+      "case_id": "T09",
+      "expected_primary": "READY_FOR_COMPARISON",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "INSUFFICIENT_INFORMATION",
+      "case_id": "T10",
+      "expected_primary": "INSUFFICIENT_INFORMATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "INSUFFICIENT_INFORMATION",
+      "case_id": "T11",
+      "expected_primary": "INSUFFICIENT_INFORMATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "INSUFFICIENT_INFORMATION",
+      "case_id": "T12",
+      "expected_primary": "INSUFFICIENT_INFORMATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "DEMONSTRATION",
+      "case_id": "T13",
+      "expected_primary": "DEMONSTRATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "DEMONSTRATION",
+      "case_id": "T14",
+      "expected_primary": "DEMONSTRATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "DEMONSTRATION",
+      "case_id": "T15",
+      "expected_primary": "DEMONSTRATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "INSUFFICIENT_INFORMATION",
+      "case_id": "T16",
+      "expected_primary": "INSUFFICIENT_INFORMATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "INSUFFICIENT_INFORMATION",
+      "case_id": "T17",
+      "expected_primary": "INSUFFICIENT_INFORMATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "INSUFFICIENT_INFORMATION",
+      "case_id": "T18",
+      "expected_primary": "INSUFFICIENT_INFORMATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "INSUFFICIENT_INFORMATION",
+      "case_id": "T19",
+      "expected_primary": "INSUFFICIENT_INFORMATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "NONDISCRIMINATING_ENDPOINT",
+      "case_id": "T20",
+      "expected_primary": "NONDISCRIMINATING_ENDPOINT",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "INSUFFICIENT_INFORMATION",
+      "case_id": "T21",
+      "expected_primary": "INSUFFICIENT_INFORMATION",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "STRUCTURAL_TEST",
+      "case_id": "T22",
+      "expected_primary": "STRUCTURAL_TEST",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "CONTRACT_INVALID",
+      "case_id": "T23",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [],
+      "status": "PASS"
+    },
+    {
+      "actual_primary": "CONTRACT_INVALID",
+      "case_id": "T24",
+      "expected_primary": "CONTRACT_INVALID",
+      "issues": [],
+      "status": "PASS"
+    }
+  ],
+  "checks": {
+    "frozen_hashes": "PASS",
+    "harness_controls": "PASS",
+    "sealed_commitments": "PASS"
+  },
+  "errors": [],
+  "frozen_commit": "bc43adf3b51633dfb831ce420afe90ec3ac04ab7",
+  "runner_sha256": "fce8839443c9acd9f56772d62b4d5d874f98a29071e58c02792c50e2ab1e3fc2",
+  "status": "FAIL",
+  "timestamp_utc": "2026-10-10T01:00:02.020765+00:00"
+}
