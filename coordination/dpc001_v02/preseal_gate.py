@@ -16,7 +16,8 @@ Checks
   G4 declared-intent preconditions (spec-level, checker-free): a case whose oracle requires
      SCHEMA_INVALID must not carry the valid schema; STUDY_ID_MISSING needs a blank/absent study_id;
      REVIEW_PHASE_INVALID needs a phase outside the two spec values; FACTS_MISSING needs no facts object.
-  G5 shape: every contract is a JSON object; JSON parses with no NaN/Infinity literals
+  G5 shape: every entry is an object with a string case_id (checked first; malformed input stops
+     the gate with FAIL, never a traceback); every contract is a JSON object; no NaN/Infinity literals
 
 Usage: python3 -I preseal_gate.py cases.json oracle.json [--count 24]
 Exit 0 = PASS (no FAIL; WARNs printed), 1 = FAIL, 2 = could not read.
@@ -52,6 +53,17 @@ def main():
 
     if not isinstance(cases, list) or not isinstance(oracle, list):
         print("FAIL  G5 both files must be JSON lists"); return 1
+    # Structural pre-pass: every entry must be an object with a non-empty string case_id.
+    # Malformed entries are reported as FAIL and stop the gate (no traceback, no partial checks).
+    shape = [f"G5 {name} entry #{i}: {why}" for name, lst in (("cases", cases), ("oracle", oracle))
+             for i, e in enumerate(lst)
+             for why in (["not a JSON object"] if not isinstance(e, dict) else
+                         [] if isinstance(e.get("case_id"), str) and e["case_id"].strip() else ["case_id missing or not a non-empty string"])]
+    if shape:
+        for f in shape:
+            print("FAIL ", f)
+        print(f"\nPRESEAL_GATE  FAIL  ({len(shape)} fail, 0 warn, {len(cases)} cases; stopped at shape check)")
+        return 1
     cid = [c.get("case_id") if isinstance(c, dict) else None for c in cases]
     oid = [o.get("case_id") if isinstance(o, dict) else None for o in oracle]
     if cid != oid:
