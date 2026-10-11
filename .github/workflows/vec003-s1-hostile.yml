@@ -1,0 +1,30 @@
+name: VEC-003-S1 hostile-input resource stress
+
+on:
+  push:
+    branches:
+      - experiment/vec003-parser-budgets
+    paths:
+      - "research/evidence_circuit/vec003/**"
+      - ".github/workflows/vec003-s1-hostile.yml"
+  pull_request:
+    paths:
+      - "research/evidence_circuit/vec003/**"
+      - ".github/workflows/vec003-s1-hostile.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-hostile-stress:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --disable-pip-version-check cryptography==46.0.4
+      - name: Nine preregistered classes times 100 under process isolation
+        working-directory: research/evidence_circuit/vec003
+        run: python -I test_vec003_s1.py
