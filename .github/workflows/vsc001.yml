@@ -1,0 +1,91 @@
+name: VSC-001 synthetic curriculum verification
+
+on:
+  push:
+    branches:
+      - "experiment/vsc001-verified-synthetic-curriculum"
+    paths:
+      - "src/origin/vsc001.py"
+      - "tools/verify_vsc001.py"
+      - "tests/test_vsc001.py"
+      - "experiments/vsc001/**"
+      - ".github/workflows/vsc001.yml"
+  pull_request:
+    paths:
+      - "src/origin/vsc001.py"
+      - "tools/verify_vsc001.py"
+      - "tests/test_vsc001.py"
+      - "experiments/vsc001/**"
+      - ".github/workflows/vsc001.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  tests-and-independent-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Source compile and adversarial tests
+        run: |
+          python3 --version
+          python3 -m py_compile src/origin/vsc001.py tools/verify_vsc001.py
+          python3 -m unittest discover -s tests -p 'test_vsc001.py' -v
+
+      - name: Public-seeded exploratory engineering smoke and independent verifier
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUTPUT="$(python3 src/origin/vsc001.py \
+            --pilot --seeds 2 --rounds 5 --candidates-per-round 12 \
+            --test-seed-base 707 --allow-public-test-seed \
+            --output-dir "${RUNNER_TEMP}/vsc001-smoke")"
+          printf '%s\n' "$OUTPUT"
+          FILE="$(printf '%s\n' "$OUTPUT" | sed -n 's/^EVIDENCE: //p')"
+          HASH="$(printf '%s\n' "$OUTPUT" | sed -n 's/^SHA256: //p')"
+          test -f "$FILE"
+          test "${#HASH}" -eq 64
+          printf '%s  %s\n' "$HASH" "$FILE" | sha256sum --check
+          python3 tools/verify_vsc001.py "$FILE" --sha256 "$HASH"
+
+      - name: Larger public-seed exploratory pilot (NOT confirmatory)
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUTPUT="$(python3 src/origin/vsc001.py \
+            --pilot --seeds 5 --rounds 10 --candidates-per-round 24 \
+            --test-seed-base 20261008 --allow-public-test-seed \
+            --output-dir "${RUNNER_TEMP}/vsc001-exploratory")"
+          printf '%s\n' "$OUTPUT"
+          FILE="$(printf '%s\n' "$OUTPUT" | sed -n 's/^EVIDENCE: //p')"
+          HASH="$(printf '%s\n' "$OUTPUT" | sed -n 's/^SHA256: //p')"
+          test -f "$FILE"
+          printf '%s  %s\n' "$HASH" "$FILE" | sha256sum --check
+          python3 tools/verify_vsc001.py "$FILE" --sha256 "$HASH"
+          echo "### VSC-001 exploratory public-fixture audit" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Evidence SHA256: `$HASH`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Seed base: 20261008; 5 seeds; 10 rounds; 24 proposed examples/round" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **PUBLIC_TEST_SEED / EXPLORATORY_SIMULATED — NOT VALIDATED.**" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Raw JSON archived as a 30-day GitHub Actions artifact, not as permanent repository evidence." >> "$GITHUB_STEP_SUMMARY"
+          cp "$FILE" "${RUNNER_TEMP}/vsc001-public-fixture.json"
+
+      - name: Preserve raw exploratory data as workflow artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2, MIT
+        with:
+          name: vsc001-public-fixture-evidence
+          path: ${{ runner.temp }}/vsc001-public-fixture.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Historical EXP003-P0 evidence remains intact
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=evidence/exp003/exp003-p0-20261008T202705724022Z-146bee1a.json
+          HASH=627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333
+          printf '%s  %s\n' "$HASH" "$FILE" | sha256sum --check
+          python3 tools/verify_exp003_p0.py "$FILE" --sha256 "$HASH"
