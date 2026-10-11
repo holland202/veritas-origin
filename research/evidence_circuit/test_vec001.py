@@ -13,6 +13,11 @@ import hashlib
 import json
 import platform
 import sys
+from pathlib import Path
+
+# Explicit trusted local path. Python -I intentionally omits the script directory
+# from sys.path; this project loads its own checked-out verifier and no external code.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 
