@@ -1,0 +1,45 @@
+name: VEC-002-R1 post-finding repair checks
+
+on:
+  push:
+    branches:
+      - repair/vec001-deep-json-refusal
+    paths:
+      - "research/evidence_circuit/**"
+      - ".github/workflows/vec002-r1-repair.yml"
+  pull_request:
+    paths:
+      - "research/evidence_circuit/vec002/test_vec002_repair.py"
+      - "research/evidence_circuit/vec002/VEC002_R1_PREREG.md"
+      - "research/evidence_circuit/vec001.py"
+      - ".github/workflows/vec002-r1-repair.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  original-regression:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --disable-pip-version-check cryptography==46.0.4
+      - name: Original 21 visible VEC-001 fixtures
+        working-directory: research/evidence_circuit
+        run: python -I test_vec001.py
+
+  repaired-boundary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --disable-pip-version-check cryptography==46.0.4
+      - name: Post-finding 15-case repair matrix with typed refusal
+        working-directory: research/evidence_circuit/vec002
+        run: python -I test_vec002_repair.py

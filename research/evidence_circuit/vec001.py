@@ -83,9 +83,11 @@ def _json(raw: bytes) -> Any:
             object_pairs_hook=_reject_duplicate,
             parse_constant=_reject_constant,
         )
-    except (ValueError, UnicodeError) as error:
+    except (ValueError, UnicodeError, RecursionError) as error:
         if isinstance(error, Rejection):
             raise
+        # Python's JSON parser can exceed its recursion depth on bounded
+        # hostile inputs; always convert that condition to a typed refusal.
         raise Rejection("MALFORMED_JSON") from error
 
 
