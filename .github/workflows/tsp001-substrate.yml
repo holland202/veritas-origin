@@ -1,0 +1,44 @@
+name: TSP-001 passive mobile substrate probe
+
+on:
+  push:
+    branches:
+      - experiment/termux-substrate-intake-20261011
+    paths:
+      - "research/mobile_substrate/**"
+      - ".github/workflows/tsp001-substrate.yml"
+  pull_request:
+    paths:
+      - "research/mobile_substrate/**"
+      - ".github/workflows/tsp001-substrate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  passive-evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run TSP-001 preregistered 18-case synthetic matrix
+        run: python -I research/mobile_substrate/test_tsp001.py
+      - name: Verify optional Termux banner installer against isolated temporary homes
+        run: python -I research/mobile_substrate/test_termux_theme.py
+      - name: Run live observation-only probe on this CI runner
+        run: python -I research/mobile_substrate/substrate_probe.py
+      - name: Verify no authorization for a requested execution intent
+        shell: bash
+        run: |
+          set +e
+          python -I research/mobile_substrate/substrate_probe.py --require execution
+          code=$?
+          set -e
+          if [ "$code" -ne 2 ]; then
+            echo "FAIL: a requested action did not produce the expected DEFER exit 2"
+            exit 1
+          fi
+          echo "PASS: requested execution was not authorized (exit 2)"
