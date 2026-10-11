@@ -45,3 +45,9 @@ Run the frozen target first, preserve all FAIL and CRASH outputs and workflow ex
 ## Expected contribution / limitations
 
 Finding a parser recursion crash is a bounded **availability/fail-closed contract** finding, not evidence of signature forgery or unauthorized physical action. Accepting replay/conflicting reports is an explicitly unimplemented cross-evidence / ledger layer, not a newly discovered cryptographic flaw. This is still an author-designed test: no independent external review and no universal totality claim, even if all tests pass later.
+
+## Clarifications before first execution (prospective, same predictions)
+
+- **A06 location:** the duplicated nested key is `predicate.reviewer_role` in the *signed Statement payload*, paired with an otherwise ordinary signed, valid-shaped artifact. This isolates duplicate-key rejection in authenticated metadata. The original table's “artifact” wording was imprecise. Prediction remains REFUSED.
+- **A10 scope:** two different signed finite lists under the same study/claim are **competing reports**, but not logically contradictory unless a shared immutable observation-set identity is additionally declared. This profile lacks such an identity and has no batch cross-report verifier. Predict both accepted independently; do NOT claim that finding proves an actual logical contradiction or a violation of VEC-001's contract.
+- **Exit semantics:** if an anticipated recursion crash occurs, the harness exits nonzero for an S1 failure even if its prediction matches. No success claim from a green test runner configured to accept failures.
