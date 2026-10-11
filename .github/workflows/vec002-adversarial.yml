@@ -1,0 +1,31 @@
+name: VEC-002 adversarial boundary probe
+
+on:
+  push:
+    branches:
+      - experiment/vec002-adversarial-boundaries
+    paths:
+      - "research/evidence_circuit/vec002/**"
+      - ".github/workflows/vec002-adversarial.yml"
+  pull_request:
+    paths:
+      - "research/evidence_circuit/vec002/**"
+      - ".github/workflows/vec002-adversarial.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  typed-refusal-boundary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Pin crypto dependency
+        run: python -m pip install --disable-pip-version-check cryptography==46.0.4
+      - name: Adversarial registered probes (negative exit is an actual S1 failure)
+        working-directory: research/evidence_circuit/vec002
+        run: python -I test_vec002.py
