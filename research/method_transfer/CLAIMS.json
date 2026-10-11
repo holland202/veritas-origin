@@ -1,0 +1,46 @@
+{
+  "schema": "mta-claims-v1",
+  "claims": [
+    {
+      "id": "dpc001-v02-blind-run-1",
+      "kind": "case_result",
+      "source": "coordination/dpc001_v02/blind_run_1/evidence/blind_run_v1.json",
+      "expected": {
+        "total": 24,
+        "passed": 23,
+        "failed": 1,
+        "status": "FAIL",
+        "failed_case_ids": [
+          "T01"
+        ]
+      }
+    },
+    {
+      "id": "dpc001-v02-frozen-bytes",
+      "kind": "byte_digest",
+      "sources": [
+        {
+          "path": "coordination/dpc001_v02/SPEC_V02_DRAFT.md",
+          "sha256": "fce85463ebbb552b0bf44a4a9bb90d5851101b378d31f91a6bb7786405737186"
+        },
+        {
+          "path": "coordination/dpc001_v02/checker.py",
+          "sha256": "f2746a43e1e7360f645be912e552a84e53eca950d07d93d98adbc4d087eeca34"
+        }
+      ]
+    },
+    {
+      "id": "dpc001-v02-blind-run-2",
+      "kind": "reported_only",
+      "source": "coordination/dpc001_v02/blind_run_2/RECORD.md",
+      "status": "OWNER_REPORTED",
+      "reported": {
+        "total": 24,
+        "passed": 24,
+        "status": "PASS"
+      },
+      "independent_verification": false,
+      "raw_evidence_present": false
+    }
+  ]
+}
