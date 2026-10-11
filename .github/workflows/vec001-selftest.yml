@@ -1,0 +1,31 @@
+name: VEC-001 registered self-test
+
+on:
+  pull_request:
+    paths:
+      - "research/evidence_circuit/**"
+      - ".github/workflows/vec001-selftest.yml"
+  push:
+    branches:
+      - research/evidence-circuit-v03-prototype
+    paths:
+      - "research/evidence_circuit/**"
+      - ".github/workflows/vec001-selftest.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  registered-fixtures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned experimental crypto dependency
+        run: python -m pip install --disable-pip-version-check cryptography==46.0.4
+      - name: Run VEC-001 preregistered fixture matrix
+        working-directory: research/evidence_circuit
+        run: python -I test_vec001.py
