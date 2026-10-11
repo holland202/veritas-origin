@@ -26,6 +26,8 @@ jobs:
           python-version: "3.11"
       - name: Run TSP-001 preregistered 18-case synthetic matrix
         run: python -I research/mobile_substrate/test_tsp001.py
+      - name: Verify optional Termux banner installer against isolated temporary homes
+        run: python -I research/mobile_substrate/test_termux_theme.py
       - name: Run live observation-only probe on this CI runner
         run: python -I research/mobile_substrate/substrate_probe.py
       - name: Verify no authorization for a requested execution intent
