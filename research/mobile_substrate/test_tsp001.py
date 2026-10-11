@@ -1,4 +1,4 @@
-"""TSP-001 preregistered behavioral probes (17 cases), no device permissions.
+"""TSP-001 preregistered behavioral probes (18 cases), no device permissions.
 
 All snapshots are synthetic and do not prove the S25 Android runtime status.
 """
@@ -110,8 +110,8 @@ class RegisteredTSP001(unittest.TestCase):
         self.check_no_action(r, "DEFER_UNVERIFIED")
 
     def test_N10_no_command_does_not_prove_no_hardware(self):
-        r = assess_snapshot(dataclasses.replace(termux(), commands={}))
-        self.assertEqual(r["observations"]["termux_commands"]["termux-sensor"], "UNKNOWN")
+        r = assess_snapshot(dataclasses.replace(termux(), commands={name: False for name in COMMAND_NAMES}))
+        self.assertEqual(r["observations"]["termux_commands"]["termux-sensor"], "COMMAND_NOT_FOUND")
 
     def test_N11_environment_spoof_remains_hint(self):
         r = assess_snapshot(dataclasses.replace(linux(), android_hint=True))
