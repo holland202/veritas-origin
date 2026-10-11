@@ -1,0 +1,173 @@
+[
+  {
+    "case_id": "T01",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "CONTRACT_MALFORMED",
+      "SCHEMA_INVALID"
+    ]
+  },
+  {
+    "case_id": "T02",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "CONTRACT_MALFORMED"
+    ]
+  },
+  {
+    "case_id": "T03",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "FACT_OUT_OF_RANGE_PRECISION_MDE"
+    ]
+  },
+  {
+    "case_id": "T04",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "FACT_UNKNOWN_KEY_ATTESTATION_SURPRISE"
+    ]
+  },
+  {
+    "case_id": "T05",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "FACTS_INCONSISTENT_WITH_CLAIM_KIND"
+    ]
+  },
+  {
+    "case_id": "T06",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "OUTCOME_LEAKAGE_INTO_PROSPECTIVE_DESIGN"
+    ]
+  },
+  {
+    "case_id": "T07",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "SYNTHETIC_RATE_EXTRAPOLATION"
+    ]
+  },
+  {
+    "case_id": "T08",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "OUTCOME_LEAKAGE_INTO_PROSPECTIVE_DESIGN"
+    ]
+  },
+  {
+    "case_id": "T09",
+    "primary": "READY_FOR_COMPARISON",
+    "required_reason_codes": [
+      "PROSPECTIVE_REQUIREMENTS_DECLARED"
+    ]
+  },
+  {
+    "case_id": "T10",
+    "primary": "INSUFFICIENT_INFORMATION",
+    "required_reason_codes": [
+      "READINESS_REQUIRES_COMPARATIVE_CLAIM"
+    ]
+  },
+  {
+    "case_id": "T11",
+    "primary": "INSUFFICIENT_INFORMATION",
+    "required_reason_codes": [
+      "CALIBRATION_SEPARATION_NOT_ESTABLISHED"
+    ]
+  },
+  {
+    "case_id": "T12",
+    "primary": "INSUFFICIENT_INFORMATION",
+    "required_reason_codes": [
+      "MDE_ABOVE_MEANINGFUL_EFFECT_OR_UNKNOWN"
+    ]
+  },
+  {
+    "case_id": "T13",
+    "primary": "DEMONSTRATION",
+    "required_reason_codes": [
+      "RESULT_ANALYTICALLY_IMPLIED"
+    ]
+  },
+  {
+    "case_id": "T14",
+    "primary": "DEMONSTRATION",
+    "required_reason_codes": [
+      "WEAK_COMPARATOR_FOR_CLAIM"
+    ]
+  },
+  {
+    "case_id": "T15",
+    "primary": "DEMONSTRATION",
+    "required_reason_codes": [
+      "DECLARED_DEMONSTRATION"
+    ]
+  },
+  {
+    "case_id": "T16",
+    "primary": "INSUFFICIENT_INFORMATION",
+    "required_reason_codes": [
+      "FORECAST_NOT_ESTABLISHED"
+    ]
+  },
+  {
+    "case_id": "T17",
+    "primary": "INSUFFICIENT_INFORMATION",
+    "required_reason_codes": [
+      "ND_CANDIDATE_NOT_ESTABLISHED",
+      "FACTS_UNATTESTED"
+    ]
+  },
+  {
+    "case_id": "T18",
+    "primary": "INSUFFICIENT_INFORMATION",
+    "required_reason_codes": [
+      "ND_CANDIDATE_NOT_ESTABLISHED",
+      "BOUND_NOT_CORROBORATED"
+    ]
+  },
+  {
+    "case_id": "T19",
+    "primary": "INSUFFICIENT_INFORMATION",
+    "required_reason_codes": [
+      "FACTS_CONTRADICTION_UNRESOLVED"
+    ]
+  },
+  {
+    "case_id": "T20",
+    "primary": "NONDISCRIMINATING_ENDPOINT",
+    "required_reason_codes": [
+      "DECLARED_BOUND_PRECLUDES_MARGIN"
+    ]
+  },
+  {
+    "case_id": "T21",
+    "primary": "INSUFFICIENT_INFORMATION",
+    "required_reason_codes": [
+      "READINESS_REQUIRES_COMPARATIVE_CLAIM"
+    ]
+  },
+  {
+    "case_id": "T22",
+    "primary": "STRUCTURAL_TEST",
+    "required_reason_codes": [
+      "THREAT_COVERAGE_LIMITED"
+    ]
+  },
+  {
+    "case_id": "T23",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "STRUCTURAL_CONTROL_MISSING"
+    ]
+  },
+  {
+    "case_id": "T24",
+    "primary": "CONTRACT_INVALID",
+    "required_reason_codes": [
+      "THREAT_SCOPE_UNSUPPORTED"
+    ]
+  }
+]
