@@ -25,6 +25,9 @@ MAX_BYTES = 65536
 MAX_PAYLOAD = 32768
 MAX_CONTRASTS = 128
 MAX_VALUE = 10**12
+# Application-specific parsing budgets, independent of the DSSE/in-toto formats.
+MAX_JSON_DEPTH = 64
+MAX_JSON_PUNCTUATION = 4096
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
 
@@ -76,8 +79,46 @@ def _reject_duplicate(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
     return result
 
 
+def _preflight_json(raw: bytes) -> None:
+    """Iterative O(n) JSON complexity preflight; not a grammar parser.
+
+    ASCII quote, backslash and bracket bytes cannot occur as UTF-8 multibyte
+    continuation bytes. Count delimiters only outside strings and honor escaped
+    quotes/backslashes. json.loads subsequently enforces actual JSON grammar.
+    """
+    depth = 0
+    punctuation = 0
+    quoted = False
+    escaped = False
+    for byte in raw:
+        if quoted:
+            if escaped:
+                escaped = False
+            elif byte == 92:  # backslash
+                escaped = True
+            elif byte == 34:  # double quote
+                quoted = False
+        elif byte == 34:
+            quoted = True
+        elif byte in (91, 123):  # [, {
+            depth += 1
+            if depth > MAX_JSON_DEPTH:
+                raise Rejection("MALFORMED_JSON")
+        elif byte in (93, 125):  # ], }
+            depth -= 1
+            if depth < 0:
+                raise Rejection("MALFORMED_JSON")
+        elif byte in (44, 58):  # comma, colon
+            punctuation += 1
+            if punctuation > MAX_JSON_PUNCTUATION:
+                raise Rejection("MALFORMED_JSON")
+    if depth != 0 or quoted:
+        raise Rejection("MALFORMED_JSON")
+
+
 def _json(raw: bytes) -> Any:
     try:
+        _preflight_json(raw)
         return json.loads(
             raw.decode("utf-8", errors="strict"),
             object_pairs_hook=_reject_duplicate,
