@@ -146,7 +146,12 @@ def main():
     args = parser.parse_args()
     try:
         if args.action == "preview":
-            print(BANNER)
+            print("\x1b[1;35m   ╔════════════════════════════════════════════════════════════╗")
+            print("\x1b[1;36m         S O V E R E I G N   //   V E R I T A S")
+            print("\x1b[0;36m       ◈ EDGE RESEARCH NODE  /  S25 ULTRA  /  ARM64")
+            print("\x1b[0;32m       ◈ EVIDENCE FIRST / FAIL-CLOSED IS THE GOAL")
+            print("\x1b[1;33m       NOT AN ATTESTATION OR EXECUTION PERMISSION")
+            print("\x1b[1;35m   ╚════════════════════════════════════════════════════════════╝\x1b[0m")
             print("PREVIEW ONLY: no files changed. This is decorative, not an attestation.")
         elif args.action == "install":
             print(install(Path.home()))
