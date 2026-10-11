@@ -2,7 +2,7 @@
 
 ## Current research status — 2026-10-10
 
-**FROZEN / NOT INDEPENDENTLY VALIDATED / PR #25 OPEN.** The original draft-language below is historical, not the current status. Owner approval of D1–D6 and freeze are recorded in [FREEZE_RECORD.md](FREEZE_RECORD.md): spec and checker frozen at `bc43adf3b51633dfb831ce420afe90ec3ac04ab7`. No code or frozen specification changes are authorized here.
+**FROZEN / NOT INDEPENDENTLY VALIDATED.** PR #25 was open when this dated note was written; consult the pull request for its current merge status. The original draft-language below is historical, not the current status. Owner approval of D1–D6 and freeze are recorded in [FREEZE_RECORD.md](FREEZE_RECORD.md): spec and checker frozen at `bc43adf3b51633dfb831ce420afe90ec3ac04ab7`. No code or frozen specification changes are authorized here.
 
 - **Blind run 1:** FAIL 23/24. The [published run-1 evidence](blind_run_1/evidence/blind_run_v1.json) preserves T01's test-author oracle error. The retrospective pre-seal gate found that error; it was not in place when run 1 executed.
 - **Blind run 2:** PASS 24/24 **owner-reported**, not independently reproducible from this PR; the sealed case set, oracle, runner and result are absent. See [blind_run_2/RECORD.md](blind_run_2/RECORD.md). The freeze record's original `BLIND_TEST_NOT_AUTHORIZED` describes freeze time; subsequent owner-authorized runs supersede it operationally.
