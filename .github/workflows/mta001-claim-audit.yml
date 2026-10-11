@@ -1,0 +1,30 @@
+name: MTA-001 claim-to-evidence consistency
+
+on:
+  pull_request:
+    paths:
+      - "research/method_transfer/**"
+      - ".github/workflows/mta001-claim-audit.yml"
+  push:
+    branches:
+      - research/linux-guitarpedal-method-transfer-20261011
+    paths:
+      - "research/method_transfer/**"
+      - ".github/workflows/mta001-claim-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  claim-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check source-backed claims and display unverified owner report
+        run: python -I research/method_transfer/audit_claims.py --root . --registry research/method_transfer/CLAIMS.json
+      - name: Run prospectively registered positive and negative controls
+        run: python -I research/method_transfer/test_mta001.py
