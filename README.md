@@ -4,6 +4,24 @@ An experimental, self-evolving AI research node.
 
 Status: EARLY PROTOTYPE — NOT VALIDATED.
 
+## What is Veritas Origin?
+
+**Veritas Origin is an experimental research framework for designing, testing, and documenting AI-assisted discoveries.** Its purpose is to help turn an idea from an AI system—or a human researcher—into a falsifiable hypothesis, a controlled experiment, and an evidence record that other people can inspect and challenge.
+
+Rather than treating an AI's answer as a discovery, the project asks: **What prediction would distinguish this idea from alternatives, what test could prove it wrong, and what evidence actually supports the result?** It aims to make failed tests, uncertainty, revisions, and source provenance visible instead of quietly rewriting the story after a result is known.
+
+### How it is intended to work
+
+1. **Propose:** record a research question, hypothesis, and competing explanations.
+2. **Precheck:** inspect whether a proposed study has a meaningful comparison and can support its claimed conclusion. DPC-001 is an experimental design precheck, not a scientific truth detector.
+3. **Test:** run a controlled, preregistered experiment when authorized, keeping its inputs, execution environment, and original output.
+4. **Evaluate:** compare observations against the registered predictions, including failures and inconclusive outcomes.
+5. **Preserve:** publish reproducible evidence with revision identifiers, hashes, limitations, and any later amendments.
+
+**Example:** Suppose a small local AI model proposes a new rule for predicting an outcome. Veritas Origin's research process would require a test that distinguishes that rule from simpler alternatives, evaluate it on cases not used to formulate the rule, and retain the raw results—even if the hypothesis fails. It would not call the rule a discovery merely because the model generated convincing explanations.
+
+**Current limits:** Veritas Origin is an **early research prototype, not a validated autonomous scientist or production system**. The DPC-001 study-design checker described below is experimental, with failed evaluations retained; the README's DPC-001 results refer to unmerged PRs rather than functionality established on `main`. Autonomous proposals do not authorize experiments, code changes, or deployment. The connected projects named below are independent research inputs, not integrated or validated components.
+
 Objectives:
 - Generate falsifiable research hypotheses.
 - Run controlled experiments.
