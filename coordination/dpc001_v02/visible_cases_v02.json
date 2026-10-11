@@ -1,0 +1,1203 @@
+{
+ "labels": [
+  "CONTRACT_INVALID",
+  "STRUCTURAL_TEST",
+  "NONDISCRIMINATING_ENDPOINT",
+  "DEMONSTRATION",
+  "INSUFFICIENT_INFORMATION",
+  "READY_FOR_COMPARISON"
+ ],
+ "merge_rule": "case contract = base deep-merged with overrides: dicts merge recursively, any other value replaces, null deletes the key",
+ "spec": {
+  "path": "coordination/dpc001_v02/SPEC_V02_DRAFT.md",
+  "status": "DRAFT_NOT_FROZEN",
+  "derived_from_v01_commit": "d05501013c7b2d0c602893e44d157620b55f12ff"
+ },
+ "base_contract": {
+  "schema": "dpc-study-v0.2",
+  "study_id": "DPC-T-BASE",
+  "review_phase": "PROSPECTIVE",
+  "source": {
+   "repository": "holland202/veritas-origin",
+   "revision_sha": "1111111111111111111111111111111111111111",
+   "protocol_path": "experiments/example/PROTOCOL.md",
+   "protocol_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+   "fixture_or_generator_revision": "1111111111111111111111111111111111111111",
+   "evidence_provenance": "generator code at the pinned revision; no evaluation outcome observed"
+  },
+  "claim": {
+   "claim_kind": "COMPARATIVE_EFFECT",
+   "hypothesis": "KL-UCB obtains a higher mean cumulative reward than UCB1 over 200 pulls on a 3-arm Bernoulli bandit with p=(0.45,0.50,0.55)",
+   "intended_contribution": "comparative advantage of a tighter confidence index under small gaps and a short horizon",
+   "primary_endpoint": "mean over seeds of (reward_KLUCB - reward_UCB1) per 200 pulls, paired by seed on shared potential-outcome tables",
+   "unit_of_analysis": "seed",
+   "denominator": "400 independent seeds (1..400)",
+   "direction": "larger_is_better",
+   "success_threshold": "paired mean difference >= +1.0 reward per 200 pulls and paired 95% CI excluding 0",
+   "minimum_meaningful_effect": "1.0 reward per 200 pulls (0.5 percentage points); smaller differences are not practically relevant here"
+  },
+  "design": {
+   "task_distribution": "fixed arms p=(0.45,0.50,0.55); potential outcomes from seeded streams",
+   "policy_inputs_allowed": "each policy's own past arm choices and rewards only",
+   "protected_oracle": "arm probabilities and future outcomes",
+   "calibration_data": "200 simulated seeds 10001..10200 with arm means drawn uniformly from [0.40,0.60]; disjoint from evaluation",
+   "evaluation_data": "seeds 1..400, never used for design or tuning",
+   "resources": "200 pulls per policy per seed; default constants; no tuning on evaluation seeds",
+   "stop_rule": "single run; every seed reported; a crash invalidates the run, which is repeated once on the same seeds"
+  },
+  "comparators": {
+   "primary_strong_baseline": "UCB1 (Auer, Cesa-Bianchi & Fischer 2002), standard exploration constant",
+   "baseline_selection_reason": "closest widely used index policy in the same capability class and budget",
+   "omitted_competitors": "Thompson sampling: excluded before any outcome because the question is about confidence-index policies; recorded as a limitation",
+   "trivial_floor_controls": "uniform random (expected 100 rewards per 200 pulls), reported as a floor only"
+  },
+  "feasibility": {
+   "contrast_bound": "possible paired difference lies in [-20,+20] rewards (200 x (0.55-0.45)); the registered +1.0 margin is inside it",
+   "forecast_method": "independent simulation on calibration seeds with different arm means",
+   "forecast_input_provenance": "calibration seeds and arm means only; evaluation seeds not run",
+   "planned_precision": "calibration paired SD about 6 rewards, so SE over 400 seeds about 0.30 and MDE (80% power, two-sided 5%) about 0.84 <= 1.0 margin",
+   "forecast": "predicted mean difference +0.6, 90% interval -0.8 to +2.1; P(threshold met) about 0.40 under the alternative, about 0.03 under a null of 0",
+   "assumptions_and_failure_modes": "independence across seeds; calibration arm means differ from evaluation arms; an implementation bug in either policy"
+  },
+  "threat_scope": {
+   "tested_mechanism_or_attack": "NOT_APPLICABLE_COMPARATIVE",
+   "positive_control": "UCB1 against itself on the same seeds must give exactly 0 difference",
+   "negative_control": "a deliberately broken KL-UCB that always pulls arm 0 must lose by a detectable margin"
+  },
+  "facts": {
+   "registration": {
+    "relabels_registered_outcome": false,
+    "outcome_informed_design_choice": false
+   },
+   "construct": {
+    "structural_scope": "NOT_STRUCTURAL",
+    "structural_includes_rate_claim": false,
+    "rate_population": "NOT_A_RATE_CLAIM",
+    "rate_generalized_beyond_sample": false
+   },
+   "oracle": {
+    "policy_inputs_include_eval_labels": false,
+    "label_oracle_role": "NONE"
+   },
+   "bound": {
+    "kind": "ANALYTIC",
+    "max_abs_contrast": 20,
+    "threshold": 1.0,
+    "units": "rewards per 200 pulls"
+   },
+   "comparator": {
+    "strength": "STRONG_PRIOR_ART",
+    "contribution": "NOVEL_ADVANTAGE"
+   },
+   "forecast": {
+    "status": "PREDECLARED_FORECAST"
+   },
+   "precision": {
+    "status": "ESTIMATED",
+    "mde": 0.84,
+    "min_effect": 1.0,
+    "calibration_disjoint": "YES",
+    "independent_units": 400,
+    "units": "rewards per 200 pulls"
+   },
+   "controls": {
+    "positive": true,
+    "negative": true
+   },
+   "attestation": {
+    "status": "ATTESTED",
+    "bound_artifact": "experiments/example/BOUND_DERIVATION.md@1111111 (illustrative fixture)"
+   }
+  }
+ },
+ "cases": [
+  {
+   "id": "V01",
+   "title": "EXP-003-P0 retrospective: completion-rate endpoint saturated (12/12 all policies)",
+   "spec": "§5 row 1, G2",
+   "expect": "NONDISCRIMINATING_ENDPOINT",
+   "overrides": {
+    "review_phase": "RETROSPECTIVE_DIAGNOSTIC",
+    "claim": {
+     "hypothesis": "greedy information-gain solves more hypothesis-discrimination tasks than fixed or random",
+     "primary_endpoint": "tasks solved out of 12",
+     "denominator": "12 tasks",
+     "success_threshold": "greedy solves more tasks than both baselines",
+     "minimum_meaningful_effect": "1 task"
+    },
+    "feasibility": {
+     "contrast_bound": "completed study: every policy solved 12/12, so the completion endpoint is at its ceiling for all arms and no difference is possible on it",
+     "forecast": "not applicable: retrospective diagnostic"
+    },
+    "facts": {
+     "bound": {
+      "kind": "OBSERVED_OUTCOME",
+      "max_abs_contrast": 0,
+      "threshold": 1
+     }
+    }
+   }
+  },
+  {
+   "id": "V02",
+   "title": "EXP-003-P0 prospective, before outcomes, with no legitimate bound on attainable completion",
+   "spec": "§5 caution (b), G2, precedence 5",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "overrides": {
+    "claim": {
+     "hypothesis": "greedy information-gain solves more hypothesis-discrimination tasks than fixed or random",
+     "primary_endpoint": "tasks solved out of 12",
+     "denominator": "12 tasks",
+     "success_threshold": "greedy solves more tasks than both baselines",
+     "minimum_meaningful_effect": "1 task"
+    },
+    "feasibility": {
+     "contrast_bound": "UNKNOWN: no analysis of whether baselines can already solve every task within budget",
+     "planned_precision": "UNKNOWN",
+     "forecast": "UNKNOWN",
+     "forecast_method": "none"
+    },
+    "facts": {
+     "bound": {
+      "kind": "NONE",
+      "max_abs_contrast": "UNKNOWN",
+      "threshold": 1
+     },
+     "forecast": {
+      "status": "UNAVAILABLE"
+     },
+     "precision": {
+      "status": "UNKNOWN",
+      "mde": "UNKNOWN",
+      "calibration_disjoint": "UNKNOWN"
+     }
+    }
+   }
+  },
+  {
+   "id": "V03",
+   "title": "EXP-002 marketed as a comparative learning advantage over fixed-medium and uniform random",
+   "spec": "§5 row 2, G3, G4",
+   "expect": "DEMONSTRATION",
+   "overrides": {
+    "claim": {
+     "hypothesis": "UCB1 obtains a higher mean reward than fixed-medium and uniform random on arms p=(0.2,0.5,0.8), 100 pulls",
+     "intended_contribution": "comparative learning advantage of UCB1",
+     "primary_endpoint": "mean reward per 100 pulls over 100 seeds",
+     "denominator": "100 seeds",
+     "success_threshold": "UCB1 exceeds both baselines by >= 5 rewards per 100 pulls",
+     "minimum_meaningful_effect": "5 rewards"
+    },
+    "comparators": {
+     "primary_strong_baseline": "fixed-medium arm (expected 50/100)",
+     "baseline_selection_reason": "simple reference policies",
+     "omitted_competitors": "none listed",
+     "trivial_floor_controls": "uniform random (expected 50/100)"
+    },
+    "feasibility": {
+     "contrast_bound": "baselines are non-learning with closed-form expectation 50/100; best arm 80/100",
+     "forecast_method": "analytic",
+     "forecast": "any policy that finds the 0.8 arm on most seeds exceeds +5; analytically predictable against these comparators"
+    },
+    "facts": {
+     "comparator": {
+      "strength": "TRIVIAL_FLOOR_ONLY"
+     },
+     "forecast": {
+      "status": "ANALYTICALLY_PREDICTABLE"
+     },
+     "bound": {
+      "max_abs_contrast": 30,
+      "threshold": 5
+     },
+     "precision": {
+      "min_effect": 5
+     }
+    }
+   }
+  },
+  {
+   "id": "V04",
+   "title": "EXP-002 scoped honestly as a correctness check of one UCB1 implementation, with controls",
+   "spec": "§8 Q2, §2 STRUCTURAL_TEST, G6",
+   "expect": "STRUCTURAL_TEST",
+   "overrides": {
+    "claim": {
+     "claim_kind": "STRUCTURAL",
+     "hypothesis": "this UCB1 implementation concentrates pulls on the best arm in a fixed deterministic fixture",
+     "intended_contribution": "implementation correctness",
+     "primary_endpoint": "pull share of arm 0.8 on fixed seeds",
+     "denominator": "fixed fixture of 100 seeds; not a population sample",
+     "success_threshold": "pull share > 0.5 on every fixture seed",
+     "minimum_meaningful_effect": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "comparators": "NOT_APPLICABLE_STRUCTURAL",
+    "feasibility": {
+     "planned_precision": "NOT_APPLICABLE_STRUCTURAL",
+     "forecast": "not used for a performance claim"
+    },
+    "threat_scope": {
+     "tested_mechanism_or_attack": "UCB1 index computation and arm selection on the registered fixture only",
+     "positive_control": "correct implementation must pass every fixture seed",
+     "negative_control": "a mutant with the exploration bonus removed must fail at least one fixture seed"
+    },
+    "facts": {
+     "construct": {
+      "structural_scope": "ENUMERATED"
+     },
+     "comparator": {
+      "strength": "NOT_APPLICABLE_STRUCTURAL",
+      "contribution": "CORRECTNESS"
+     },
+     "forecast": {
+      "status": "NOT_APPLICABLE"
+     },
+     "bound": {
+      "kind": "NONE",
+      "max_abs_contrast": "NOT_APPLICABLE",
+      "threshold": "NOT_APPLICABLE"
+     },
+     "precision": {
+      "status": "NOT_APPLICABLE_STRUCTURAL",
+      "mde": "NOT_APPLICABLE",
+      "min_effect": "NOT_APPLICABLE",
+      "calibration_disjoint": "NOT_APPLICABLE",
+      "independent_units": "NOT_APPLICABLE"
+     }
+    }
+   }
+  },
+  {
+   "id": "V05",
+   "title": "Sovereign Veritas RK-1: fresh record_id retry gives two effects; content-keyed double gives one",
+   "spec": "§5 row 3, G6",
+   "expect": "STRUCTURAL_TEST",
+   "overrides": {
+    "claim": {
+     "claim_kind": "STRUCTURAL",
+     "hypothesis": "after a timeout that lost the response, a retry with a fresh record_id executes the effect a second time",
+     "intended_contribution": "behavioural defect reproduction",
+     "primary_endpoint": "external effect count",
+     "denominator": "one deterministic case per arm; not a rate",
+     "success_threshold": "2 effects for the fresh-id retry and 1 for the control",
+     "minimum_meaningful_effect": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "comparators": "NOT_APPLICABLE_STRUCTURAL",
+    "feasibility": {
+     "planned_precision": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "threat_scope": {
+     "tested_mechanism_or_attack": "fresh record_id retry after a lost response, in-process and file-ledger sinks only",
+     "positive_control": "a content-keyed test double must refuse the retry (1 effect)",
+     "negative_control": "the unmodified workflow must show 2 effects"
+    },
+    "facts": {
+     "construct": {
+      "structural_scope": "ENUMERATED"
+     },
+     "comparator": {
+      "strength": "NOT_APPLICABLE_STRUCTURAL",
+      "contribution": "CORRECTNESS"
+     },
+     "forecast": {
+      "status": "NOT_APPLICABLE"
+     },
+     "bound": {
+      "kind": "NONE",
+      "max_abs_contrast": "NOT_APPLICABLE",
+      "threshold": "NOT_APPLICABLE"
+     },
+     "precision": {
+      "status": "NOT_APPLICABLE_STRUCTURAL",
+      "mde": "NOT_APPLICABLE",
+      "min_effect": "NOT_APPLICABLE",
+      "calibration_disjoint": "NOT_APPLICABLE",
+      "independent_units": "NOT_APPLICABLE"
+     }
+    }
+   }
+  },
+  {
+   "id": "V06",
+   "title": "V05 with the positive control removed",
+   "spec": "§6 bullet 2, §2 STRUCTURAL_TEST requires both controls",
+   "expect": "CONTRACT_INVALID",
+   "overrides": {
+    "claim": {
+     "claim_kind": "STRUCTURAL",
+     "hypothesis": "after a timeout that lost the response, a retry with a fresh record_id executes the effect a second time",
+     "primary_endpoint": "external effect count",
+     "denominator": "one deterministic case; not a rate",
+     "success_threshold": "2 effects",
+     "minimum_meaningful_effect": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "comparators": "NOT_APPLICABLE_STRUCTURAL",
+    "feasibility": {
+     "planned_precision": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "threat_scope": {
+     "tested_mechanism_or_attack": "fresh record_id retry after a lost response",
+     "positive_control": null,
+     "negative_control": "the unmodified workflow must show 2 effects"
+    },
+    "facts": {
+     "construct": {
+      "structural_scope": "ENUMERATED"
+     },
+     "comparator": {
+      "strength": "NOT_APPLICABLE_STRUCTURAL",
+      "contribution": "CORRECTNESS"
+     },
+     "forecast": {
+      "status": "NOT_APPLICABLE"
+     },
+     "bound": {
+      "kind": "NONE",
+      "max_abs_contrast": "NOT_APPLICABLE",
+      "threshold": "NOT_APPLICABLE"
+     },
+     "precision": {
+      "status": "NOT_APPLICABLE_STRUCTURAL",
+      "mde": "NOT_APPLICABLE",
+      "min_effect": "NOT_APPLICABLE",
+      "calibration_disjoint": "NOT_APPLICABLE",
+      "independent_units": "NOT_APPLICABLE"
+     },
+     "controls": {
+      "positive": false
+     }
+    }
+   }
+  },
+  {
+   "id": "V07",
+   "title": "V05 with the threat scope broadened beyond the enumerated fixture",
+   "spec": "§6 bullet 2, G6 last sentence",
+   "expect": "CONTRACT_INVALID",
+   "overrides": {
+    "claim": {
+     "claim_kind": "STRUCTURAL",
+     "hypothesis": "the workflow is protected against all duplicate-execution attacks once reserved keys are used",
+     "primary_endpoint": "external effect count",
+     "denominator": "one deterministic case per arm",
+     "success_threshold": "1 effect with reservations",
+     "minimum_meaningful_effect": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "comparators": "NOT_APPLICABLE_STRUCTURAL",
+    "feasibility": {
+     "planned_precision": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "threat_scope": {
+     "tested_mechanism_or_attack": "all retry, race and duplicate-execution attacks",
+     "positive_control": "reserved key refuses the same-key retry",
+     "negative_control": "no-key workflow shows 2 effects"
+    },
+    "facts": {
+     "construct": {
+      "structural_scope": "BROAD"
+     },
+     "comparator": {
+      "strength": "NOT_APPLICABLE_STRUCTURAL",
+      "contribution": "CORRECTNESS"
+     },
+     "forecast": {
+      "status": "NOT_APPLICABLE"
+     },
+     "bound": {
+      "kind": "NONE",
+      "max_abs_contrast": "NOT_APPLICABLE",
+      "threshold": "NOT_APPLICABLE"
+     },
+     "precision": {
+      "status": "NOT_APPLICABLE_STRUCTURAL",
+      "mde": "NOT_APPLICABLE",
+      "min_effect": "NOT_APPLICABLE",
+      "calibration_disjoint": "NOT_APPLICABLE",
+      "independent_units": "NOT_APPLICABLE"
+     }
+    }
+   }
+  },
+  {
+   "id": "V08",
+   "title": "ITC-001 H2 headroom argued from a hindsight label-aware oracle",
+   "spec": "§5 row 4, G2",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "reasons_any": [
+    "ORACLE_LEAKAGE_TO_HEADROOM_ARGUMENT"
+   ],
+   "overrides": {
+    "review_phase": "RETROSPECTIVE_DIAGNOSTIC",
+    "claim": {
+     "hypothesis": "an implementable adaptive-stopping policy can beat the within-task depth shuffle by >= +1.0 pp macro accuracy",
+     "primary_endpoint": "macro accuracy difference vs within-task shuffle",
+     "denominator": "6 seeds x 3,072 held-out patterns",
+     "success_threshold": ">= +1.0 pp and >= 4/6 seed wins",
+     "minimum_meaningful_effect": "1.0 pp"
+    },
+    "comparators": {
+     "primary_strong_baseline": "within-task depth shuffle at matched per-task budget"
+    },
+    "feasibility": {
+     "contrast_bound": "a per-instance oracle that selects depth using held-out true labels reaches +4.358 pp over the shuffle",
+     "forecast_input_provenance": "the oracle uses evaluation labels"
+    },
+    "facts": {
+     "oracle": {
+      "label_oracle_role": "USED_AS_HEADROOM_EVIDENCE"
+     },
+     "bound": {
+      "kind": "OBSERVED_OUTCOME",
+      "max_abs_contrast": 4.358,
+      "threshold": 1.0
+     }
+    }
+   }
+  },
+  {
+   "id": "V09",
+   "title": "V08 but the contract states the label-aware oracle is an implementable policy",
+   "spec": "§5 row 4, §6 bullet 5 (CONTRACT_INVALID if access misrepresented)",
+   "expect": "CONTRACT_INVALID",
+   "overrides": {
+    "claim": {
+     "hypothesis": "the adaptive policy can achieve +4.358 pp over the shuffle",
+     "primary_endpoint": "macro accuracy difference vs within-task shuffle",
+     "success_threshold": ">= +1.0 pp"
+    },
+    "design": {
+     "policy_inputs_allowed": "model outputs at each depth and the correctness of each depth's prediction"
+    },
+    "feasibility": {
+     "contrast_bound": "oracle headroom +4.358 pp, treated as achievable by the deployed policy"
+    },
+    "facts": {
+     "oracle": {
+      "policy_inputs_include_eval_labels": true,
+      "label_oracle_role": "CLAIMED_ACHIEVABLE"
+     }
+    }
+   }
+  },
+  {
+   "id": "V10",
+   "title": "EPV-001 512/512 poisoned-anchor acceptances advertised as a real-world failure rate",
+   "spec": "§5 row 5, G1",
+   "expect": "CONTRACT_INVALID",
+   "overrides": {
+    "claim": {
+     "claim_kind": "DESCRIPTIVE_RATE",
+     "hypothesis": "evidence-first fusion accepts a poisoned trusted anchor 100% of the time in multiagent deployments",
+     "primary_endpoint": "false acceptance rate",
+     "denominator": "512 constructed episodes",
+     "success_threshold": "rate estimate reported",
+     "minimum_meaningful_effect": "NOT_APPLICABLE"
+    },
+    "design": {
+     "task_distribution": "every episode deliberately constructed with the same poisoned anchor"
+    },
+    "feasibility": {
+     "planned_precision": "512 episodes treated as a sample"
+    },
+    "facts": {
+     "construct": {
+      "rate_population": "CONSTRUCTED_NOT_SAMPLED",
+      "rate_generalized_beyond_sample": true
+     }
+    }
+   }
+  },
+  {
+   "id": "V11",
+   "title": "EPV-001 correctly scoped as a planted synthetic invariant test",
+   "spec": "§5 row 5 alternative, G6",
+   "expect": "STRUCTURAL_TEST",
+   "reasons_any": [
+    "THREAT_COVERAGE_LIMITED"
+   ],
+   "overrides": {
+    "claim": {
+     "claim_kind": "STRUCTURAL",
+     "hypothesis": "a policy that trusts a single pinned anchor accepts whatever that anchor certifies, including a poisoned one",
+     "intended_contribution": "invariant/counterexample",
+     "primary_endpoint": "accept or reject on each planted fixture",
+     "denominator": "fixed fixture; not a population sample",
+     "success_threshold": "poisoned fixture accepted; forged self-attestation rejected",
+     "minimum_meaningful_effect": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "comparators": "NOT_APPLICABLE_STRUCTURAL",
+    "feasibility": {
+     "planned_precision": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "threat_scope": {
+     "tested_mechanism_or_attack": "single poisoned anchor and one forged self-attested witness shape only; anchor-registry substitution not tested",
+     "positive_control": "an honest anchored dissenter must be accepted",
+     "negative_control": "a forged self-attested witness must be rejected"
+    },
+    "facts": {
+     "construct": {
+      "structural_scope": "ENUMERATED"
+     },
+     "comparator": {
+      "strength": "NOT_APPLICABLE_STRUCTURAL",
+      "contribution": "CORRECTNESS"
+     },
+     "forecast": {
+      "status": "NOT_APPLICABLE"
+     },
+     "bound": {
+      "kind": "NONE",
+      "max_abs_contrast": "NOT_APPLICABLE",
+      "threshold": "NOT_APPLICABLE"
+     },
+     "precision": {
+      "status": "NOT_APPLICABLE_STRUCTURAL",
+      "mde": "NOT_APPLICABLE",
+      "min_effect": "NOT_APPLICABLE",
+      "calibration_disjoint": "NOT_APPLICABLE",
+      "independent_units": "NOT_APPLICABLE"
+     }
+    }
+   }
+  },
+  {
+   "id": "V12",
+   "title": "ASP-001: small observed MSE spread alone used to claim the fixture cannot discriminate",
+   "spec": "§5 row 6, G5",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "overrides": {
+    "review_phase": "RETROSPECTIVE_DIAGNOSTIC",
+    "claim": {
+     "hypothesis": "the ASP-001 fixture is mathematically incapable of distinguishing the six learning-rate policies",
+     "primary_endpoint": "joint A/B MSE after phase B",
+     "denominator": "24 seeds",
+     "success_threshold": "impossibility of a detectable difference",
+     "minimum_meaningful_effect": "UNKNOWN"
+    },
+    "feasibility": {
+     "contrast_bound": "observed mean spread 0.0064 across policies",
+     "planned_precision": "UNKNOWN: paired seed variance not supplied"
+    },
+    "facts": {
+     "bound": {
+      "kind": "OBSERVED_OUTCOME",
+      "max_abs_contrast": "UNKNOWN",
+      "threshold": "UNKNOWN"
+     },
+     "precision": {
+      "status": "UNKNOWN",
+      "mde": "UNKNOWN",
+      "calibration_disjoint": "UNKNOWN",
+      "min_effect": "UNKNOWN"
+     }
+    }
+   }
+  },
+  {
+   "id": "V13",
+   "title": "Comparative contract with no denominator or unit of analysis",
+   "spec": "§3 required fields, §6 bullet 6",
+   "expect": "CONTRACT_INVALID",
+   "overrides": {
+    "claim": {
+     "unit_of_analysis": null,
+     "denominator": null
+    },
+    "facts": {}
+   }
+  },
+  {
+   "id": "V14",
+   "title": "Valid comparative contract whose variance is honestly unknown",
+   "spec": "§6 bullet 6, G5, precedence 5",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "overrides": {
+    "feasibility": {
+     "planned_precision": "UNKNOWN: no disjoint calibration data or analytic variance argument available yet",
+     "forecast": "UNKNOWN"
+    },
+    "facts": {
+     "forecast": {
+      "status": "UNAVAILABLE"
+     },
+     "precision": {
+      "status": "UNKNOWN",
+      "mde": "UNKNOWN",
+      "calibration_disjoint": "UNKNOWN"
+     }
+    }
+   }
+  },
+  {
+   "id": "V15",
+   "title": "Positive fixture: KL-UCB vs UCB1, strong rival, uncertain sign, adequate disjoint-calibration precision",
+   "spec": "§6 bullet 1, precedence 6",
+   "expect": "READY_FOR_COMPARISON",
+   "overrides": {
+    "facts": {}
+   }
+  },
+  {
+   "id": "V16",
+   "title": "Replication of a published comparison with a strong rival and an uncertain outcome",
+   "spec": "§6 bullet 7 (prior art alone is not grounds for rejection), §8 Q2",
+   "expect": "READY_FOR_COMPARISON",
+   "overrides": {
+    "claim": {
+     "intended_contribution": "independent replication of a published KL-UCB vs UCB1 small-gap comparison on new seeds"
+    },
+    "facts": {
+     "comparator": {
+      "contribution": "REPLICATION"
+     }
+    }
+   }
+  },
+  {
+   "id": "V17",
+   "title": "Registered margin larger than the analytic maximum possible contrast",
+   "spec": "§6 bullet 3, G2",
+   "expect": "NONDISCRIMINATING_ENDPOINT",
+   "overrides": {
+    "claim": {
+     "success_threshold": "paired mean difference >= +25 rewards per 200 pulls"
+    },
+    "feasibility": {
+     "contrast_bound": "possible paired difference lies in [-20,+20] rewards (200 x (0.55-0.45)); the registered +25 margin is outside it"
+    },
+    "facts": {
+     "bound": {
+      "threshold": 25
+     }
+    }
+   }
+  },
+  {
+   "id": "V18",
+   "title": "A small saturated pilot offered as prospective proof of impossibility",
+   "spec": "§6 bullet 3 second clause",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "overrides": {
+    "feasibility": {
+     "contrast_bound": "a 5-seed pilot on the evaluation arms showed both policies within 0.2 rewards; claimed to prove no +1.0 difference is reachable",
+     "planned_precision": "UNKNOWN beyond the 5-seed pilot"
+    },
+    "facts": {
+     "bound": {
+      "kind": "OBSERVED_PILOT",
+      "max_abs_contrast": "UNKNOWN"
+     },
+     "precision": {
+      "status": "UNKNOWN",
+      "mde": "UNKNOWN",
+      "calibration_disjoint": "UNKNOWN"
+     }
+    }
+   }
+  },
+  {
+   "id": "V19",
+   "title": "One contract mixing a structural invariant with an unsupported population-rate claim",
+   "spec": "§8 Q1 (proposed: separate study IDs), G1",
+   "expect": "CONTRACT_INVALID",
+   "overrides": {
+    "claim": {
+     "claim_kind": "STRUCTURAL",
+     "hypothesis": "the gate refuses a forged witness in the fixture, and therefore refuses forged witnesses in 99% of real deployments",
+     "primary_endpoint": "refusal on fixture; deployment refusal rate",
+     "denominator": "fixed fixture",
+     "success_threshold": "fixture refused and rate >= 0.99",
+     "minimum_meaningful_effect": "NOT_APPLICABLE"
+    },
+    "comparators": "NOT_APPLICABLE_STRUCTURAL",
+    "feasibility": {
+     "planned_precision": "NOT_APPLICABLE_STRUCTURAL"
+    },
+    "threat_scope": {
+     "tested_mechanism_or_attack": "one forged witness shape",
+     "positive_control": "honest witness accepted",
+     "negative_control": "forged witness refused"
+    },
+    "facts": {
+     "construct": {
+      "structural_scope": "ENUMERATED",
+      "structural_includes_rate_claim": true
+     },
+     "comparator": {
+      "strength": "NOT_APPLICABLE_STRUCTURAL",
+      "contribution": "CORRECTNESS"
+     },
+     "forecast": {
+      "status": "NOT_APPLICABLE"
+     },
+     "bound": {
+      "kind": "NONE",
+      "max_abs_contrast": "NOT_APPLICABLE",
+      "threshold": "NOT_APPLICABLE"
+     },
+     "precision": {
+      "status": "NOT_APPLICABLE_STRUCTURAL",
+      "mde": "NOT_APPLICABLE",
+      "min_effect": "NOT_APPLICABLE",
+      "calibration_disjoint": "NOT_APPLICABLE",
+      "independent_units": "NOT_APPLICABLE"
+     }
+    }
+   }
+  },
+  {
+   "id": "V20",
+   "title": "Contract that relabels a registered historical outcome (ITC-001 H2 NOT_SUPPORTED to SUPPORTED)",
+   "spec": "§6 last bullet, §1 (avoid post-hoc changes to registered results)",
+   "expect": "CONTRACT_INVALID",
+   "overrides": {
+    "review_phase": "RETROSPECTIVE_DIAGNOSTIC",
+    "claim": {
+     "hypothesis": "ITC-001 H2 is SUPPORTED once parity8 is excluded",
+     "primary_endpoint": "macro accuracy over five tasks",
+     "success_threshold": "adaptive beats shuffle on the five-task macro",
+     "intended_contribution": "revised status of a registered hypothesis"
+    },
+    "facts": {
+     "registration": {
+      "relabels_registered_outcome": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F01",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "oracle": {
+      "label_oracle_role": "CLAIMED_ACHIEVABLE"
+     }
+    }
+   }
+  },
+  {
+   "id": "F02",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "oracle": {
+      "policy_inputs_include_eval_labels": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F03",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "registration": {
+      "outcome_informed_design_choice": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F04",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "kind": "OBSERVED_OUTCOME"
+     }
+    }
+   }
+  },
+  {
+   "id": "F05",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "comparator": {
+      "strength": "UNRESOLVED"
+     }
+    }
+   }
+  },
+  {
+   "id": "F06",
+   "expect": "DEMONSTRATION",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "comparator": {
+      "strength": "TRIVIAL_FLOOR_ONLY"
+     }
+    }
+   }
+  },
+  {
+   "id": "F07",
+   "expect": "DEMONSTRATION",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "forecast": {
+      "status": "ANALYTICALLY_PREDICTABLE"
+     }
+    }
+   }
+  },
+  {
+   "id": "F08",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "precision": {
+      "mde": 1.5
+     }
+    }
+   }
+  },
+  {
+   "id": "F09",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "precision": {
+      "calibration_disjoint": "NO"
+     }
+    }
+   }
+  },
+  {
+   "id": "F10",
+   "expect": "NONDISCRIMINATING_ENDPOINT",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 25
+     }
+    }
+   }
+  },
+  {
+   "id": "F11",
+   "expect": "READY_FOR_COMPARISON",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "oracle": {
+      "label_oracle_role": "OPTIMISTIC_BOUND_ONLY"
+     }
+    }
+   }
+  },
+  {
+   "id": "F12",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": null
+   }
+  },
+  {
+   "id": "F13",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "max_abs_contrast": "20"
+     }
+    }
+   }
+  },
+  {
+   "id": "F14",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "comparator": {
+      "strength": "TRIVIAL_FLOOR_ONLY",
+      "contribution": "REPLICATION"
+     }
+    }
+   }
+  },
+  {
+   "id": "F15",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "forecast": {
+      "status": "UNCERTAIN"
+     }
+    }
+   }
+  },
+  {
+   "id": "F16",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 fact-flip on V15",
+   "overrides": {
+    "facts": {
+     "construct": {
+      "structural_scope": "ENUMERATED"
+     }
+    }
+   }
+  },
+  {
+   "id": "A01",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "controls": {
+      "positive": [
+       true
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "A02",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "max_abs_contrast": {
+       "value": 20
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "A03",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "max_abs_contrast": NaN
+     }
+    }
+   }
+  },
+  {
+   "id": "A04",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": Infinity
+     }
+    }
+   }
+  },
+  {
+   "id": "A05",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "max_abs_contrast": -5
+     }
+    }
+   }
+  },
+  {
+   "id": "A06",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 0
+     }
+    }
+   }
+  },
+  {
+   "id": "A07",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "precision": {
+      "independent_units": 0
+     }
+    }
+   }
+  },
+  {
+   "id": "A08",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "precision": {
+      "mde": -0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "A09",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "construct": {
+      "structural_includes_rate_claim": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A10",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "extra_unchecked_flag": true
+    }
+   }
+  },
+  {
+   "id": "A11",
+   "expect": "CONTRACT_INVALID",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "units": ""
+     }
+    }
+   }
+  },
+  {
+   "id": "A12",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "attestation": {
+      "status": "UNATTESTED"
+     }
+    }
+   }
+  },
+  {
+   "id": "A13",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "attestation": {
+      "status": "CONTESTED"
+     }
+    }
+   }
+  },
+  {
+   "id": "A14",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "attestation": {
+      "bound_artifact": "NONE"
+     }
+    }
+   }
+  },
+  {
+   "id": "A15",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 25
+     },
+     "attestation": {
+      "bound_artifact": "NONE"
+     }
+    }
+   }
+  },
+  {
+   "id": "A16",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "kind": "OBSERVED_PILOT"
+     }
+    }
+   }
+  },
+  {
+   "id": "A17",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 25
+     },
+     "attestation": {
+      "status": "UNATTESTED"
+     }
+    }
+   }
+  },
+  {
+   "id": "A18",
+   "expect": "INSUFFICIENT_INFORMATION",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 25
+     },
+     "attestation": {
+      "status": "UNATTESTED"
+     },
+     "comparator": {
+      "strength": "TRIVIAL_FLOOR_ONLY"
+     }
+    }
+   }
+  },
+  {
+   "id": "A19",
+   "expect": "NONDISCRIMINATING_ENDPOINT",
+   "spec_ref": "v0.2 adversarial (ChatGPT review)",
+   "overrides": {
+    "facts": {
+     "bound": {
+      "threshold": 25
+     },
+     "comparator": {
+      "strength": "TRIVIAL_FLOOR_ONLY"
+     }
+    }
+   }
+  }
+ ]
+}

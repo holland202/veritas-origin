@@ -1,0 +1,9 @@
+{
+  "case_count": 24,
+  "cases_sha256": "acc977c5650e3a886e3374b5b18ecc687604e88df9ba0d80c80e23fdedfcfde9",
+  "frozen_commit": "bc43adf3b51633dfb831ce420afe90ec3ac04ab7",
+  "oracle_sha256": "a5cebd7340036171a30df57b744fa9654bb9f0ed93182be02777ce323f0ee823",
+  "status": "COMMITTED_NOT_RUN",
+  "version": 1,
+  "warning": "Nonce withheld until after execution; this is a commitment, not validation."
+}

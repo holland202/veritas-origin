@@ -1,0 +1,10 @@
+{
+  "case_count": 24,
+  "cases_file_sha256": "ee79c282872d86b25f3aadd59112226fcc3d02697fe85f2339681753d4c50b5f",
+  "cases_sha256": "acc977c5650e3a886e3374b5b18ecc687604e88df9ba0d80c80e23fdedfcfde9",
+  "frozen_commit": "bc43adf3b51633dfb831ce420afe90ec3ac04ab7",
+  "nonce": "9b1a3116218427a42c66386a45371836c391fb095e7239f5e757361f8893a6f6",
+  "oracle_file_sha256": "46de62b0ba311b366755edc2abf713d1750834a828eedff81dd2035db9826b22",
+  "oracle_sha256": "a5cebd7340036171a30df57b744fa9654bb9f0ed93182be02777ce323f0ee823",
+  "version": 1
+}
