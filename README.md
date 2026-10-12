@@ -109,3 +109,7 @@ Local Discovery Engine, Sovereign Logic Core,
 Evidence Ledger, EACE, and Veritas Companion
 are independent projects, not bundled or
 validated components.
+
+## Related AI governance research
+
+Veritas-Origin explores preregistration and study-design prechecks. Sovereign Veritas separately studies capability-gated AI action authorization and evidence packages. These are distinct experimental repositories; no integrated platform validation is claimed. See [Sovereign Veritas — experimental AI governance and action permission gate](https://github.com/holland202/sovereign-veritas) for its current maintenance-only status, recorded failures, test contract, and explicit limitations. This cross-reference is for research navigation, not an integrated-system or independent-verification claim.
