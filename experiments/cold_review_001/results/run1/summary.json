@@ -1,0 +1,143 @@
+{
+ "by_case": {
+  "A": [
+   "CALL_FAILED",
+   "CALL_FAILED",
+   "CALL_FAILED"
+  ],
+  "B": [
+   "CALL_FAILED",
+   "CALL_FAILED",
+   "CALL_FAILED"
+  ],
+  "C": [
+   "CALL_FAILED",
+   "CALL_FAILED",
+   "CALL_FAILED"
+  ]
+ },
+ "meta": {
+  "model_requested": "claude-haiku-4-5-20251001",
+  "platform": "Android-17-aarch64-64bit-ELF",
+  "prompt_sha256": "9102cbd9679448fd769426b7810239270de77de414c86f7dd1d98a31a0fe4e11",
+  "python": "3.14.6",
+  "script_sha256": "085c53a6f701bfff00a3e744aca2ba08450d791775fd17943883e9b5641730b7",
+  "started_utc": "2026-10-13T11:02:24Z"
+ },
+ "predictions": {
+  "P1": false,
+  "P2": false,
+  "P3": false,
+  "P4": false
+ },
+ "rows": [
+  {
+   "case": "A",
+   "http": 401,
+   "model_returned": "",
+   "n_findings": 0,
+   "raw": "A_1.json",
+   "rep": 1,
+   "request_sha256": "bf3a66bf852de645fede52f4d03d83a7c68eb83f1fc3b7f1e265e044ee095553",
+   "seconds": 0.2,
+   "usage": {},
+   "verdict": "CALL_FAILED"
+  },
+  {
+   "case": "A",
+   "http": 401,
+   "model_returned": "",
+   "n_findings": 0,
+   "raw": "A_2.json",
+   "rep": 2,
+   "request_sha256": "bf3a66bf852de645fede52f4d03d83a7c68eb83f1fc3b7f1e265e044ee095553",
+   "seconds": 0.1,
+   "usage": {},
+   "verdict": "CALL_FAILED"
+  },
+  {
+   "case": "A",
+   "http": 401,
+   "model_returned": "",
+   "n_findings": 0,
+   "raw": "A_3.json",
+   "rep": 3,
+   "request_sha256": "bf3a66bf852de645fede52f4d03d83a7c68eb83f1fc3b7f1e265e044ee095553",
+   "seconds": 0.1,
+   "usage": {},
+   "verdict": "CALL_FAILED"
+  },
+  {
+   "case": "B",
+   "http": 401,
+   "model_returned": "",
+   "n_findings": 0,
+   "raw": "B_1.json",
+   "rep": 1,
+   "request_sha256": "cadfb7ebee45e1439ed6913989fdad14dbcd84117962a3f09cddfca73681e10b",
+   "seconds": 0.1,
+   "usage": {},
+   "verdict": "CALL_FAILED"
+  },
+  {
+   "case": "B",
+   "http": 401,
+   "model_returned": "",
+   "n_findings": 0,
+   "raw": "B_2.json",
+   "rep": 2,
+   "request_sha256": "cadfb7ebee45e1439ed6913989fdad14dbcd84117962a3f09cddfca73681e10b",
+   "seconds": 0.1,
+   "usage": {},
+   "verdict": "CALL_FAILED"
+  },
+  {
+   "case": "B",
+   "http": 401,
+   "model_returned": "",
+   "n_findings": 0,
+   "raw": "B_3.json",
+   "rep": 3,
+   "request_sha256": "cadfb7ebee45e1439ed6913989fdad14dbcd84117962a3f09cddfca73681e10b",
+   "seconds": 0.1,
+   "usage": {},
+   "verdict": "CALL_FAILED"
+  },
+  {
+   "case": "C",
+   "http": 401,
+   "model_returned": "",
+   "n_findings": 0,
+   "raw": "C_1.json",
+   "rep": 1,
+   "request_sha256": "01ea63d38ab2d5dc8a6c4afa0c6d3530c2dca55a66bb763a3344dc31257a7ea5",
+   "seconds": 0.1,
+   "usage": {},
+   "verdict": "CALL_FAILED"
+  },
+  {
+   "case": "C",
+   "http": 401,
+   "model_returned": "",
+   "n_findings": 0,
+   "raw": "C_2.json",
+   "rep": 2,
+   "request_sha256": "01ea63d38ab2d5dc8a6c4afa0c6d3530c2dca55a66bb763a3344dc31257a7ea5",
+   "seconds": 0.1,
+   "usage": {},
+   "verdict": "CALL_FAILED"
+  },
+  {
+   "case": "C",
+   "http": 401,
+   "model_returned": "",
+   "n_findings": 0,
+   "raw": "C_3.json",
+   "rep": 3,
+   "request_sha256": "01ea63d38ab2d5dc8a6c4afa0c6d3530c2dca55a66bb763a3344dc31257a7ea5",
+   "seconds": 0.1,
+   "usage": {},
+   "verdict": "CALL_FAILED"
+  }
+ ]
+}

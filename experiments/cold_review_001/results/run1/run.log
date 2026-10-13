@@ -1,0 +1,10 @@
+A#1 http 401 CALL_FAILED findings 0 usage {}
+A#2 http 401 CALL_FAILED findings 0 usage {}
+A#3 http 401 CALL_FAILED findings 0 usage {}
+B#1 http 401 CALL_FAILED findings 0 usage {}
+B#2 http 401 CALL_FAILED findings 0 usage {}
+B#3 http 401 CALL_FAILED findings 0 usage {}
+C#1 http 401 CALL_FAILED findings 0 usage {}
+C#2 http 401 CALL_FAILED findings 0 usage {}
+C#3 http 401 CALL_FAILED findings 0 usage {}
+VERDICT P1 FAIL  P2 FAIL  P3 FAIL  P4 FAIL
