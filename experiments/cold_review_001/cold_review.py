@@ -5,7 +5,7 @@ Written by Claude (Sonnet 5.5) at Chad Holland's direction. Not reviewed line by
 
   python3 -I cold_review.py --selftest        # scoring logic on canned responses; no network, no key
   python3 -I cold_review.py --dry-run         # builds the 9 requests, prints their sha256; no network, no key
-  python3 -I cold_review.py --run             # ONE execution: 9 API calls. Needs ANTHROPIC_API_KEY. Owner-authorized only.
+  python3 -I cold_review.py --run [label]     # ONE execution: 9 API calls (default label run1; run 2 uses run2). Owner-authorized only.
 
 Rules baked in: at most 9 calls ever per run; one attempt per call (no retries); the results directory must not
 exist (nothing is overwritten); the key is read from the environment only and is never printed or written.
@@ -73,6 +73,21 @@ def score(text):
     return "NO_HIT", len(findings)
 
 
+def key_ok(key):
+    """Amendment 1: an API key has a known shape. Non-empty is not enough (run 1 sent a pasted command as the key)."""
+    return key.startswith("sk-ant-") and len(key) >= 40 and key == key.strip() and not any(c.isspace() for c in key)
+
+
+def overall(rows):
+    """Amendment 1: separate 'the instrument said no' from 'the instrument never ran'."""
+    ok = sum(1 for r in rows if r["http"] == 200)
+    if ok == 0:
+        return "INCONCLUSIVE"
+    if ok < len(rows):
+        return "PARTIAL"
+    return "EVALUATED"
+
+
 def selftest():
     hit = json.dumps({"findings": [{"title": "t", "severity": "high",
                                     "quoted_code": "execution_result = self.executor.execute(action)", "explanation": "x"}]})
@@ -101,6 +116,18 @@ def selftest():
         want = cid == "A"
         bad += present != want
         print(("ok  " if present == want else "BAD ") + f"input {cid}: pattern present in file = {present} (expected {want})")
+    keys = [("echo; [ -n \"$ANTHROPIC_API_KEY\" ] && echo \"key set, ${#ANTHROPIC_API_KEY} chars\"", False),
+            ("", False), ("sk-ant-api03-" + "x" * 90, True), ("sk-ant-api03-" + "x" * 90 + "\n", False),
+            ("sk-ant-short", False), ("sk-ant-" + "x" * 20 + " " + "y" * 20, False)]
+    for k, want in keys:
+        ok = key_ok(k) == want
+        bad += not ok
+        print(("ok  " if ok else "BAD ") + f"key_ok shape check -> {key_ok(k)} (expected {want})")
+    rows = lambda *h: [{"http": x} for x in h]
+    for r, want in [(rows(401, 401, 401), "INCONCLUSIVE"), (rows(200, 401), "PARTIAL"), (rows(200, 200), "EVALUATED")]:
+        ok = overall(r) == want
+        bad += not ok
+        print(("ok  " if ok else "BAD ") + f"overall({[x['http'] for x in r]}) = {overall(r)} (expected {want})")
     print("SELFTEST", "PASS" if bad == 0 else f"FAIL ({bad})")
     return 0 if bad == 0 else 1
 
@@ -131,10 +158,16 @@ def call(key, body):
         return 0, repr(e).encode(), time.time() - t0
 
 
-def run():
+def run(label="run1"):
+    global OUT
+    OUT = os.path.join(HERE, "results", label)
     key = os.environ.get("ANTHROPIC_API_KEY", "")
     if not key:
         print("REFUSED: ANTHROPIC_API_KEY is not set")
+        return 2
+    if not key_ok(key):
+        print(f"REFUSED: the value does not look like an API key (length {len(key)}); nothing was sent. "
+              "It should start with sk-ant- with no spaces or line breaks.")
         return 2
     if os.path.exists(OUT):
         print(f"REFUSED: {OUT} exists; every run's evidence is kept")
@@ -172,7 +205,12 @@ def run():
          "P3": by["C"].count("HIT") == 0 and "CALL_FAILED" not in by["C"],
          "P4": sum(r["verdict"] in ("HIT", "NO_HIT") for r in rows) >= 8}
     summary = {"meta": meta, "rows": rows, "by_case": by, "predictions": p}
-    out = "VERDICT " + "  ".join(f"{k} {'PASS' if v else 'FAIL'}" for k, v in p.items())
+    state = overall(rows)
+    summary["overall"] = state
+    if state == "INCONCLUSIVE":
+        out = "VERDICT INCONCLUSIVE: no call reached the model; the predictions below are NOT EVALUABLE. " + "  ".join(f"{k} n/a" for k in p)
+    else:
+        out = f"VERDICT ({state}) " + "  ".join(f"{k} {'PASS' if v else 'FAIL'}" for k, v in p.items())
     print(out)
     log.append(out)
     with open(os.path.join(OUT, "summary.json"), "w", encoding="utf-8") as fh:
@@ -197,7 +235,7 @@ if __name__ == "__main__":
         sys.exit(selftest())
     if a == ["--dry-run"]:
         sys.exit(dry_run())
-    if a == ["--run"]:
-        sys.exit(run())
+    if a and a[0] == "--run" and len(a) <= 2:
+        sys.exit(run(a[1] if len(a) == 2 else "run1"))
     print(__doc__)
     sys.exit(1)
