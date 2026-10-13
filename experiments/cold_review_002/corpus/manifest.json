@@ -1,0 +1,250 @@
+{
+ "bases": [
+  {
+   "clean_line_text": "                execution_result = self.executor.execute(decided_action)",
+   "defect_line_text": "                execution_result = self.executor.execute(action)",
+   "id": "sv_attack_001",
+   "kind": "known_public_defect",
+   "line_clean": 255,
+   "line_defect": 253,
+   "operator": "real_defect",
+   "sha256_clean": "a032aa6d14a5ee3056ebdbbcdc1717a85bbfeb69ab93248c3f8d8fb26e54416e",
+   "sha256_defect": "dc845506e704ef9c305128b4272031dc67c60aafbc10b278f6b32d273e34a358"
+  },
+  {
+   "clean_line_text": "        if limit < 0:",
+   "defect_line_text": "        if limit <= 0:",
+   "id": "durability",
+   "kind": "mutation",
+   "line_clean": 98,
+   "line_defect": 98,
+   "operator": "compare_flip",
+   "sha256_clean": "40e722c9238d16c7221da13b1f2589736f9891ac8bc6e2e28b4e1e355b15b2c3",
+   "sha256_defect": "38451fdfbea85917526ed366746e060a5bcf036de51148cccf5e0d9a33138939"
+  },
+  {
+   "clean_line_text": "            return False, [f\"capability_not_authorized:{name}\"]",
+   "defect_line_text": "            return True, [f\"capability_not_authorized:{name}\"]",
+   "id": "capability",
+   "kind": "mutation",
+   "line_clean": 88,
+   "line_defect": 88,
+   "operator": "return_flip",
+   "sha256_clean": "cf646a7b3b24aabc5cd71e1c3b4e692dd8dc79a77803805a176db4388b6d50ac",
+   "sha256_defect": "c20d153cd67ed9f4e1c737f44f43f973ec207be83212d46827b92c107e897c78"
+  },
+  {
+   "clean_line_text": "        elif state == \"DEFAULTED\" and value != DEFAULTS[field]:",
+   "defect_line_text": "        elif state == \"DEFAULTED\" or value != DEFAULTS[field]:",
+   "id": "evidence_states",
+   "kind": "mutation",
+   "line_clean": 49,
+   "line_defect": 49,
+   "operator": "bool_swap",
+   "sha256_clean": "a8e77a2183714e2e926d3684c7b9ff333c37b4e219f41a1e66f3831e3e3bb3bc",
+   "sha256_defect": "40e9494769c57fa791504e14ce37017badf608a72cae0ac2deb1c68327836e36"
+  },
+  {
+   "clean_line_text": "        if idempotency_key is not None and self.reservations is None:",
+   "defect_line_text": "        if idempotency_key is not None or self.reservations is None:",
+   "id": "workflow",
+   "kind": "mutation",
+   "line_clean": 86,
+   "line_defect": 86,
+   "operator": "bool_swap",
+   "sha256_clean": "6431eeb772063cd6e21750a065a8903b6919daa9f2a173db516fcc2ff24efd88",
+   "sha256_defect": "75f31edff6cff53e62340ab1a060d902e2672c8edc1a574ea0b002b1eb5ce5e1"
+  },
+  {
+   "clean_line_text": "        if allow_only is not None and not isinstance(allow_only, (list, tuple, set, frozenset)):",
+   "defect_line_text": "        if allow_only is not None or not isinstance(allow_only, (list, tuple, set, frozenset)):",
+   "id": "decision",
+   "kind": "mutation",
+   "line_clean": 129,
+   "line_defect": 129,
+   "operator": "bool_swap",
+   "sha256_clean": "84a4a59a4692973b9440e66fdcafdaa0e57d18e5f1e284ab04a9ccacd1893462",
+   "sha256_defect": "cafc723910f175c0ebc18717c47cd4c2790c08d2b433b7341ca64cce02260a67"
+  },
+  {
+   "clean_line_text": "        if not record.record_id or not record.input_digest:",
+   "defect_line_text": "        if not record.record_id or record.input_digest:",
+   "id": "evidence",
+   "kind": "mutation",
+   "line_clean": 227,
+   "line_defect": 227,
+   "operator": "drop_not",
+   "sha256_clean": "6eb33ba5d013f54658b6422042340563bef053c39d972543d232c3ccf0554ace",
+   "sha256_defect": "85ad11e41a12abbd5feb8ce9c4d59abfc59fb8399b3d9adea9dbac22341dada3"
+  },
+  {
+   "clean_line_text": "        if lo is not None and hi is not None and lo <= hi:",
+   "defect_line_text": "        if lo is not None or hi is not None and lo <= hi:",
+   "id": "uncertainty",
+   "kind": "mutation",
+   "line_clean": 52,
+   "line_defect": 52,
+   "operator": "bool_swap",
+   "sha256_clean": "79501ce687ebee49558e0833e21b327abe861f0b3c0491e4c50ff04a522e9a85",
+   "sha256_defect": "ed7e9871bbf551dd9e4721bed6c459108c7875d1e14b79179563ec5bd8f9322d"
+  },
+  {
+   "clean_line_text": "        if not required.issubset(anchor):",
+   "defect_line_text": "        if required.issubset(anchor):",
+   "id": "anchored_file_ledger",
+   "kind": "mutation",
+   "line_clean": 77,
+   "line_defect": 77,
+   "operator": "drop_not",
+   "sha256_clean": "5006d317b0297da65b128b8b74036cb2d9a830abfcbc6e7e63368456f109d1fc",
+   "sha256_defect": "0121364f5ad285962bda5c3fffd338cf916dd3dd9184d5a7c989999d551b4e6f"
+  },
+  {
+   "clean_line_text": "        members = [z for z in zones if z[\"domain\"] == domain]",
+   "defect_line_text": "        members = [z for z in zones if z[\"domain\"] != domain]",
+   "id": "thermal_policy",
+   "kind": "mutation",
+   "line_clean": 40,
+   "line_defect": 40,
+   "operator": "compare_flip",
+   "sha256_clean": "3f4fbdfb751952e18ac703645a1b3ef8d0ec4424d52f797e08d3fd758eecba8b",
+   "sha256_defect": "60cc5c9b023ecc7baffadba06ffa16fe8c2b3820369a26605bda4ea8a7541e63"
+  },
+  {
+   "clean_line_text": "    if not attack_id:",
+   "defect_line_text": "    if attack_id:",
+   "id": "adversarial",
+   "kind": "mutation",
+   "line_clean": 293,
+   "line_defect": 293,
+   "operator": "drop_not",
+   "sha256_clean": "1b51f5dc0772239c3f41632ce6f0c606a3efa9d0ed6d75141dc669677a7a213b",
+   "sha256_defect": "31965b94cbbfa046fffde30481d40489a5b6a0f9275ef369e7004e1c9093030a"
+  },
+  {
+   "clean_line_text": "        if derived != runtime.thermal_status:",
+   "defect_line_text": "        if derived == runtime.thermal_status:",
+   "id": "package",
+   "kind": "mutation",
+   "line_clean": 112,
+   "line_defect": 112,
+   "operator": "compare_flip",
+   "sha256_clean": "960922275727eff2862c5dce60852fdd2787dafcdd87f0ba84c3a45a73c2aada",
+   "sha256_defect": "e201fb29643f6e9ac3f9a5258d69d12619adfab363444d3ded26e26ad150b412"
+  },
+  {
+   "clean_line_text": "    if entry.get(\"state\") == IN_FLIGHT and now >= float(entry.get(\"lease_expires\", 0)):",
+   "defect_line_text": "    if entry.get(\"state\") == IN_FLIGHT or now >= float(entry.get(\"lease_expires\", 0)):",
+   "id": "idempotency",
+   "kind": "mutation",
+   "line_clean": 42,
+   "line_defect": 42,
+   "operator": "bool_swap",
+   "sha256_clean": "b8e92c6f5da51c2569dd9e8f7024ca166829d2fd17183037047946ebbdbbdd3a",
+   "sha256_defect": "dd59d6f2f14c8f71affcda9a2ffca5574ee990de6c95e44cc0cb55bd8b9ddb72"
+  },
+  {
+   "clean_line_text": "                if len(plan.steps) > capability.max_steps:",
+   "defect_line_text": "                if len(plan.steps) >= capability.max_steps:",
+   "id": "planner",
+   "kind": "mutation",
+   "line_clean": 109,
+   "line_defect": 109,
+   "operator": "compare_flip",
+   "sha256_clean": "5319e39535774a3dcefa44254a5afe8f98aafb7422458f19c71905dcfed62bee",
+   "sha256_defect": "f76c68bbf91eb4d9383eb855a63d8b70d3d878a9e290cfa8addda60a01311fcc"
+  },
+  {
+   "clean_line_text": "        return any(existing.record_id == record_id for existing in self._records)",
+   "defect_line_text": "        return any(existing.record_id != record_id for existing in self._records)",
+   "id": "file_ledger",
+   "kind": "mutation",
+   "line_clean": 86,
+   "line_defect": 86,
+   "operator": "compare_flip",
+   "sha256_clean": "f772d0f1abd9093570f51bb60e07df2b8e616aae33f557f5e4f8277d36049690",
+   "sha256_defect": "212ed2bb179f1d1a71ba1f09316ec9686820f48359d27e8d68a0245c5cad9bd1"
+  },
+  {
+   "clean_line_text": "        return sum(1 for c in self.checks if not c.passed)",
+   "defect_line_text": "        return sum(1 for c in self.checks if c.passed)",
+   "id": "validation",
+   "kind": "mutation",
+   "line_clean": 39,
+   "line_defect": 39,
+   "operator": "drop_not",
+   "sha256_clean": "eafc64503c68407ba9cd84e64fa4134c16765bf0d3ecff59fd05599c153c9d21",
+   "sha256_defect": "230396204d8c90463cc820bdc312aeb6bec08b570c74ae548c9b4c560ac40dd5"
+  },
+  {
+   "clean_line_text": "        if process_count < 1:",
+   "defect_line_text": "        if process_count <= 1:",
+   "id": "concurrency",
+   "kind": "mutation",
+   "line_clean": 136,
+   "line_defect": 136,
+   "operator": "compare_flip",
+   "sha256_clean": "632a84a172054199700554e59c1673d5d6a1b4db5e7ac8ac502c825cccb066f7",
+   "sha256_defect": "dd2fcca9e94c54d92c231d0e86767812a95de232f3f13130e008c0da755429a3"
+  },
+  {
+   "clean_line_text": "        elif raw == OFFLINE_SENTINEL:",
+   "defect_line_text": "        elif raw != OFFLINE_SENTINEL:",
+   "id": "thermal",
+   "kind": "mutation",
+   "line_clean": 83,
+   "line_defect": 83,
+   "operator": "compare_flip",
+   "sha256_clean": "2c62bec3127f4471aafcd25f4fde00621c26296cb061991fca4108f6deb01f56",
+   "sha256_defect": "c0b776651f228b6c461347b1109ec92cc545d8a65a9e12b8228dab1a6be9422a"
+  },
+  {
+   "clean_line_text": "            meta = dict(metadata or {})",
+   "defect_line_text": "            meta = dict(metadata and {})",
+   "id": "governance",
+   "kind": "mutation",
+   "line_clean": 40,
+   "line_defect": 40,
+   "operator": "bool_swap",
+   "sha256_clean": "2ff6c65f082fa6181a77aff8ab7074c1b4cf779ea04d6ca96d8620de0f0bba61",
+   "sha256_defect": "4d1a372b75fde8326425d12e8f5ca267a5a9af9dde3013c73a864ccc495e022a"
+  },
+  {
+   "clean_line_text": "            if not (isinstance(self.reviewed_by, str) and self.reviewed_by.strip()):",
+   "defect_line_text": "            if not (isinstance(self.reviewed_by, str) or self.reviewed_by.strip()):",
+   "id": "epistemic",
+   "kind": "mutation",
+   "line_clean": 100,
+   "line_defect": 100,
+   "operator": "bool_swap",
+   "sha256_clean": "6113706c10f251fe9bfa1730f7250b6326fea02eb30b429a1f077c1d8a5d7405",
+   "sha256_defect": "0133e6c45a2e95ced4f9326de262d236b01283c4c34c8a88edb0ceb9b462df8b"
+  },
+  {
+   "clean_line_text": "            and _known(self.power_status, POWER_HEALTHY)",
+   "defect_line_text": "            or _known(self.power_status, POWER_HEALTHY)",
+   "id": "runtime",
+   "kind": "mutation",
+   "line_clean": 38,
+   "line_defect": 38,
+   "operator": "bool_swap",
+   "sha256_clean": "9d129b22d64b704912b37ea3f04c4ad5f4ee365a665760abf4b4fa1b0cff471b",
+   "sha256_defect": "c43ce02c10d77c820dec3178d83729b862e3593e1dc6359791f793d9a2b0d3ab"
+  },
+  {
+   "clean_line_text": "            and validation.status == VerifierValidationStatus.VALIDATED",
+   "defect_line_text": "            and validation.status != VerifierValidationStatus.VALIDATED",
+   "id": "verifier_registry",
+   "kind": "mutation",
+   "line_clean": 128,
+   "line_defect": 128,
+   "operator": "compare_flip",
+   "sha256_clean": "92067694e5005c868bab8f23695c2a55c6f25227876ba68fed4160b547500ea5",
+   "sha256_defect": "bfae7e7cb850b9c985b5036f273fc090474e10dcdfa7349bacc71a85ac36b28f"
+  }
+ ],
+ "n_bases": 22,
+ "n_mutation_bases": 21,
+ "pinned_commit": "fff4f68f5a775212de344af6afc9d1f099e71457",
+ "seed": 20261013
+}

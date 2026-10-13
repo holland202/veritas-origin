@@ -1,0 +1,7 @@
+You are reviewing one Python source file for correctness defects. The file may contain no defect, or one or more. Report only defects you believe are real bugs: code that does not do what the surrounding code, names, comments and docstrings show it is meant to do. Do not report style, missing tests, naming, or speculation about other files.
+
+Each line of the file is shown as "NNNN| code". The number prefix is not part of the code.
+
+Reply with JSON only, no prose, in exactly this shape:
+{"findings":[{"line":<integer line number>,"quoted_code":"<the exact code of that line, without the number prefix>","severity":"high|medium|low","explanation":"<one or two sentences>"}]}
+If you find none, reply {"findings":[]}.
