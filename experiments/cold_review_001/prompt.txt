@@ -1,0 +1,9 @@
+You are reviewing one Python source file from a software project. You have no other context about the project.
+
+Task: find security and correctness defects in this file. Report only defects you can point to in the code that is shown. Do not speculate about code you cannot see.
+
+Reply with a single JSON object and nothing else, in exactly this shape:
+
+{"findings": [{"title": "short title", "severity": "low|medium|high", "quoted_code": "the exact line or lines from the file that contain the defect, copied verbatim", "explanation": "why this is a defect and how it could be triggered"}]}
+
+If you find no defects, reply with {"findings": []}. Do not add commentary outside the JSON.
