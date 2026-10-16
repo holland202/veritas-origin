@@ -11,5 +11,6 @@ Each lesson has three depths. Stop at whichever is enough:
 | # | Lesson | Taught with |
 |---|---|---|
 | 001 | [NOT_RUN is not FAIL, and neither is PASS](001_not_run_vs_fail.md) | Sovereign Veritas v0.2.0 release, 2026-10-09 |
+| 002 | [A checker that has seen the answers proves nothing](002_a_checker_that_saw_the_answers.md) | EGOE-0 spec rewrite, 2026-10-16 |
 
 Written by Claude (Opus 5.5) and ChatGPT at Chad Holland's direction; Chad reviews the lessons for whether they help him learn, not line by line for technical accuracy. Corrections are welcome as issues.
