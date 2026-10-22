@@ -1,0 +1,49 @@
+name: Research provenance gate
+
+on:
+  pull_request:
+    paths:
+      - "research/prior_art_register.json"
+      - "tools/check_prior_art.py"
+      - "tests/test_prior_art_gate.py"
+      - "docs/research/**"
+      - "docs/architecture/**"
+      - ".github/workflows/research-provenance.yml"
+  push:
+    branches:
+      - "design/research-led-architecture-v001"
+    paths:
+      - "research/prior_art_register.json"
+      - "tools/check_prior_art.py"
+      - "tests/test_prior_art_gate.py"
+      - "docs/research/**"
+      - "docs/architecture/**"
+      - ".github/workflows/research-provenance.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  structural-review-and-negative-controls:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Check prior-art register syntax and basic consistency
+        run: |
+          python3 --version
+          python3 -m py_compile tools/check_prior_art.py
+          python3 tools/check_prior_art.py
+      - name: Verify deliberate violations are rejected
+        run: |
+          python3 -m unittest discover -s tests -p 'test_prior_art_gate.py' -v
+      - name: Verify historical EXP003-P0 artifact has not changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=evidence/exp003/exp003-p0-20261008T202705724022Z-146bee1a.json
+          HASH=627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333
+          printf '%s  %s\n' "$HASH" "$FILE" | sha256sum -c -
+          python3 tools/verify_exp003_p0.py "$FILE" --sha256 "$HASH"
