@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="980" viewBox="0 0 1500 980" role="img" aria-labelledby="title desc">
+<title id="title">ASP-001: actual neural network internal regulation versus SGD and Adam</title>
+<desc id="desc">Mean clean held-out joint A and B errors after 128 training updates over 24 public seeds. SGD learning rate .01 yielded 0.30122894; regulated SGD yielded 0.30548563. The regulator did not satisfy registered improvement criterion. Lower is better. Exploratory, not validated.</desc>
+<rect width="1500" height="980" fill="#081927"/>
+<rect x="25" y="25" width="1450" height="930" rx="27" fill="#112a40" stroke="#3d5872" stroke-width="2"/>
+<text x="57" y="89" font-family="Arial,sans-serif" font-size="39" font-weight="bold" fill="#f4faff">ASP-001 · Neural learning regulation test</text>
+<text x="57" y="135" font-family="Arial,sans-serif" font-size="24" fill="#c4ddef">24 public seeds · real 49-parameter neural network · 128 updates before B checkpoint</text>
+<text x="57" y="174" font-family="Arial,sans-serif" font-size="23" fill="#ffc68b" font-weight="bold">EXPLORATORY · NOT VALIDATED · LOWER JOINT ERROR IS BETTER</text>
+<text x="367" y="228" font-family="Arial,sans-serif" font-size="25" fill="#edf7fe">Mean (A MSE + B MSE) / 2</text>
+<text x="62" y="287" font-family="Arial,sans-serif" font-size="24" fill="#e9f5ff">sgd_001</text>
+<rect x="367" y="252" width="700" height="44" rx="9" fill="#29465d"/>
+<rect x="367" y="252" width="620.18" height="44" rx="9" fill="#52cba8"/>
+<text x="1100" y="283" font-family="monospace" font-size="27" fill="#eaf6ff">0.30122894</text>
+<text x="62" y="377" font-family="Arial,sans-serif" font-size="24" fill="#e9f5ff">sgd_003</text>
+<rect x="367" y="342" width="700" height="44" rx="9" fill="#29465d"/>
+<rect x="367" y="342" width="628.07" height="44" rx="9" fill="#8fa8e4"/>
+<text x="1100" y="373" font-family="monospace" font-size="27" fill="#eaf6ff">0.30506120</text>
+<text x="62" y="467" font-family="Arial,sans-serif" font-size="24" fill="#e9f5ff">sgd_009</text>
+<rect x="367" y="432" width="700" height="44" rx="9" fill="#29465d"/>
+<rect x="367" y="432" width="633.39" height="44" rx="9" fill="#8fa8e4"/>
+<text x="1100" y="463" font-family="monospace" font-size="27" fill="#eaf6ff">0.30764581</text>
+<text x="62" y="557" font-family="Arial,sans-serif" font-size="24" fill="#e9f5ff">scheduled_sgd</text>
+<rect x="367" y="522" width="700" height="44" rx="9" fill="#29465d"/>
+<rect x="367" y="522" width="625.58" height="44" rx="9" fill="#8fa8e4"/>
+<text x="1100" y="553" font-family="monospace" font-size="27" fill="#eaf6ff">0.30385522</text>
+<text x="62" y="647" font-family="Arial,sans-serif" font-size="24" fill="#e9f5ff">adam_001</text>
+<rect x="367" y="612" width="700" height="44" rx="9" fill="#29465d"/>
+<rect x="367" y="612" width="624.71" height="44" rx="9" fill="#f5bc83"/>
+<text x="1100" y="643" font-family="monospace" font-size="27" fill="#eaf6ff">0.30343219</text>
+<text x="62" y="737" font-family="Arial,sans-serif" font-size="24" fill="#e9f5ff">regulated_sgd</text>
+<rect x="367" y="702" width="700" height="44" rx="9" fill="#29465d"/>
+<rect x="367" y="702" width="628.94" height="44" rx="9" fill="#df8dd1"/>
+<text x="1100" y="733" font-family="monospace" font-size="27" fill="#eaf6ff">0.30548563</text>
+<line x1="57" y1="848" x2="1440" y2="848" stroke="#3b5d79"/>
+<text x="57" y="894" font-family="Arial,sans-serif" font-size="24" fill="#f8d7a5">Preregistered H1: NOT SUPPORTED in this fixture.</text>
+<text x="57" y="926" font-family="Arial,sans-serif" font-size="18" fill="#99bbd3">GitHub Actions 37865918399 · source revision 1c97f887 · original JSON SHA256 065c2668…</text>
+</svg>
