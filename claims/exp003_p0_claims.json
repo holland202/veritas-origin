@@ -1,0 +1,101 @@
+{
+  "schema": "veritas-origin.claim-ledger/1",
+  "evidence_status": "EXPLORATORY_SIMULATED_NOT_VALIDATED",
+  "source_commit": "2131d9166deea94811155a746e57fb597491f53a",
+  "protocol_path": "experiments/exp003/PROTOCOL_P0.md",
+  "protocol_classification": "EXPLORATORY_NOT_CONFIRMATORY",
+  "evidence_path": "evidence/exp003/exp003-p0-20261008T202705724022Z-146bee1a.json",
+  "evidence_sha256": "627eb778e8eef80d9d664c9ac6f3b7743d51e6a97a677eea8cac51e79b467333",
+  "approval_state": "NOT_REQUESTED",
+  "claims": [
+    {
+      "id": "EXP003-P0-C01",
+      "title": "Completion ceiling",
+      "statement": "All three deterministic baseline policies solved 12 of 12 toy tasks within six probes. This endpoint cannot distinguish performance on this fixture.",
+      "endpoint": "tasks_solved",
+      "timing": "PRESPECIFIED_EXPLORATORY",
+      "inference": "DESCRIPTIVE_ONLY",
+      "status": "SUPPORTED_WITHIN_FIXTURE",
+      "numerator_by_policy": {
+        "fixed": 12,
+        "random": 12,
+        "greedy": 12
+      },
+      "denominator_by_policy": 12,
+      "source_paths": [
+        "experiments/exp003/PROTOCOL_P0.md",
+        "reports/exp003/EXP003_P0_AZURE_PILOT.md"
+      ],
+      "limitations": [
+        "Public deterministic toy tasks",
+        "No external model evaluated",
+        "No unseen task generalization"
+      ]
+    },
+    {
+      "id": "EXP003-P0-C02",
+      "title": "Probe efficiency after ceiling",
+      "statement": "The mean number of probes was evaluated after the 100% completion ceiling was observed; greedy used 24, random 27 and fixed 35 probes across 12 tasks each.",
+      "endpoint": "probe_use",
+      "timing": "POST_HOC_DIAGNOSTIC",
+      "inference": "DESCRIPTIVE_ONLY",
+      "status": "SUPPORTED_WITHIN_FIXTURE",
+      "total_probes_by_policy": {
+        "fixed": 35,
+        "random": 27,
+        "greedy": 24
+      },
+      "mean_probes_by_policy": {
+        "fixed": 2.9166666666666665,
+        "random": 2.25,
+        "greedy": 2
+      },
+      "source_paths": [
+        "reports/exp003/EXP003_P0_AZURE_PILOT.md"
+      ],
+      "limitations": [
+        "Endpoint not preregistered as a success criterion",
+        "No multiple-comparison inference",
+        "Random beat greedy on three individual seeds"
+      ]
+    },
+    {
+      "id": "EXP003-P0-C03",
+      "title": "Replay is mathematical consistency only",
+      "statement": "The standalone checker reconstructed 36 task-policy evaluations and 86 total probes under the frozen deterministic mathematical specification.",
+      "endpoint": "internal_replay",
+      "timing": "EXPLORATORY_VERIFICATION",
+      "inference": "CONSISTENCY_ONLY",
+      "status": "CONSISTENT_WITH_SPECIFICATION_NOT_WORLD_TRUTH",
+      "policy_task_evaluations": 36,
+      "total_probes": 86,
+      "source_paths": [
+        "tools/verify_exp003_p0.py",
+        "reports/exp003/EXP003_P0_AZURE_PILOT.md"
+      ],
+      "limitations": [
+        "Verifier shares Python RNG and task mathematics",
+        "Unsigned internally consistent rewrites cannot establish world truth"
+      ]
+    },
+    {
+      "id": "EXP003-P0-C04",
+      "title": "No external model claim",
+      "statement": "The archived EXP003-P0 pilot evaluated fixed, random and greedy deterministic programs only; no external language model was run.",
+      "endpoint": "external_model_evaluated",
+      "timing": "PILOT_SCOPE",
+      "inference": "SCOPE_BOUNDARY",
+      "status": "NO_MODEL_EVALUATED",
+      "external_model_evaluated": false,
+      "source_paths": [
+        "experiments/exp003/PROTOCOL_P0.md",
+        "reports/exp003/EXP003_P0_AZURE_PILOT.md"
+      ],
+      "limitations": [
+        "No model-driven discovery",
+        "No model-token efficiency measurements",
+        "No OS-isolated proposer"
+      ]
+    }
+  ]
+}
